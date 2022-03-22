@@ -17,7 +17,7 @@ class Player {
         ctx.clearRect(0, 0, this.screenWidth, this.screenHeight);
         ctx.fillRect(this.x, this.y, this.size, this.size);
     }
-    update(ctx, func, ClearScreen) {
+    update(ctx, func, ClearScreen, frames) {
         setInterval(() => {
             ctx.font = this.font
             ctx.fillStyle = this.color;
@@ -25,7 +25,7 @@ class Player {
             if (ClearScreen) 
                 ctx.clearRect(0, 0, this.screenWidth, this.screenHeight);
             ctx.fillRect(this.x, this.y, this.size, this.size);
-        }, 500);    
+        }, frames);    
     }
 }
 
