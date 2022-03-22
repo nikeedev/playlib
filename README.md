@@ -5,7 +5,7 @@
 
 ### Features
 
-**A npm package for making website games that implements Canvas API, and has many useful functions and classes. Will be added more functions and features further!**
+**A game engine making website games that implements Canvas API, and has many useful functions and classes. Will be added more functions and features further!**
 
 ### License
 
