@@ -9,14 +9,21 @@ class Player {
         this.screenWidth = screenWidth;
         this.screenHeight = screenHeight;
     }
+    color = "#000000";
+    font = "20px Arial";
     draw(ctx) {
+        ctx.font = this.font
+        ctx.fillStyle = this.color;
         ctx.clearRect(0, 0, this.screenWidth, this.screenHeight);
         ctx.fillRect(this.x, this.y, this.size, this.size);
     }
-    update(ctx, func) {
+    update(ctx, func, ClearScreen) {
         setInterval(() => {
+            ctx.font = this.font
+            ctx.fillStyle = this.color;
             func();
-            ctx.clearRect(0, 0, this.screenWidth, this.screenHeight);
+            if (ClearScreen) 
+                ctx.clearRect(0, 0, this.screenWidth, this.screenHeight);
             ctx.fillRect(this.x, this.y, this.size, this.size);
         }, 500);    
     }

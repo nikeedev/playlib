@@ -1,5 +1,6 @@
-import { Player } from './Player.js';
-import { Size } from './Size.js';
+import { Player } from './modules/Player.js';
+import { Size } from './modules/Size.js';
+import { colors, Text } from './modules/Text.js';
 
 /** @type {HTMLCanvasElement} */
 
@@ -11,16 +12,30 @@ canvas.height = window.innerHeight - 20;
 const ScreenSize = new Size(canvas.width, canvas.height);
 
 
-var x = 20;
-var y = 20;
 
-var game = new Player(x, y, 20, ScreenSize.width, ScreenSize.height)
+var x = 30;
+var y = 38;
 
-/*
+var colorcount = 0;
+
+var words = new Text("Hello", x, y);
+
+
+words.update(ctx, ()=>{
+    words.color = colors[colorcount];
+    colorcount++;
+    if (colorcount > colors.length) colorcount = 0;
+});
+
+
+var game = new Player(20, 20, 20, ScreenSize.width, ScreenSize.height)
+
+
 game.update(ctx, () => {
     game.x += 1;
-});
-*/
+}, false);
+
+
 game.draw(ctx);
 
 
