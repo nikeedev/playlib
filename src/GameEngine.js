@@ -1,7 +1,7 @@
-import { Player } from './modules/Player.js';
+import { Rect } from './modules/Rect.js';
 import { Size } from './modules/Size.js';
 import { Text } from './modules/Text.js';
-
+import { Player } from './modules/Player.js';
 
 /** @type {HTMLCanvasElement} */
 
@@ -21,6 +21,19 @@ var y = 38;
 var colorcount1 = 0;
 var colorcount2 = 0;
 
+
+
+
+
+
+var game = new Player(x, y, 10, ScreenSize.width, ScreenSize.height);
+
+game.update(ctx, ()=>{}, 0) 
+
+
+
+
+
 /*
 
 var words = new Text("Hello", x, y);
@@ -33,7 +46,7 @@ words.update(ctx, ()=>{
 }, 100);
 
 
-var game = new Player(13, 13, 35, ScreenSize.width, ScreenSize.height)
+var game = new Rect(13, 13, 35, ScreenSize.width, ScreenSize.height)
 
 
 game.update(ctx, () => {
@@ -51,7 +64,9 @@ game.update(ctx, () => {
     }
 }, false, 100);
 
-var game2 = new Player(0, 0, 20, ScreenSize.width, ScreenSize.height)
+
+
+var game2 = new Rect(0, 0, 1, ScreenSize.width, ScreenSize.height)
 
 
 game2.update(ctx, () => {
@@ -64,11 +79,10 @@ game2.update(ctx, () => {
     game2.color = colors[colorcount2];
     colorcount2++;
     if (colorcount2 > colors.length) colorcount2 = 0;
-}, false, 0);
+}, false, 100);
 
-*/
 
-var game3 = new Player(ScreenSize.width/2, ScreenSize.height/2, 20, ScreenSize.width, ScreenSize.height);
+var game3 = new Rect(ScreenSize.width/2, ScreenSize.height/2, 20, ScreenSize.width, ScreenSize.height);
 
 
 game3.update(ctx, () => {
@@ -95,3 +109,6 @@ document.body.onmousedown = function() {
 document.body.onmouseup = function() {
     --mouseDown;
 }
+
+*/
+

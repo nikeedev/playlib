@@ -1,11 +1,7 @@
 /** @type {HTMLCanvasElement} */
 import { Size } from "./Size.js";
 
-var xvel = 15; 
-var yvel = 15;
-
-
-class Player {
+class Rect {
     constructor(x, y, size, screenWidth, screenHeight) {
         this.x = x;
         this.y = y;
@@ -21,33 +17,17 @@ class Player {
         ctx.clearRect(0, 0, this.screenWidth, this.screenHeight);
         ctx.fillRect(this.x, this.y, this.size, this.size);
     }
-    update(ctx, func, frames) {
-        window.addEventListener('keydown', (evt) => {
-            switch (evt.keyCode) {
-                case 38:
-                    this.y += -yvel;
-                    break;
-                case 40:
-                    this.y += yvel;
-                    break;
-                case 37: 
-                    this.x += -xvel;
-                    break;
-                case 39:  
-                    this.x += xvel;
-                    break;
-            }
-        },true);
+    update(ctx, func, ClearScreen, frames) {
         setInterval(() => {
             ctx.font = this.font
             ctx.fillStyle = this.color;
             func();
-            ctx.clearRect(0, 0, this.screenWidth, this.screenHeight);
+            if (ClearScreen) 
+                ctx.clearRect(0, 0, this.screenWidth, this.screenHeight);
             ctx.fillRect(this.x, this.y, this.size, this.size);
         }, frames);    
     }
-    
 }
 
 
-export { Player }; 
+export { Rect }; 
