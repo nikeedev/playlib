@@ -2,13 +2,14 @@ import { Player } from './modules/Player.js';
 import { Size } from './modules/Size.js';
 import { Text } from './modules/Text.js';
 
+
 /** @type {HTMLCanvasElement} */
 
 
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth - 40;
-canvas.height = window.innerHeight - 20;
+canvas.width = 1200;
+canvas.height = 565;
 const ScreenSize = new Size(canvas.width, canvas.height);
 
 const colors = ["#FFFFFF", "#C0C0C0", "#808080", "#000000", "#FF0000", "#800000", "#FFFF00", "#808000", "#00FF00", "#008000", "#00FFFF"]
@@ -20,7 +21,7 @@ var y = 38;
 var colorcount1 = 0;
 var colorcount2 = 0;
 
-
+/*
 
 var words = new Text("Hello", x, y);
 
@@ -40,7 +41,7 @@ game.update(ctx, () => {
 
         game.x += 1;
 
-    game.color = colors[colorcount2];
+        game.color = colors[colorcount2];
         colorcount2++;
         if (colorcount2 > colors.length) colorcount2 = 0;
     }
@@ -50,8 +51,36 @@ game.update(ctx, () => {
     }
 }, false, 100);
 
+var game2 = new Player(0, 0, 20, ScreenSize.width, ScreenSize.height)
 
-game.draw(ctx);
+
+game2.update(ctx, () => {
+
+    game2.x += 1;
+    game2.y += 1.2;
+
+    game2.size += 0.1;
+
+    game2.color = colors[colorcount2];
+    colorcount2++;
+    if (colorcount2 > colors.length) colorcount2 = 0;
+}, false, 0);
+
+*/
+
+var simon = new Player(ScreenSize.width/2, ScreenSize.height/2, 20, ScreenSize.width, ScreenSize.height);
 
 
+simon.update(ctx, () => {
+    
+    canvas.addEventListener('mousemove', setmousepos);
+    canvas.addEventListener('onclick', ()=> {ctx.clearRect(0, 0, ScreenSize.width, ScreenSize.height)})
+
+}, 0);
+
+
+function setmousepos(e) {
+    simon.x = e.clientX-15;
+    simon.y = e.clientY-20;
+}
 
