@@ -68,19 +68,30 @@ game2.update(ctx, () => {
 
 */
 
-var simon = new Player(ScreenSize.width/2, ScreenSize.height/2, 20, ScreenSize.width, ScreenSize.height);
+var game3 = new Player(ScreenSize.width/2, ScreenSize.height/2, 20, ScreenSize.width, ScreenSize.height);
 
 
-simon.update(ctx, () => {
+game3.update(ctx, () => {
     
     canvas.addEventListener('mousemove', setmousepos);
-    canvas.addEventListener('onclick', ()=> {ctx.clearRect(0, 0, ScreenSize.width, ScreenSize.height)})
+    if (!mouseDown) {
+        game3.draw(ctx)
+    }
 
 }, 0);
 
 
 function setmousepos(e) {
-    simon.x = e.clientX-15;
-    simon.y = e.clientY-20;
+    game3.x = e.clientX-15;
+    game3.y = e.clientY-20;
 }
 
+var mouseDown = 0;
+
+document.body.onmousedown = function() { 
+    ++mouseDown;
+}
+
+document.body.onmouseup = function() {
+    --mouseDown;
+}
