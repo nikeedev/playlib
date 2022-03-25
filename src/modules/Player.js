@@ -21,30 +21,14 @@ class Player {
         ctx.clearRect(0, 0, this.screenWidth, this.screenHeight);
         ctx.fillRect(this.x, this.y, this.size, this.size);
     }
-    update(ctx, func, frames) {
-        window.addEventListener('keydown', (evt) => {
-            switch (evt.keyCode) {
-                case 38:
-                    this.y += -yvel;
-                    break;
-                case 40:
-                    this.y += yvel;
-                    break;
-                case 37: 
-                    this.x += -xvel;
-                    break;
-                case 39:  
-                    this.x += xvel;
-                    break;
-            }
-        },true);
+    update(ctx, func) {
         setInterval(() => {
             ctx.font = this.font
             ctx.fillStyle = this.color;
             func();
             ctx.clearRect(0, 0, this.screenWidth, this.screenHeight);
             ctx.fillRect(this.x, this.y, this.size, this.size);
-        }, frames);    
+        }, 0);    
     }
     
 }
