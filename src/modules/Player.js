@@ -6,19 +6,18 @@ var yvel = 15;
 
 
 class Player {
-    constructor(x, y, size, screenWidth, screenHeight) {
+    constructor(x, y, size, screenSize) {
         this.x = x;
         this.y = y;
         this.size = size;
-        this.screenWidth = screenWidth;
-        this.screenHeight = screenHeight;
+        this.screenSize = screenSize
     }
     color = "#000000";
     font = "20px Arial";
     draw(ctx) {
         ctx.font = this.font
         ctx.fillStyle = this.color;
-        ctx.clearRect(0, 0, this.screenWidth, this.screenHeight);
+        ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
         ctx.fillRect(this.x, this.y, this.size, this.size);
     }
     update(ctx, func) {
@@ -26,8 +25,8 @@ class Player {
             ctx.font = this.font
             ctx.fillStyle = this.color;
             func();
-            ctx.clearRect(0, 0, this.screenWidth, this.screenHeight);
-            ctx.fillRect(this.x, this.y, this.size, this.size);
+            ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
+            ctx.fillRect(this.x, this.y, this.size.width, this.size.height);
         }, 0);    
     }
     

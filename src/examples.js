@@ -29,7 +29,7 @@ var ActivateDown = false;
 
 // Game and Words variable: Rainbow text and rainbox moving Rect. 
 
-var words = new Text("Hello", x, y);
+var words = new Text("Hello", x, y, ScreenSize);
 
 
 words.update(ctx, ()=>{
@@ -39,7 +39,7 @@ words.update(ctx, ()=>{
 }, 100);
 
 
-var game = new Rect(13, 13, 35, ScreenSize.width, ScreenSize.height)
+var game = new Rect(13, 13, 35, ScreenSize)
 
 
 game.update(ctx, () => {
@@ -60,7 +60,7 @@ game.update(ctx, () => {
 
 /*
 // Game2: Canvas painting of rainbow rectangles that move around.
-var game2 = new Rect(0, 0, 1, ScreenSize.width, ScreenSize.height)
+var game2 = new Rect(0, 0, 1, ScreenSize)
 
 
 game2.update(ctx, () => {
@@ -77,7 +77,9 @@ game2.update(ctx, () => {
     if (ActivateUp) {
         game2.x += 1;
         game2.y -= 1;
-        game2.size -= 0.1;
+        game2.size.width -= 0.1;
+        game2.size.height -= 0.1;
+
 
         game2.color = colors[colorcount2];
         colorcount2--;
@@ -97,7 +99,10 @@ game2.update(ctx, () => {
     else {
         game2.x += 1;
         game2.y += 1;
-        game2.size += 0.1;
+        game2.size.width += 0.1;
+        game2.size.height += 0.1;
+
+
 
         game2.color = colors[colorcount2];
         colorcount2++;
@@ -111,19 +116,27 @@ game2.update(ctx, () => {
 */
 
 
-// Game3 variable: a Rect that moves after your mouse ( both x and y). If holding mouse down (any button) if will stop clearing the screen and leave the mark untill mouse buttons get released
-/*
-var game3 = new Rect(ScreenSize.width/2, ScreenSize.height/2, 20, ScreenSize.width, ScreenSize.height);
+// Game3 variable: a Rect that moves after your mouse ( both x and y). If holding mouse down (any button) it will stop clearing the screen and leave the mark untill mouse buttons get released
+
+var game3 = new Rect(ScreenSize.width/2, ScreenSize.height/2, new Size(20, 20), ScreenSize);
 
 
+let buffer = document.createElement('canvas');
+buffer.width = canvas.width;
+buffer.height = canvas.height;
+
+let bufferCtx = buffer.getContext('2d');
+
+canvas.addEventListener('mousemove', setmousepos);
 game3.update(ctx, () => {
-    
-    canvas.addEventListener('mousemove', setmousepos);
+    ctx.clearRect(0, 0, ScreenSize.width, ScreenSize.height);
     if (!mouseDown) {
-        game3.draw(ctx)
+        game3.draw(ctx);
+    } else {
+        game3.update(bufferCtx, ()=>{}, false, false);
     }
-
-}, 0);
+    ctx.drawImage(buffer, 0, 0);
+}, false, true);
 
 
 function setmousepos(e) {
@@ -131,15 +144,21 @@ function setmousepos(e) {
     game3.y = e.clientY-20;
 }
 
-var mouseDown = 0;
+var mouseDown = false;
 
-document.body.onmousedown = function() { 
-    ++mouseDown;
+document.body.onmousedown = function(e) {
+    if (e.button == 2) { // Right mouse button
+        game3.loop = false; // Stop sketch
+    } else {
+        mouseDown = true;
+    } 
 }
 
 document.body.onmouseup = function() {
-    --mouseDown;
+    mouseDown = false;
 }
+
+/*
 
 */
 
