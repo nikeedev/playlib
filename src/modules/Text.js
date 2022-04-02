@@ -1,4 +1,14 @@
-/** @type {HTMLCanvasElement} */
+/** 
+ * @author nikeedev
+ * 
+ * @license MIT
+ * @type {HTMLCanvasElement} 
+ * 
+ * 
+ * 
+*/
+
+
 import { Size } from "./Size.js";
 
 
@@ -7,24 +17,31 @@ class Text {
         this.text = text;
         this.x = x;
         this.y = y;
-        this.screenSize = screenSize
+        this.screenSize = new Size(screenSize.width, screenSize.height);
     }
     color = "#000000";
     font = "20px Arial";
-    draw(ctx) {
+    
+    draw(ctx, ClearScreen) {
         ctx.font = this.font
         ctx.fillStyle = this.color;
-        ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
+        if (ClearScreen) 
+            ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
         ctx.fillText(this.text, this.x, this.y);
     }
-    update(ctx, func, frames) {
-        setInterval(() => {
-            ctx.font = this.font;
+    update(ctx, func, ClearScreen, looping = true) {  
+        this.looping = typeof looping == 'boolean'? looping : true;       
+        const updateMethod = () => {
+            ctx.font = this.font
             ctx.fillStyle = this.color;
             func();
-            ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
+            if (ClearScreen) 
+                ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
             ctx.fillText(this.text, this.x, this.y);
-        }, frames);    
+            if (this.looping) requestAnimationFrame(updateMethod);
+        };
+        
+        requestAnimationFrame(updateMethod);  
     }
 }
 

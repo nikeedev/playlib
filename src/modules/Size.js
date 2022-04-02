@@ -1,6 +1,22 @@
-function Size(width, height) {
-	this.width = (width === undefined) ? 0 : width;
-	this.height = (height === undefined) ? 0 : height;
+/** 
+ * @author nikeedev
+ * 
+ * @license MIT
+ * @type {HTMLCanvasElement} 
+ * 
+ * @description This is datatype for storaging **width** and **height** in a variable/const/let
+ * 
+*/
+
+
+class Size {
+	constructor(width, height) {
+		this.width = (width === undefined) ? 0 : width;
+		this.height = (height === undefined) ? 0 : height;
+	}
+	combine(size1, size2) {
+		return new Size(size1.width + size2.width, size1.height + size2.height);
+	}
 }
 
 

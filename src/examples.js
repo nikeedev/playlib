@@ -1,9 +1,18 @@
 import { Rect } from './modules/Rect.js';
 import { Size } from './modules/Size.js';
 import { Text } from './modules/Text.js';
+import { Vector2 } from './modules/Vector2.js';
 import { Player } from './modules/Player.js';
 
-/** @type {HTMLCanvasElement} */
+/** 
+ * @author nikeedev
+ * 
+ * @license MIT
+ * @type {HTMLCanvasElement} 
+ * 
+ * 
+ * 
+*/
 
 
 const canvas = document.getElementById("canvas");
@@ -15,31 +24,28 @@ const ScreenSize = new Size(canvas.width, canvas.height);
 const colors = ["#FFFFFF", "#C0C0C0", "#808080", "#000000", "#FF0000", "#800000", "#FFFF00", "#808000", "#00FF00", "#008000", "#00FFFF"]
 
 
-var x = 30;
-var y = 38;
-
 var colorcount1 = 0;
 var colorcount2 = 0;
 
 var ActivateUp = false;
 var ActivateDown = false;
 
+
+
 /*
-
-
 // Game and Words variable: Rainbow text and rainbox moving Rect. 
 
-var words = new Text("Hello", x, y, ScreenSize);
+var words = new Text("Hello", 30, 38, ScreenSize);
 
 
 words.update(ctx, ()=>{
     words.color = colors[colorcount1];
     colorcount1++;
     if (colorcount1 > colors.length) colorcount1 = 0;
-}, 100);
+}, false, true);
 
 
-var game = new Rect(13, 13, 35, ScreenSize)
+var game = new Rect(13, 13, new Size(35, 35), ScreenSize)
 
 
 game.update(ctx, () => {
@@ -54,13 +60,17 @@ game.update(ctx, () => {
     else {
         game.color = "#ffffff"
     }
-}, false, 100);
-
+}, false, true);
 
 
 /*
+
+*/
+
+
+
 // Game2: Canvas painting of rainbow rectangles that move around.
-var game2 = new Rect(0, 0, 1, ScreenSize)
+var game2 = new Rect(0, 0, new Size(1, 1), ScreenSize)
 
 
 game2.update(ctx, () => {
@@ -111,52 +121,45 @@ game2.update(ctx, () => {
     
 
 
-}, false);
+}, false, true);
+
+
+/*
 
 */
 
-
 // Game3 variable: a Rect that moves after your mouse ( both x and y). If holding mouse down (any button) it will stop clearing the screen and leave the mark untill mouse buttons get released
+
 
 var game3 = new Rect(ScreenSize.width/2, ScreenSize.height/2, new Size(20, 20), ScreenSize);
 
 
-let buffer = document.createElement('canvas');
-buffer.width = canvas.width;
-buffer.height = canvas.height;
+let isDrawing = false;
 
-let bufferCtx = buffer.getContext('2d');
 
-canvas.addEventListener('mousemove', setmousepos);
-game3.update(ctx, () => {
-    ctx.clearRect(0, 0, ScreenSize.width, ScreenSize.height);
-    if (!mouseDown) {
-        game3.draw(ctx);
-    } else {
-        game3.update(bufferCtx, ()=>{}, false, false);
+canvas.addEventListener('mousedown', e => {
+    game3.x = e.clientX-10;
+    game3.y = e.clientY-15;
+    isDrawing = true;
+});
+  
+canvas.addEventListener('mousemove', e => {
+    if (isDrawing === true) {
+        game3.x = e.clientX-10;
+        game3.y = e.clientY-15;
+
+        game3.draw(ctx, false);
     }
-    ctx.drawImage(buffer, 0, 0);
-}, false, true);
-
-
-function setmousepos(e) {
-    game3.x = e.clientX-15;
-    game3.y = e.clientY-20;
-}
-
-var mouseDown = false;
-
-document.body.onmousedown = function(e) {
-    if (e.button == 2) { // Right mouse button
-        game3.loop = false; // Stop sketch
-    } else {
-        mouseDown = true;
-    } 
-}
-
-document.body.onmouseup = function() {
-    mouseDown = false;
-}
+});
+  
+window.addEventListener('mouseup', e => {
+    if (isDrawing === true) {
+        game3.x = -game3.size.width;
+        game3.y = -game3.size.height;
+        game3.draw(ctx, false);
+        isDrawing = false;
+    }
+});
 
 /*
 
