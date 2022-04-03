@@ -1,48 +1,43 @@
-/** 
+/**
  * @author nikeedev
- * 
+ *
  * @license MIT
- * @type {HTMLCanvasElement} 
- * 
- * 
- * 
+ * @type {HTMLCanvasElement}
+ *
+ *
+ *
 */
-
-
-import { Size } from "./Size.js";
-
-var xvel = 15; 
+var xvel = 15;
 var yvel = 15;
-
-
 class Player {
-    constructor(x, y, size, screenSize) {
-        this.x = x;
-        this.y = y;
-        this.size = new Size(size.width, size.height);
-        this.screenSize = new Size(screenSize.width, screenSize.height);
+    position;
+    size;
+    screenSize;
+    constructor(position, size, screenSize) {
+        this.position = position;
+        this.size = size;
+        this.screenSize = screenSize;
     }
     color = "#000000";
-
     draw(ctx, ClearScreen) {
         ctx.fillStyle = this.color;
-        if (ClearScreen) 
+        if (ClearScreen)
             ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
-        ctx.fillRect(this.x, this.y, this.size.width, this.size.height);
+        ctx.fillRect(this.position.x, this.position.y, this.size.width, this.size.height);
     }
-    update(ctx, func, ClearScreen, looping = true) {  
-        this.looping = typeof looping == 'boolean'? looping : true;       
+    looping;
+    update(ctx, func, ClearScreen, looping = true) {
+        this.looping = typeof looping == 'boolean' ? looping : true;
         const updateMethod = () => {
             ctx.fillStyle = this.color;
             func();
-            if (ClearScreen) 
+            if (ClearScreen)
                 ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
-            ctx.fillRect(this.x, this.y, this.size.width, this.size.height);
-            if (this.looping) requestAnimationFrame(updateMethod);
+            ctx.fillRect(this.position.x, this.position.y, this.size.width, this.size.height);
+            if (this.looping)
+                requestAnimationFrame(updateMethod);
         };
-        requestAnimationFrame(updateMethod);  
+        requestAnimationFrame(updateMethod);
     }
 }
-
-
-export { Player }; 
+export { Player };
