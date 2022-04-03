@@ -32,8 +32,10 @@ var ActivateDown = false;
 
 
 
-/*
-// Game and Words variable: Rainbow text and rainbox moving Rect. 
+
+// Example 1: Game and Words variable: Rainbow text and rainbox moving Rect. 
+
+
 
 var words = new Text("Hello", 30, 38, ScreenSize);
 
@@ -45,13 +47,14 @@ words.update(ctx, ()=>{
 }, false, true);
 
 
-var game = new Rect(13, 13, new Size(35, 35), ScreenSize)
+var game = new Rect(new Vector2(13, 13), new Size(35, 35), ScreenSize);
+
 
 
 game.update(ctx, () => {
-    if (game.x < 93) { 
+    if (game.position.x < 93) { 
 
-        game.x += 1;
+        game.position.x += 1;
 
         game.color = colors[colorcount2];
         colorcount2++;
@@ -68,8 +71,10 @@ game.update(ctx, () => {
 */
 
 
+/*
 
-// Game2: Canvas painting of rainbow rectangles that move around.
+// Example 2: Game2: Canvas painting of rainbow rectangles that move around.
+
 var game2 = new Rect(new Vector2(0, 0), new Size(1, 1), ScreenSize)
 
 
@@ -128,8 +133,11 @@ game2.update(ctx, () => {
 
 */
 
-// Game3 variable: a Rect that moves after your mouse ( both x and y). If holding mouse down (any button) it will stop clearing the screen and leave the mark untill mouse buttons get released
 
+
+/*
+
+// Example 3: Game3 variable: a Rect that moves after your mouse ( both x and y). If holding mouse down (any button) it will stop clearing the screen and leave the mark untill mouse buttons get released
 
 var game3 = new Rect(new Vector2(ScreenSize.width/2, ScreenSize.height/2), new Size(20, 20), ScreenSize);
 
