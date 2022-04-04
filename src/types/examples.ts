@@ -2,7 +2,7 @@ import { Rect } from './Rect.js';
 import { Size } from './Size.js';
 import { Text } from './Text.js';
 import { Vector2 } from './Vector2.js';
-import { Player } from './Player.js';
+
 
 /** 
  * @author nikeedev
@@ -37,7 +37,7 @@ var ActivateDown = false;
 
 
 
-var words = new Text("Hello", 30, 38, ScreenSize);
+var words = new Text("Hello", new Vector2(30, 38), ScreenSize);
 
 
 words.update(ctx, ()=>{

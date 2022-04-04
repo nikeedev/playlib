@@ -22,7 +22,7 @@ var colorcount2 = 0;
 var ActivateUp = false;
 var ActivateDown = false;
 // Example 1: Game and Words variable: Rainbow text and rainbox moving Rect. 
-var words = new Text("Hello", 30, 38, ScreenSize);
+var words = new Text("Hello", new Vector2(30, 38), ScreenSize);
 words.update(ctx, () => {
     words.color = colors[colorcount1];
     colorcount1++;

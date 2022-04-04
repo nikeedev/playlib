@@ -7,17 +7,14 @@
  *
  *
 */
-import { Size } from "./Size.js";
 class Text {
     text;
-    x;
-    y;
+    position;
     screenSize;
-    constructor(text, x, y, screenSize) {
+    constructor(text, position, screenSize) {
         this.text = text;
-        this.x = x;
-        this.y = y;
-        this.screenSize = new Size(screenSize.width, screenSize.height);
+        this.position = position;
+        this.screenSize = screenSize;
     }
     color = "#000000";
     font = "20px Arial";
@@ -26,7 +23,7 @@ class Text {
         ctx.fillStyle = this.color;
         if (ClearScreen)
             ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
-        ctx.fillText(this.text, this.x, this.y);
+        ctx.fillText(this.text, this.position.x, this.position.y);
     }
     looping;
     update(ctx, func, ClearScreen, looping = true) {
@@ -37,7 +34,7 @@ class Text {
             func();
             if (ClearScreen)
                 ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
-            ctx.fillText(this.text, this.x, this.y);
+            ctx.fillText(this.text, this.position.x, this.position.y);
             if (this.looping)
                 requestAnimationFrame(updateMethod);
         };
