@@ -1,3 +1,6 @@
+/** @type {HTMLCanvasElement} */
+
+
 import { Size } from './src/modules/Size.js';
 import { Rect } from './src/modules/Rect.js';
 import { Vector2 } from './src/modules/Vector2.js';
@@ -14,6 +17,7 @@ const ScreenSize = new Size(canvas.width, canvas.height);
 
 packagen.info();
 
+/*
 
 var words = new Text("Simon", new Vector2(10, 120), ScreenSize);
 
@@ -21,8 +25,17 @@ words.update(ctx, () => {
     words.position.x += 0.8;
 }, true, true);
 
+*/
 
-var game = new Rect(new Vector2(38, 38), new Size(20, 20), ScreenSize);
+
+var game = new Rect(new Vector2(40, 40), new Size(20, 20), ScreenSize);
+
+
+
+game.draw(ctx, false)
+
+
+/*
 
 game.update(ctx, ()=>{
     game.size.width += 0.65;
