@@ -1,4 +1,4 @@
-# **GameEngine.js v0.3.2**: Game engine made for Canvas API! **
+# **GameEngine.js v0.3.3**: Game engine made for HTML Canvas!
 
 ## **Still Under Development!**
 
