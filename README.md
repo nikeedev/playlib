@@ -12,13 +12,13 @@
  - ```ts 
     var name = new Rect(position: Vector2, size: Size, screenSize: Size);
    ```
-   - Rect class makes you a rectangle, you can change its position, size, and current screensize( for it to work )
+   - Rect class draws you a rectangle into the canvas, you can change its position, size, and current screensize( for it to work )
 
 ,
 - ```ts 
    var name = new Text(text: string, position: Vector2, screenSize: Size);
   ```
-  - Text class makes you a text block, you can change its text, position and current screensize( for it to work )
+  - Text class draws you a text block into the canvas, you can change its text, position and current screensize( for it to work )
 
 ,
 
@@ -34,8 +34,12 @@
   - Size class for sizing numbers for other classes. Can be used without the drawing classes.
   
 , 
-
-
+- ```ts
+   var name = new Sprite(imageSrc: string, position: Vector2, ScreenSize: Size);
+  ```
+  - Sprite class draws a sprite/image into canvas, you can change its source location of image, position and current screensize( for it to work )
+  
+,
 ### License:
 
 **This project is licensed by the MIT LICENSE. Please follow addtional info about it at, visit LICENSE file.**

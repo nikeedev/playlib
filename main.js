@@ -5,6 +5,7 @@ import { Size } from './src/modules/Size.js';
 import { Rect } from './src/modules/Rect.js';
 import { Vector2 } from './src/modules/Vector2.js';
 import { Text } from './src/modules/Text.js'; 
+import { Sprite } from './src/modules/Sprite.js'
 import * as packagen from './src/modules/Info.js';
 
 
@@ -25,21 +26,35 @@ words.update(ctx, () => {
     words.position.x += 0.8;
 }, true, true);
 
+/*
+
 */
-
-
-var game = new Rect(new Vector2(40, 40), new Size(20, 20), ScreenSize);
-
-
-
-game.draw(ctx, false)
-
 
 /*
 
+var game = new Rect(new Vector2(40, 40), new Size(20, 20), ScreenSize);
+
+*/
+
+/*
+game.draw(ctx, false)
+
+
+
+
 game.update(ctx, ()=>{
     game.size.width += 0.65;
-}, false, true);
+}, true, true);
+
+/*
+
+*/
+
+var game = new Sprite("src/sprites/Black_Square.png", new Vector2(20, 20), ScreenSize);
+
+game.draw(ctx, false);
+
+
 
 /*
 
