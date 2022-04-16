@@ -26,7 +26,7 @@ const ScreenSize = new Size(canvas.width, canvas.height);
 // Example 4: Drawing a sprite: Black Circle
 
 
-var game = new Sprite("src/sprites/Black_Square.png", new Vector2(120, 120), ScreenSize);
+var game = new Sprite("../../src/sprites/Black_Square.png", new Vector2(120, 120), ScreenSize);
 
 await game.init();
    
