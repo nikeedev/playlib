@@ -1,4 +1,4 @@
-# **GameEngine.js v0.3.3a**: Game engine made for HTML Canvas!
+# **GameEngine.js v0.2.2a**: Game engine made for HTML Canvas!
 
 ## **Still Under Development!**
 
@@ -12,13 +12,13 @@
  - ```ts 
     var name = new Rect(position: Vector2, size: Size, screenSize: Size);
    ```
-   - Rect class draws you a rectangle into the canvas, you can change its position, size, and current screensize( for it to work )
+   - Rect class draws you a rectangle into the canvas, you can change its position, size, and current screen size( for it to work )
 
 ,
 - ```ts 
    var name = new Text(text: string, position: Vector2, screenSize: Size);
   ```
-  - Text class draws you a text block into the canvas, you can change its text, position and current screensize( for it to work )
+  - Text class draws you a text block into the canvas, you can change its text, position and current screen size( for it to work )
 
 ,
 
@@ -37,10 +37,10 @@
 - ```ts
    var name = new Sprite(imageSrc: string, position: Vector2, ScreenSize: Size);
   ```
-  - Sprite class draws a sprite/image into canvas, you can change its source location of image, position and current screensize( for it to work )
+  - Sprite class draws a sprite/image into canvas, you can change its source location of image, position and current screen size( for it to work ). You must first initialize sprite, before you can draw it.
   
 ,
 ### License:
 
-**This project is licensed by the MIT LICENSE. Please follow addtional info about it at, visit LICENSE file.**
+**This project is licensed by the MIT LICENSE. Please follow additional info about it at, visit LICENSE file.**
 

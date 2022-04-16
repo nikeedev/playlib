@@ -50,10 +50,11 @@ game.update(ctx, ()=>{
 
 */
 
-var game = new Sprite("src/sprites/Black_Square.png", new Vector2(20, 20), ScreenSize);
+var game = new Sprite("src/sprites/Black_Circle.png", new Vector2(120, 120), ScreenSize);
 
+await game.init();
+   
 game.draw(ctx, false);
-
 
 
 /*

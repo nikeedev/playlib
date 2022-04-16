@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "streetsidesoftware.code-spell-checker",
+        "nikeedev.canvas-api-snippets",
+        "dbaeumer.vscode-eslint",
+        "ritwickdey.LiveServer"
+    ]
+}
