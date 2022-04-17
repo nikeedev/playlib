@@ -32,12 +32,20 @@ class Sprite {
         const img = await loadImage(this.imageSrc);
         return this.image = img;
     }
-    color = "#000000";
     draw(ctx, ClearScreen) {
-        ctx.fillStyle = this.color;
         if (ClearScreen)
             ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
         ctx.drawImage(this.image, this.position.x, this.position.y);
+    }
+    update(ctx, func, ClearScreen) {
+        const updateMethod = () => {
+            func();
+            if (ClearScreen)
+                ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
+            ctx.drawImage(this.image, this.position.x, this.position.y);
+            requestAnimationFrame(updateMethod);
+        };
+        requestAnimationFrame(updateMethod);
     }
 }
 export { Sprite };

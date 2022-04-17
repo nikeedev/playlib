@@ -7,6 +7,10 @@
 **v0.2.0a**: Added new Sprite class to the modules, to draw your fav sprites, instead of simple rects and texts.
 
 **0.2.2a**: Fixed the new Sprite class. The Sprite class unless other classes, must be initialized, because else the sprite will be drawn before it could even load it, resulting, that it will draw nothing. 
+
+**0.2.3a**: Added update function back to Sprite class.
+
+
 <br>
 <br>
 <span style="color: cornflowerblue;">Also updated examples</span> ![image-smile](https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/310/grinning-face-with-big-eyes_1f603.png)

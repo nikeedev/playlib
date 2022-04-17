@@ -1,7 +1,7 @@
-import { Rect } from '../../src/modules/Rect.js';
-import { Size } from '../../src/modules/Size.js';
-import { Text } from '../../src/modules/Text.js';
-import { Vector2 } from '../../src/modules/Vector2.js';
+import { Rect } from '../../modules/Rect.js';
+import { Size } from '../../modules/Size.js';
+import { Text } from '../../modules/Text.js';
+import { Vector2 } from '../../modules/Vector2.js';
 
 
 /** 

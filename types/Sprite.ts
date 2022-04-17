@@ -39,29 +39,25 @@ class Sprite {
         const img = await loadImage(this.imageSrc);
         return this.image = img;
     }
-    color = "#000000";
     
-    draw(ctx: any, ClearScreen: any) {
-        ctx.fillStyle = this.color;
+    
+    draw(ctx: any, ClearScreen: boolean) {
         if (ClearScreen) 
             ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
         ctx.drawImage(this.image, this.position.x, this.position.y);
     }
-    /*
-    looping: boolean | undefined;
-    update(ctx: any, func: any, ClearScreen: any, looping = true) {  
-        this.looping = typeof looping == 'boolean'? looping : true;       
+    
+    update(ctx: any, func: any, ClearScreen: boolean) {
         const updateMethod = () => {
-            ctx.fillStyle = this.color;
             func();
             if (ClearScreen) 
                 ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
-            ctx.fillRect(this.position.x, this.position.y, this.size.width, this.size.height);
-            if (this.looping) requestAnimationFrame(updateMethod);
+            ctx.drawImage(this.image, this.position.x, this.position.y);
+            requestAnimationFrame(updateMethod);
         };
         
         requestAnimationFrame(updateMethod);  
-    }*/
+    }
 }
 
 

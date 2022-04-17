@@ -1,7 +1,7 @@
-import { Rect } from '../../src/modules/Rect.js';
-import { Size } from '../../src/modules/Size.js';
-import { Text } from '../../src/modules/Text.js';
-import { Vector2 } from '../../src/modules/Vector2.js';
+import { Rect } from '../../modules/Rect.js';
+import { Size } from '../../modules/Size.js';
+import { Text } from '../../modules/Text.js';
+import { Vector2 } from '../../modules/Vector2.js';
 
 
 /** 
@@ -24,6 +24,8 @@ const ScreenSize = new Size(canvas.width, canvas.height);
 const colors = ["#FFFFFF", "#C0C0C0", "#808080", "#000000", "#FF0000", "#800000", "#FFFF00", "#808000", "#00FF00", "#008000", "#00FFFF"]
 
 var colorcount = 0;
+var ActivateUp = false; 
+var ActivateDown = false;
 
 
 // Example 2: Game2: Canvas painting of rainbow rectangles that move around.

@@ -24,25 +24,23 @@ class Rect {
 
     color = "#000000";
 
-    draw(ctx: any, ClearScreen: any) {
+    draw(ctx: any, ClearScreen: boolean) {
         ctx.fillStyle = this.color;
         if (ClearScreen) 
             ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
         ctx.fillRect(this.position.x, this.position.y, this.size.width, this.size.height);
     }
-    looping: boolean | undefined;
-    update(ctx: any, func: any, ClearScreen: any, looping = true) {  
-        this.looping = typeof looping == 'boolean'? looping : true;       
+
+    update(ctx: any, func: any, ClearScreen: boolean) {    
         const updateMethod = () => {
             ctx.fillStyle = this.color;
             func();
             if (ClearScreen) 
                 ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
             ctx.fillRect(this.position.x, this.position.y, this.size.width, this.size.height);
-            if (this.looping) requestAnimationFrame(updateMethod);
+            requestAnimationFrame(updateMethod);  
         };
-        
-        requestAnimationFrame(updateMethod);  
+        requestAnimationFrame(updateMethod);
     }
 }
 

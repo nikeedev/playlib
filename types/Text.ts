@@ -25,16 +25,15 @@ class Text {
     color = "#000000";
     font = "20px Arial";
     
-    draw(ctx: any, ClearScreen: any) {
+    draw(ctx: any, ClearScreen: boolean) {
         ctx.font = this.font
         ctx.fillStyle = this.color;
         if (ClearScreen) 
             ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
         ctx.fillText(this.text, this.position.x, this.position.y);
     }
-    looping: boolean | undefined;
-    update(ctx: any, func: any, ClearScreen: any, looping = true) {  
-        this.looping = typeof looping == 'boolean'? looping : true;       
+    
+    update(ctx: any, func: any, ClearScreen: boolean) {  
         const updateMethod = () => {
             ctx.font = this.font
             ctx.fillStyle = this.color;
@@ -42,7 +41,7 @@ class Text {
             if (ClearScreen) 
                 ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
             ctx.fillText(this.text, this.position.x, this.position.y);
-            if (this.looping) requestAnimationFrame(updateMethod);
+            requestAnimationFrame(updateMethod);
         };
         
         requestAnimationFrame(updateMethod);  

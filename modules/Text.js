@@ -25,9 +25,7 @@ class Text {
             ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
         ctx.fillText(this.text, this.position.x, this.position.y);
     }
-    looping;
-    update(ctx, func, ClearScreen, looping = true) {
-        this.looping = typeof looping == 'boolean' ? looping : true;
+    update(ctx, func, ClearScreen) {
         const updateMethod = () => {
             ctx.font = this.font;
             ctx.fillStyle = this.color;
@@ -35,8 +33,7 @@ class Text {
             if (ClearScreen)
                 ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
             ctx.fillText(this.text, this.position.x, this.position.y);
-            if (this.looping)
-                requestAnimationFrame(updateMethod);
+            requestAnimationFrame(updateMethod);
         };
         requestAnimationFrame(updateMethod);
     }

@@ -23,17 +23,14 @@ class Rect {
             ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
         ctx.fillRect(this.position.x, this.position.y, this.size.width, this.size.height);
     }
-    looping;
-    update(ctx, func, ClearScreen, looping = true) {
-        this.looping = typeof looping == 'boolean' ? looping : true;
+    update(ctx, func, ClearScreen) {
         const updateMethod = () => {
             ctx.fillStyle = this.color;
             func();
             if (ClearScreen)
                 ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
             ctx.fillRect(this.position.x, this.position.y, this.size.width, this.size.height);
-            if (this.looping)
-                requestAnimationFrame(updateMethod);
+            requestAnimationFrame(updateMethod);
         };
         requestAnimationFrame(updateMethod);
     }
