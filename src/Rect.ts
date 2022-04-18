@@ -1,12 +1,3 @@
-/** 
- * @author nikeedev
- * 
- * @license MIT
- * @type {HTMLCanvasElement} 
- * 
- * 
- * 
-*/
 
 import { Size } from "./Size.js";
 import { Vector2 } from "./Vector2.js";

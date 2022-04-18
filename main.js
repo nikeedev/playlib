@@ -1,13 +1,16 @@
 /** @type {HTMLCanvasElement} */
 
+/*
+import { Size } from './dist/Size.js';
+import { Rect } from './dist/Rect.js';
+import { Vector2 } from './dist/Vector2.js';
+import { Text } from './dist/Text.js'; 
+import { Sprite } from './dist/Sprite.js'
+*/
+import * as packagen from './dist/Info.js';
 
-import { Size } from './src/modules/Size.js';
-import { Rect } from './src/modules/Rect.js';
-import { Vector2 } from './src/modules/Vector2.js';
-import { Text } from './src/modules/Text.js'; 
-import { Sprite } from './src/modules/Sprite.js'
-import * as packagen from './src/modules/Info.js';
 
+import { Vector2, Size, Rect, Text, Sprite, } from './dist/GameEngine.js';
 
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d');
@@ -50,7 +53,7 @@ game.update(ctx, ()=>{
 
 */
 
-var game = new Sprite("src/sprites/Black_Circle.png", new Vector2(120, 120), ScreenSize);
+var game = new Sprite("sprites/Black_Circle.png", new Vector2(120, 120), ScreenSize);
 
 await game.init();
    

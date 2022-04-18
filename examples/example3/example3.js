@@ -1,6 +1,5 @@
-import { Rect } from '../../modules/Rect.js';
-import { Size } from '../../modules/Size.js';
-import { Vector2 } from '../../modules/Vector2.js';
+
+import { Vector2, Size, Rect } from '../../dist/GameEngine.js';
 
 
 /** 
