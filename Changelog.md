@@ -10,6 +10,8 @@
 
 **0.2.3**: Added update function back to Sprite class.
 
+**0.2.3.1**: Made so you can now import all classes from one single file, called GameEngine.js :)
+
 
 <br>
 <br>
