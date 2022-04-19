@@ -54,6 +54,12 @@ window.addEventListener('mouseup', e => {
     }
 });
 
+window.addEventListener("keydown", e => {
+    if (e.key == " ") {
+        ctx.clearRect(0, 0, ScreenSize.width, ScreenSize.height);
+    }
+})
+
 /*
 
 */
