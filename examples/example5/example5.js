@@ -19,9 +19,9 @@ canvas.height = window.innerHeight - 20;
 
 */
 
-var skjerm = new Screen(new Size(200, 200));
+let skjerm = new Screen()
 
-skjerm.Set
+skjerm.SetScreenMode("max")
 
 const ScreenSize = new Size(skjerm.CanvasSize.width, skjerm.CanvasSize.height);
 
@@ -29,6 +29,7 @@ const ScreenSize = new Size(skjerm.CanvasSize.width, skjerm.CanvasSize.height);
 
 
 var game = new Sprite("../../sprites/Black_Square.png", new Vector2(120, 120), ScreenSize);
+
 
 await game.init();
    
