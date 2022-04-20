@@ -1,5 +1,5 @@
 import { Size } from './Size.js'
-import * as packagen from './Info.js'
+import * as gameengine from './Info.js'
 
 
 class Screen {
@@ -9,18 +9,16 @@ class Screen {
     version: any;
     constructor(CanvasSize: Size) {
         this.CanvasSize = CanvasSize;
+    }
+    init() {
         this.version = document.createElement("p");
-        this.version.innerHTML= "GameEngine.js v" + packagen.version; 
+        this.version.innerHTML= "GameEngine.js v" + gameengine.version; 
         this.canvas = document.createElement("canvas");
         this.canvas.style = "border: 1px solid black;";
-        document.body.appendChild(this.canvas + document.createElement("br") + this.version);
+        document.body.appendChild(this.canvas);
+        document.body.appendChild(document.createElement("br"));
+        document.body.appendChild(this.version);
         this.ctx = this.canvas.getContext("2d");
-        this.canvas.width = CanvasSize.width;
-        this.canvas.height = CanvasSize.height;
-    }
-    setScreenSize(ScreenSize: Size) {
-        this.CanvasSize.width = ScreenSize.width;
-        this.CanvasSize.height = ScreenSize.height;
         this.canvas.width = this.CanvasSize.width;
         this.canvas.height = this.CanvasSize.height;
     }

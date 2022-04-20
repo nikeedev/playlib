@@ -1,12 +1,6 @@
-/** 
- * @author nikeedev
- * 
- * @license MIT
- * @type {HTMLCanvasElement} 
- * 
- * 
- * 
-*/
+import { Size } from "./Size.js";
+import { Vector2 } from "./Vector2.js";
+
 
 function loadImage(url: string) {
     return new Promise((resolve) => {
@@ -15,9 +9,6 @@ function loadImage(url: string) {
         img.src = url;
     });
 }
-
-import { Size } from "./Size.js";
-import { Vector2 } from "./Vector2.js";
 
 class Sprite {
     imageSrc: string;

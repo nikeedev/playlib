@@ -1,12 +1,3 @@
-/**
- * @author nikeedev
- *
- * @license MIT
- * @type {HTMLCanvasElement}
- *
- *
- *
-*/
 class Text {
     text;
     position;

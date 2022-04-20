@@ -1,15 +1,6 @@
 
 import { Vector2, Size, Rect, Text, Sprite, Screen } from '../../dist/GameEngine.js';
 
-/** 
- * @author nikeedev
- * 
- * @license MIT
- * @type {HTMLCanvasElement} 
- * 
- * 
- * 
-*/
 /*
 
 const canvas = document.getElementById("canvas");
@@ -19,11 +10,14 @@ canvas.height = window.innerHeight - 20;
 
 */
 
-let skjerm = new Screen()
+let scr = new Screen(200, 200);
 
-skjerm.SetScreenMode("max")
+scr.init()
 
-const ScreenSize = new Size(skjerm.CanvasSize.width, skjerm.CanvasSize.height);
+scr.setScreenMode("max");
+
+
+const ScreenSize = new Size(scr.CanvasSize.width, scr.CanvasSize.height);
 
 // Example 4: Drawing a sprite: Black Circle
 
@@ -33,7 +27,7 @@ var game = new Sprite("../../sprites/Black_Square.png", new Vector2(120, 120), S
 
 await game.init();
    
-game.update(skjerm.ctx, () => {
+game.update(scr.ctx, () => {
     
     game.position.x += 1;
 

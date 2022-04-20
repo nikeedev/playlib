@@ -1,8 +1,4 @@
 /**
- * @author nikeedev
- *
- * @license MIT
- * @type {HTMLCanvasElement}
  *
  * @description This is datatype for storing **x** and **y** axis in a variable/const/let
  *

@@ -1,4 +1,4 @@
-# **GameEngine.js**: Game engine made for HTML Canvas!
+# **GameEngine.js**: A 2D game engine made for using HTML Canvas!
 
 ## **Still Under Development!**
 

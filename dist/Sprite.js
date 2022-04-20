@@ -1,12 +1,3 @@
-/**
- * @author nikeedev
- *
- * @license MIT
- * @type {HTMLCanvasElement}
- *
- *
- *
-*/
 function loadImage(url) {
     return new Promise((resolve) => {
         const img = new Image();

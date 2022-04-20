@@ -1,9 +1,4 @@
 /** 
- * @author nikeedev
- * 
- * @license MIT
- * @type {HTMLCanvasElement} 
- * 
  * @description This is datatype for storing **width** and **height** in a variable/const/let
  * 
 */

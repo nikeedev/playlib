@@ -1,6 +1,6 @@
-
 import { Size } from "./Size.js";
 import { Vector2 } from "./Vector2.js";
+
 
 class Rect {
     position: Vector2;

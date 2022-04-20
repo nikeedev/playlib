@@ -4,13 +4,16 @@
 
 **v0.1.7**: Moved to `TypeScript`, and fixed stuff so the code works even with TypeScript.
 
-**v0.2.0**: Added new Sprite class to the modules, to draw your fav sprites, instead of simple rects and texts.
+**v0.2.0**: Added new `Sprite` class to the modules, to draw your fav sprites, instead of simple rects and texts.
 
 **0.2.2**: Fixed the new Sprite class. The Sprite class unless other classes, must be initialized, because else the sprite will be drawn before it could even load it, resulting, that it will draw nothing. 
 
 **0.2.3**: Added update function back to Sprite class.
 
 **0.2.3.1**: Made so you can now import all classes from one single file, called GameEngine.js :)
+
+**0.2.4**: Added new `Screen` class to the modules, to create a canvas and get 2D context for you.
+
 
 
 <br>

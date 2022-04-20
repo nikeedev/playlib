@@ -1,4 +1,4 @@
-export const version = "0.2.3.1"
+export const version = "0.2.4"
 
 export function info() {
     console.log("\n\n      ", "/@-------------------------------------@\\");
