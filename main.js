@@ -10,7 +10,7 @@ import { Sprite } from './dist/Sprite.js'
 import * as packagen from './dist/Info.js';
 
 
-import { Vector2, Size, Rect, Text, Sprite, } from './dist/GameEngine.js';
+import { Vector2, Size, Rect, Text, Sprite, Screen } from './dist/GameEngine.js';
 
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d');
