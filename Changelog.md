@@ -14,6 +14,8 @@
 
 **0.2.4**: Added new `Screen` class to the modules, to create a canvas and get 2D context for you.
 
+**0.2.5**: Added `Input` class and `Keys` list to the modules, to check if a key is down or not. Keys list could be used together with Input class like this: `if (Input.GetKeyDown(Keys.ArrowRight)) ...` :)
+
 
 
 <br>

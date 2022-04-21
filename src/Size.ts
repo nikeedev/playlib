@@ -11,9 +11,6 @@ class Size {
 		this.width = (width === undefined) ? 0 : width;
 		this.height = (height === undefined) ? 0 : height;
 	}
-	combine(size1: Size, size2: Size) {
-		return new Size(size1.width + size2.width, size1.height + size2.height);
-	}
 }
 
 

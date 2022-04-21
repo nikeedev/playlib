@@ -1,28 +1,27 @@
 
 
-import { Vector2, Keys, Input, Size, Rect, Text, Sprite, Screen } from '../../dist/GameEngine.js';
+import { Vector2, Screen, Size, Sprite } from '../../dist/GameEngine.js';
+
 
 /*
-
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth - 30;
 canvas.height = window.innerHeight - 20;
-
 */
 
+// Example 5: Use Screen class to create canvas element for you:
 
-let scr = new Screen(200, 200);
+
+let scr = new Screen(new Size(200, 200));
 
 scr.init();
-
+ 
 scr.setScreenMode("max");
-
 
 
 const ScreenSize = new Size(scr.CanvasSize.width, scr.CanvasSize.height);
 
-// Example 4: Drawing a sprite: Black Circle
 
 
 var game = new Sprite("../../sprites/Black_Square.png", new Vector2(120, 120), ScreenSize);
@@ -30,30 +29,17 @@ var game = new Sprite("../../sprites/Black_Square.png", new Vector2(120, 120), S
 
 await game.init();
    
-
+console.log("ScreenWidth: ", scr.CanvasSize.width);
+console.log("ScreenHeight: ", scr.CanvasSize.height);
 
 game.update(scr.ctx, () => {
 
-    if (Input.GetKeyDown(Keys.ArrowRight)) 
-    {
-        game.position.x += 0.1;
-    }
-    
+    game.position.x += 1;
 
 }, true);
 
-/*
-
-*/
-
-/*
-
-var game = new Sprite("../../sprites/Black_Circle.png", new Vector2(120, 120), ScreenSize);
-
-await game.init();
-   
-game.draw(ctx, false);
 
 /*
 
 */
+

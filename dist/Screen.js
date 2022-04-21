@@ -4,8 +4,8 @@ class Screen {
     ctx;
     CanvasSize;
     version;
-    constructor(CanvasSize) {
-        this.CanvasSize = CanvasSize;
+    constructor(SetSize) {
+        this.CanvasSize = SetSize;
     }
     init() {
         this.version = document.createElement("p");
@@ -13,7 +13,6 @@ class Screen {
         this.canvas = document.createElement("canvas");
         this.canvas.style = "border: 1px solid black;";
         document.body.appendChild(this.canvas);
-        document.body.appendChild(document.createElement("br"));
         document.body.appendChild(this.version);
         this.ctx = this.canvas.getContext("2d");
         this.canvas.width = this.CanvasSize.width;
@@ -22,7 +21,7 @@ class Screen {
     setScreenMode(mode) {
         if (mode == "max") {
             this.canvas.width = window.innerWidth - 40;
-            this.canvas.height = window.innerHeight - 65;
+            this.canvas.height = window.innerHeight - 50;
         }
         else {
             return;

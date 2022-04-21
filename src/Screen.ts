@@ -7,25 +7,29 @@ class Screen {
     ctx: any;
     CanvasSize: Size;
     version: any;
-    constructor(CanvasSize: Size) {
-        this.CanvasSize = CanvasSize;
+    constructor(SetSize: Size) {
+        this.CanvasSize = SetSize;
+        
     }
     init() {
         this.version = document.createElement("p");
+
         this.version.innerHTML= "GameEngine.js v" + gameengine.version; 
         this.canvas = document.createElement("canvas");
         this.canvas.style = "border: 1px solid black;";
+
         document.body.appendChild(this.canvas);
-        document.body.appendChild(document.createElement("br"));
         document.body.appendChild(this.version);
         this.ctx = this.canvas.getContext("2d");
+
         this.canvas.width = this.CanvasSize.width;
         this.canvas.height = this.CanvasSize.height;
     }
+    
     setScreenMode(mode: string) {
         if (mode == "max") {
             this.canvas.width = window.innerWidth - 40;
-            this.canvas.height = window.innerHeight - 65;
+            this.canvas.height = window.innerHeight - 50;
         } else {
             return;
         }

@@ -1,4 +1,4 @@
-/** @type {HTMLCanvasElement} */
+/** @description This is the testing page for modules and is used by the main page (index.html) */
 
 /*
 import { Size } from './dist/Size.js';
@@ -7,10 +7,12 @@ import { Vector2 } from './dist/Vector2.js';
 import { Text } from './dist/Text.js'; 
 import { Sprite } from './dist/Sprite.js'
 */
+
+
 import * as packagen from './dist/Info.js';
-
-
 import { Vector2, Size, Rect, Text, Sprite, Screen } from './dist/GameEngine.js';
+
+document.getElementById("version").innerHTML = packagen.version;
 
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d');

@@ -47,7 +47,7 @@
 - ```ts
    var name = new Screen(CanvasSize: Size);
   ```
-  - Screen class makes it easy to start coding with GameEngine.js, it create you manually a \<canvas\> element, and also gathers from it 2D context, to make the GameEngine.js draw. After calling the class with `var name = new Screen(200, 200);`. You will need to initialize the screen, so it will use your custom size to create the canvas element with the context.
+  - Screen class makes it easy to start coding with GameEngine.js, it create you manually a \<canvas\> element, and also gathers from it 2D context, to make the GameEngine.js draw. After calling the class with `var name = new Screen(new Size(200, 200));`. You will need to initialize the screen, so it will use your custom size to create the canvas element with the context.
 
 <br>
 
