@@ -1,15 +1,19 @@
-import { Keys } from './Keys.js'
 
 class Input {
-    GetKeyDown(key: any) {
-        window.addEventListener("keydown", (e) => {
-            if (e.keyCode == key) {
-                return true;
-            }
-            else {
-                return false;
-            }
-        });
+    static keysPressed = {}
+
+    constructor() {
+        window.addEventListener("keydown", e => {
+            Input.keysPressed[e.keyCode] = true;
+        })
+
+        window.addEventListener("keyup", e => {
+            Input.keysPressed[e.keyCode] = false;
+        })
+    }
+
+    static GetKeyDown(key: any) {
+        return !!this.keysPressed[key];
     }
 }
 

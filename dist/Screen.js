@@ -22,7 +22,7 @@ class Screen {
     setScreenMode(mode) {
         if (mode == "max") {
             this.canvas.width = window.innerWidth - 40;
-            this.canvas.height = window.innerHeight - 20;
+            this.canvas.height = window.innerHeight - 65;
         }
         else {
             return;

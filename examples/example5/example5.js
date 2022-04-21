@@ -33,9 +33,12 @@ await game.init();
 
 
 game.update(scr.ctx, () => {
-    if (Input.GetKeyDown(Keys.ArrowRight)) {
-        game.position.x += 1;
+
+    if (Input.GetKeyDown(Keys.ArrowRight)) 
+    {
+        game.position.x += 0.1;
     }
+    
 
 }, true);
 
