@@ -6,5 +6,6 @@ export * from './Size.js';
 export * from './Rect.js';
 export * from './Text.js';
 export * from './Screen.js'
-
+export * from './Keys.js';
+export * from './Input.js'
 

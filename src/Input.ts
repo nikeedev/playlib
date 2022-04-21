@@ -1,0 +1,6 @@
+
+class Input {
+
+}
+
+export {Input}
