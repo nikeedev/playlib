@@ -1,5 +1,6 @@
 
-import { Vector2, Size, Rect, Text, Sprite, Screen } from '../../dist/GameEngine.js';
+
+import { Vector2, Keys, Input, Size, Rect, Text, Sprite, Screen } from '../../dist/GameEngine.js';
 
 /*
 
@@ -10,11 +11,13 @@ canvas.height = window.innerHeight - 20;
 
 */
 
+
 let scr = new Screen(200, 200);
 
-scr.init()
+scr.init();
 
 scr.setScreenMode("max");
+
 
 
 const ScreenSize = new Size(scr.CanvasSize.width, scr.CanvasSize.height);
@@ -27,9 +30,12 @@ var game = new Sprite("../../sprites/Black_Square.png", new Vector2(120, 120), S
 
 await game.init();
    
+
+
 game.update(scr.ctx, () => {
-    
-    game.position.x += 1;
+    if (Input.GetKeyDown(Keys.ArrowRight)) {
+        game.position.x += 1;
+    }
 
 }, true);
 
