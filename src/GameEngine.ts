@@ -1,4 +1,5 @@
 import { Input } from './Input.js';
+import * as packagen from './Info.js';
 
 export * from './Info.js';
 export * from './Vector2.js';
@@ -10,4 +11,5 @@ export * from './Screen.js'
 export * from './Keys.js';
 export * from './Input.js';
 new Input();
+packagen.info();
 

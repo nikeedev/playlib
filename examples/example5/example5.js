@@ -29,12 +29,13 @@ var game = new Sprite("../../sprites/Black_Square.png", new Vector2(120, 120), S
 
 await game.init();
    
-console.log("ScreenWidth: ", scr.CanvasSize.width);
-console.log("ScreenHeight: ", scr.CanvasSize.height);
+
 
 game.update(scr.ctx, () => {
 
     game.position.x += 1;
+    console.log("ScreenWidth: ", scr.CanvasSize.width);
+    console.log("ScreenHeight: ", scr.CanvasSize.height);
 
 }, true);
 

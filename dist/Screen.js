@@ -20,8 +20,10 @@ class Screen {
     }
     setScreenMode(mode) {
         if (mode == "max") {
-            this.canvas.width = window.innerWidth - 40;
-            this.canvas.height = window.innerHeight - 50;
+            this.CanvasSize.width = window.innerWidth - 40;
+            this.CanvasSize.height = window.innerHeight - 50;
+            this.canvas.width = this.CanvasSize.width;
+            this.canvas.height = this.CanvasSize.height;
         }
         else {
             return;
