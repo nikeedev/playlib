@@ -10,6 +10,7 @@ export * from './Text.js';
 export * from './Screen.js'
 export * from './Keys.js';
 export * from './Input.js';
+export * from './Object.js'
 new Input();
 packagen.info();
 
