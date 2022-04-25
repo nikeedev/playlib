@@ -6,20 +6,12 @@ import { Vector2, Size, Sprite, Input, Keys } from '../../dist/GameEngine.js';
 
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth - 30;
-canvas.height = window.innerHeight - 20;
+canvas.width = window.innerWidth - 20;
+canvas.height = window.innerHeight - 40;
 
 
 
-let scr = new Screen(200, 200);
-
-scr.init();
-
-scr.setScreenMode("max");
-
-
-
-const ScreenSize = new Size(scr.CanvasSize.width, scr.CanvasSize.height);
+const ScreenSize = new Size(canvas.width, canvas.height);
 
 // Example 6: Using InputManager to control a block:
 
@@ -32,25 +24,25 @@ await game.init();
 
 
 game.update(ctx, () => {
-
+    
     if (Input.GetKeyDown(Keys.ArrowRight)) 
     {
-        game.position.x += 0.5;
+        game.position.x += 0.9;
     }
 
     else if (Input.GetKeyDown(Keys.ArrowLeft)) 
     {
-        game.position.x -= 0.5;
+        game.position.x -= 0.9;
     } 
     
     else if (Input.GetKeyDown(Keys.ArrowDown)) 
     {
-        game.position.y += 0.5;
+        game.position.y += 0.9;
     }
     
     else if (Input.GetKeyDown(Keys.ArrowUp)) 
     {
-        game.position.y -= 0.5;
+        game.position.y -= 0.9;
     }
     
 
