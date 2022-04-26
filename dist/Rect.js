@@ -8,7 +8,8 @@ class Rect {
         this.screenSize = screenSize;
     }
     color = "#000000";
-    draw(ctx, ClearScreen) {
+    ClearScreen;
+    draw(ctx, ClearScreen = true) {
         ctx.fillStyle = this.color;
         if (ClearScreen)
             ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);

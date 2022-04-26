@@ -14,8 +14,8 @@ class Rect {
     }
 
     color = "#000000";
-
-    draw(ctx: any, ClearScreen: boolean) {
+    ClearScreen: boolean | undefined;
+    draw(ctx: any, ClearScreen: boolean = true) {
         ctx.fillStyle = this.color;
         if (ClearScreen) 
             ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
