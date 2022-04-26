@@ -1,3 +1,13 @@
 {
-    "$schema": "https://raw.githubusercontent.com/nikeedev/gamescript-schema/main/schema"
+    "$schema": "https://raw.githubusercontent.com/nikeedev/gamescript-schema/main/schema",
+    "name": "moving",
+    "type": "rect",
+    "position": {
+        "x": 60,
+        "y": 60
+    },
+    "size": {
+        "width": 20,
+        "height": 20 
+    }
 }
