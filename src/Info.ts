@@ -1,4 +1,4 @@
-export const version = "0.2.6";
+export const version = "0.2.8";
 
 export function info() 
 {

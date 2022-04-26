@@ -16,7 +16,7 @@
 
 **0.2.5**: Added `Input` class and `Keys` list to the modules, to check if a key is down or not. Keys list could be used together with Input class like this: `if (Input.GetKeyDown(Keys.ArrowRight)) ...` :)
 
-**0.2.6**: Moved from GitHub to npm package, use `npm i @nikee_dev/gameengine_js`! 
+**0.2.8**: Moved from GitHub to npm package, use `npm i @nikee_dev/gameengine_js`! 
 
 
 
