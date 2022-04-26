@@ -9,11 +9,7 @@ import { Sprite } from './dist/Sprite.js'
 */
 
 import * as packagen from './dist/Info.js';
-<<<<<<< HEAD
-import { Vector2, Size, Rect, Text, Sprite, Screen } from './GameEngine.js';
-=======
-import { Vector2, Size, Rect, Text, Sprite, Screen, Object } from './dist/GameEngine.js';
->>>>>>> a651d84e082ac4e6bc11cd657015321023dfda0f
+import { Vector2, Size, Rect, Text, Sprite, Screen, Object } from './GameEngine.js';
 
 document.getElementById("version").innerHTML = packagen.version;
 
