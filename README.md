@@ -3,6 +3,10 @@
 ## **Still Under Development!**
 
 
+**[npm package website](https://www.npmjs.com/package/@nikee_dev/gameengine_js)**
+
+![npm](https://img.shields.io/npm/v/@nikee_dev/gameengine_js?color=Green&label=Current%20package%20version&style=flat-square)
+
 
 ### Features:
 
