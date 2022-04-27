@@ -1,4 +1,7 @@
-src/
 index.html
 sprites/
 .vscode/
+main.js
+examples/
+moving.gameengine-obj
+

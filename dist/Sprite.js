@@ -23,12 +23,15 @@ class Sprite {
         const img = await loadImage(this.imageSrc);
         return this.image = img;
     }
+    ClearScreen;
     draw(ctx, ClearScreen) {
+        this.ClearScreen = typeof ClearScreen == 'boolean' ? ClearScreen : true;
         if (ClearScreen)
             ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
         ctx.drawImage(this.image, this.position.x, this.position.y);
     }
     update(ctx, func, ClearScreen) {
+        this.ClearScreen = typeof ClearScreen == 'boolean' ? ClearScreen : true;
         const updateMethod = () => {
             func();
             if (ClearScreen)

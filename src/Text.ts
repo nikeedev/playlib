@@ -15,8 +15,9 @@ class Text {
     }
     color = "#000000";
     font = "20px Arial";
-    
-    draw(ctx: any, ClearScreen: boolean) {
+    ClearScreen: boolean | undefined;
+    draw(ctx: any, ClearScreen: boolean = true) {
+        this.ClearScreen = typeof ClearScreen == 'boolean'? ClearScreen : true;
         ctx.font = this.font
         ctx.fillStyle = this.color;
         if (ClearScreen) 
@@ -24,7 +25,8 @@ class Text {
         ctx.fillText(this.text, this.position.x, this.position.y);
     }
     
-    update(ctx: any, func: any, ClearScreen: boolean) {  
+    update(ctx: any, func: any, ClearScreen: boolean = true) {
+        this.ClearScreen = typeof ClearScreen == 'boolean'? ClearScreen : true;
         const updateMethod = () => {
             ctx.font = this.font
             ctx.fillStyle = this.color;

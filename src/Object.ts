@@ -1,4 +1,4 @@
-import { Rect, Size, Sprite, Vector2,  } from '../GameEngine.js'
+import { Rect, Size, Sprite, Vector2, Text } from '../GameEngine.js'
 
 
 class Object {
@@ -18,6 +18,9 @@ class Object {
         .then(data => {
             if (data.type.toLower().Trim() == "rect") {
                 this.obj = new Rect(new Vector2(data.position.x, data.position.x), new Size(data.position.width, data.position.height), this.screenSize)
+            } 
+            else if (data.type.toLower().Trim() == "text") {
+                this.obj = new Text(data.text, new Vector2(data.position.x, data.position.x), this.screenSize)
             }
         });
         // if (this.data)
