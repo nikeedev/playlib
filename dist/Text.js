@@ -9,14 +9,17 @@ class Text {
     }
     color = "#000000";
     font = "20px Arial";
-    draw(ctx, ClearScreen) {
+    ClearScreen;
+    draw(ctx, ClearScreen = true) {
+        this.ClearScreen = typeof ClearScreen == 'boolean' ? ClearScreen : true;
         ctx.font = this.font;
         ctx.fillStyle = this.color;
         if (ClearScreen)
             ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
         ctx.fillText(this.text, this.position.x, this.position.y);
     }
-    update(ctx, func, ClearScreen) {
+    update(ctx, func, ClearScreen = true) {
+        this.ClearScreen = typeof ClearScreen == 'boolean' ? ClearScreen : true;
         const updateMethod = () => {
             ctx.font = this.font;
             ctx.fillStyle = this.color;

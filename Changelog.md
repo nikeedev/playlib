@@ -18,6 +18,7 @@
 
 **0.2.8**: Moved from GitHub to npm package, use `npm i @nikee_dev/gameengine_js`! 
 
+**0.2.9**: Updated some stuff for `npm` to work.
 
 
 <br>
