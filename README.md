@@ -8,6 +8,9 @@
 ![npm](https://img.shields.io/npm/v/@nikee_dev/gameengine_js?color=Green&label=Current%20package%20version&style=flat-square)
 
 
+### Examples:
+**All examples to current features are available on examples folder (GitHub), or on** https://nikeedev.github.io/GameEngine_js
+
 ### Features:
 
 **A game engine making website games that implements Canvas API, and has many useful functions and classes. Will be added more functions and features further!**
