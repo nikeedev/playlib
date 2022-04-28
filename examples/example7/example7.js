@@ -1,4 +1,4 @@
-import { Vector2, Size, Rect, Text, Sprite, Screen, Object } from '../../dist/GameEngine.js';
+import { Vector2, Size, Rect, Text, Sprite, Screen, Object } from '../../GameEngine.js'
 
 
 
@@ -8,7 +8,7 @@ canvas.width = window.innerWidth - 30;
 canvas.height = window.innerHeight - 20;
 const ScreenSize = new Size(canvas.width, canvas.height);
 
-var object = new Object("../../moving.gameengine-obj");
+var object = new Object();
 
 object.load()
 

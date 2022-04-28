@@ -1,5 +1,5 @@
 
-import { Vector2, Size, Rect } from '../../dist/GameEngine.js';
+import { Vector2, Size, Rect } from '../../GameEngine.js'
 
 
 /** 

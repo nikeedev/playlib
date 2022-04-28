@@ -1,6 +1,6 @@
 
 
-import { Vector2, Size, Sprite, Input, Keys } from '../../dist/GameEngine.js';
+import { Vector2, Size, Sprite, Input, Keys } from '../../GameEngine.js'
 
 
 
