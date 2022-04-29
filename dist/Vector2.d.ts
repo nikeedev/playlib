@@ -7,6 +7,8 @@ declare class Vector2 {
     x: number;
     y: number;
     constructor(x: number, y: number);
-    combine(Vec1: Vector2, Vec2: Vector2): Vector2;
+    normalize(): void;
+    magnitude(): number;
+    lerp(v1: Vector2, v2: Vector2, t: number): Vector2;
 }
 export { Vector2 };

@@ -1,4 +1,4 @@
-export const version = "0.2.12";
+export const version = "0.2.13";
 export function info() {
     console.log("\n\n      ", "/@-------------------------------------@\\");
     console.log("      ", "|          GameEngine.js v" + version + "        |");
