@@ -1,5 +1,5 @@
-import { Size } from "./Size.js";
-import { Vector2 } from "./Vector2.js";
+import { Size } from "../datatypes/Size.js";
+import { Vector2 } from "../datatypes/Vector2.js";
 
 
 function loadImage(url: string) {

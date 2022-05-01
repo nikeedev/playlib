@@ -1,18 +1,18 @@
 
-import { Input } from './dist/Input.js';
+import { Input } from './dist/core/Input.js';
 
-import * as packagen from './dist/Info.js';
+import * as packagen from './dist/core/Info.js';
 
-export * from './dist/Info.js';
-export * from './dist/Vector2.js';
-export * from './dist/Sprite.js';
-export * from './dist/Size.js';
-export * from './dist/Rect.js';
-export * from './dist/Text.js';
-export * from './dist/Screen.js';
-export * from './dist/Keys.js';
-export * from './dist/Input.js';
-export * from './dist/Object.js';
+export * from './dist/core/Info.js';
+export * from './dist/datatypes/Vector2.js';
+export * from './dist/coffee/Sprite.js';
+export * from './dist/datatypes/Size.js';
+export * from './dist/coffee/Rect.js';
+export * from './dist/coffee/Text.js';
+export * from './dist/core/Screen.js';
+export * from './dist/core/Keys.js';
+export * from './dist/core/Input.js';
+export * from './dist/coffee/Object.js';
 
 new Input();
-packagen.info();
+packagen.info(); 

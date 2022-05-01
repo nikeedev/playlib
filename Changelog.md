@@ -20,6 +20,8 @@
 
 **0.2.9**: Updated some stuff for `npm` to work.
 
+**0.2.13**: Changed look of `src` folder where typescript files lie.
+
 
 <br>
 <br>

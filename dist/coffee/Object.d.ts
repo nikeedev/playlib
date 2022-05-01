@@ -1,4 +1,4 @@
-import { Size, Vector2 } from '../GameEngine.js';
+import { Size, Vector2 } from '../../GameEngine.js';
 declare class Object {
     type: string;
     src: string | undefined;

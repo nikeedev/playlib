@@ -1,4 +1,4 @@
-import { Rect, Size, Sprite, Vector2, Text } from '../GameEngine.js'
+import { Rect, Size, Sprite, Vector2, Text } from '../../GameEngine.js'
 
 
 class Object {

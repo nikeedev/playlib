@@ -1,4 +1,4 @@
-import { Rect, Size, Text } from '../GameEngine.js';
+import { Rect, Size, Text } from '../../GameEngine.js';
 class Object {
     type;
     src;

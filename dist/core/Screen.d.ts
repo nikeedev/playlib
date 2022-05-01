@@ -1,4 +1,4 @@
-import { Size } from './Size.js';
+import { Size } from '../datatypes/Size.js';
 declare class Screen {
     canvas: any;
     ctx: any;
