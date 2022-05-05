@@ -58,6 +58,13 @@
 
 <br>
 
+- ```ts
+   var name = new Sound();
+  ```
+  - Sound class makes it easy to play audio on your app/game!
+
+<br>
+
 ### License:
 
 **This project is licensed with the MIT LICENSE. Please follow additional info about it, at LICENSE file.**

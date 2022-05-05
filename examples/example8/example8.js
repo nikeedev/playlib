@@ -1,4 +1,4 @@
-import { Vector2, Size, Rect, Text, Sprite, Screen, Object } from '../../GameEngine.js'
+import { Sound, Vector2, Size, Rect, Text, Sprite, Screen, Keys, Input } from '../../GameEngine.js'
 
 
 
@@ -8,11 +8,16 @@ canvas.width = window.innerWidth - 30;
 canvas.height = window.innerHeight - 20;
 const ScreenSize = new Size(canvas.width, canvas.height);
 
-var line = new Rect(new Vector2(60, 60), new Size(5, 5), ScreenSize);
+var square = new Rect(new Vector2(30, 30), new Size(20, 20), ScreenSize);
 
-line.update(ctx, ()=>{
+var music = new Sound();
+
+music.init("https://samplelib.com/lib/preview/mp3/sample-15s.mp3");
+
+music.loop = false;
+
+square.update(ctx, ()=>{
+    music.play();
+    square.position.x += 1;
     
-    line.position += line.position.lerp(line.position, line.position+new Vector2(20, 20), 10);
-}, false);
-
-
+}, true);

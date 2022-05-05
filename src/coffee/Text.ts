@@ -1,7 +1,7 @@
 
 
-import { Size } from "../datatypes/Size.js";
-import { Vector2 } from "../datatypes/Vector2.js";
+import { Size } from "../math/Size.js";
+import { Vector2 } from "../math/Vector2.js";
 
 
 class Text {

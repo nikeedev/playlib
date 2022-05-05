@@ -1,4 +1,4 @@
-import { Size } from '../datatypes/Size.js'
+import { Size } from '../math/Size.js'
 import * as gameengine from './Info.js'
 
 

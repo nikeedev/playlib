@@ -1,6 +1,4 @@
-
 const Keys = {
-    
     ArrowUp: "38",
     ArrowDown: "40",
     ArrowRight: "39",
@@ -9,7 +7,6 @@ const Keys = {
     A: "65",
     S: "83",
     D: "68",
-    
-}
-
-export { Keys }
+    E: "69"
+};
+export { Keys };

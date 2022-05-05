@@ -34,8 +34,6 @@ await game.init();
 game.update(scr.ctx, () => {
 
     game.position.x += 1;
-    console.log("ScreenWidth: ", scr.CanvasSize.width);
-    console.log("ScreenHeight: ", scr.CanvasSize.height);
 
 }, true);
 

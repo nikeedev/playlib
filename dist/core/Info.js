@@ -1,6 +1,5 @@
-export const version = "0.2.13";
+export const version = "0.2.14";
+export const build = "70";
 export function info() {
-    console.log("\n\n      ", "/@-------------------------------------@\\");
-    console.log("      ", "|          GameEngine.js v" + version + "        |");
-    console.log("      ", "\\@-------------------------------------@/");
+    console.log("\n\n      ", "/@-------------------------------------@\\", "\n      ", "|          GameEngine.js v" + version + "        |", "\n      ", "|               Build: " + build + "               |", "\n      ", "\\@-------------------------------------@/");
 }

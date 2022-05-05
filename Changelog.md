@@ -22,6 +22,7 @@
 
 **0.2.13**: Changed look of `src` folder where typescript files lie.
 
+**0.2.14**: Added finally `Sound` class! Play audio with the engine more easier. When using the class, remember to use `init(url_or_path_to_audio)` to initialize the music and it's source location.
 
 <br>
 <br>
