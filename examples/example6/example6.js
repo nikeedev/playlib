@@ -16,7 +16,7 @@ const ScreenSize = new Size(canvas.width, canvas.height);
 // Example 6: Using InputManager to control a block:
 
 
-var game = new Sprite("../../sprites/Black_Square.png", new Vector2(120, 120), ScreenSize);
+var game = new Sprite("../../assets/Black_Square.png", new Vector2(120, 120), ScreenSize);
 
 
 await game.init();

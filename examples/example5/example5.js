@@ -24,7 +24,7 @@ const ScreenSize = new Size(scr.CanvasSize.width, scr.CanvasSize.height);
 
 
 
-var game = new Sprite("../../sprites/Black_Square.png", new Vector2(120, 120), ScreenSize);
+var game = new Sprite("../../assets/Black_Square.png", new Vector2(120, 120), ScreenSize);
 
 
 await game.init();

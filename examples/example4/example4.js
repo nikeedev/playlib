@@ -13,7 +13,7 @@ const ScreenSize = new Size(canvas.width, canvas.height);
 // Example 4: Drawing a using Sprite class: Black Circle
 
 
-var game = new Sprite("../../sprites/Black_Square.png", new Vector2(120, 120), ScreenSize);
+var game = new Sprite("../../assets/Black_Square.png", new Vector2(120, 120), ScreenSize);
 
 
 await game.init();
@@ -32,7 +32,7 @@ game.update(ctx, () => {
 
 /*
 
-var game = new Sprite("../../sprites/Black_Circle.png", new Vector2(120, 120), ScreenSize);
+var game = new Sprite("../../assets/Black_Circle.png", new Vector2(120, 120), ScreenSize);
 
 await game.init();
    

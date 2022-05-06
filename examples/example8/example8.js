@@ -12,7 +12,8 @@ var square = new Rect(new Vector2(30, 30), new Size(20, 20), ScreenSize);
 
 var music = new Sound();
 
-music.init("https://samplelib.com/lib/preview/mp3/sample-15s.mp3");
+//music.init("https://samplelib.com/lib/preview/mp3/sample-15s.mp3");
+music.init("../../assets/pickupCoin.wav")
 
 music.loop = false;
 

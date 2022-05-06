@@ -1,6 +1,6 @@
 {
   "name": "@nikee_dev/gameengine_js",
-  "version": "0.2.14",
+  "version": "0.2.15",
   "description": "A game engine making website games that implements Canvas API, and has many useful functions and classes. Will be added more functions and features further!",
   "main": "GameEngine.js",
   "directories": {
