@@ -1,8 +1,8 @@
-import { Size } from '../math/Size.js'
-import * as gameengine from './Info.js'
+import { Size } from '../math/Size.js';
+import * as gameengine from './Info.js';
 
 
-class Screen {
+class Display {
     canvas: any;
     ctx: any;
     CanvasSize: Size;
@@ -39,4 +39,4 @@ class Screen {
     
 }
 
-export { Screen }
+export { Display }

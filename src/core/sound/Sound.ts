@@ -34,4 +34,4 @@ class Sound {
     }
 }
 
-export { Sound }
+export { Sound };

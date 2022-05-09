@@ -14,6 +14,4 @@ class Size {
 }
 
 
-
 export { Size };
-

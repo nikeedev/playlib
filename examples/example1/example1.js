@@ -1,5 +1,5 @@
 
-import { Vector2, Size, Rect, Text } from '../../GameEngine.js'
+import GameEngine from '../../GameEngine.js'
 
 
 /** 
@@ -17,7 +17,7 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth - 30;
 canvas.height = window.innerHeight - 20;
-const ScreenSize = new Size(canvas.width, canvas.height);
+const ScreenSize = new GameEngine.Size(canvas.width, canvas.height);
 
 const colors = ["#FFFFFF", "#C0C0C0", "#808080", "#000000", "#FF0000", "#800000", "#FFFF00", "#808000", "#00FF00", "#008000", "#00FFFF"]
 
@@ -29,7 +29,7 @@ var colorcount2 = 0;
 // Example 1: Game and Words variable: Rainbow text and rainbow box moving Rect. 
 
 
-var words = new Text("Hello", new Vector2(30, 38), ScreenSize);
+var words = new GameEngine.Graphics.Text("Hello", new GameEngine.Vector2(30, 38), ScreenSize);
 
 
 words.update(ctx, ()=>{
@@ -39,7 +39,7 @@ words.update(ctx, ()=>{
 }, false, true);
 
 
-var game = new Rect(new Vector2(13, 13), new Size(35, 35), ScreenSize);
+var game = new GameEngine.Graphics.Rect(new GameEngine.Vector2(13, 13), new GameEngine.Size(35, 35), ScreenSize);
 
 
 

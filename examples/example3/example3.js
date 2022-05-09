@@ -1,5 +1,5 @@
 
-import { Vector2, Size, Rect } from '../../GameEngine.js'
+import GameEngine from '../../GameEngine.js'
 
 
 /** 
@@ -17,14 +17,14 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth - 30;
 canvas.height = window.innerHeight - 20;
-const ScreenSize = new Size(canvas.width, canvas.height);
+const ScreenSize = new GameEngine.Size(canvas.width, canvas.height);
 
 
 
 // Example 3: Game3 variable: a Rect that moves after your mouse ( both x and y). If holding mouse down (any button) it will stop clearing the screen and leave the mark until mouse buttons get released
 
 
-var game3 = new Rect(new Vector2(ScreenSize.width/2, ScreenSize.height/2), new Size(20, 20), ScreenSize);
+var game3 = new GameEngine.Graphics.Rect(new GameEngine.Vector2(ScreenSize.width/2, ScreenSize.height/2), new GameEngine.Size(20, 20), ScreenSize);
 
 
 let isDrawing = false;

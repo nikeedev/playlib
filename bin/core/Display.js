@@ -1,5 +1,5 @@
 import * as gameengine from './Info.js';
-class Screen {
+class Display {
     canvas;
     ctx;
     CanvasSize;
@@ -30,4 +30,4 @@ class Screen {
         }
     }
 }
-export { Screen };
+export { Display };

@@ -1,4 +1,7 @@
 
+/**
+ * @description Not working class yet.
+ */
 
 class Scene {
 
@@ -8,4 +11,4 @@ class Scene {
 }
 
 
-export { Scene }
+export { Scene };

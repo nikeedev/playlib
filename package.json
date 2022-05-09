@@ -1,10 +1,11 @@
 {
   "name": "@nikee_dev/gameengine_js",
-  "version": "0.2.14",
+  "version": "0.3.0",
   "description": "A game engine making website games that implements Canvas API, and has many useful functions and classes. Will be added more functions and features further!",
   "main": "GameEngine.js",
   "directories": {
-    "example": "examples"
+    "example": "examples",
+    "bin": "bin"
   },
   "scripts": {
     "build": "tsc",
@@ -15,6 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/nikeedev/GameEngine_js.git"
   },
+  "type": "module",
   "keywords": [
     "gamedev",
     "gameengine",

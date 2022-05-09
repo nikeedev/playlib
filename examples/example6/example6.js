@@ -1,6 +1,6 @@
 
 
-import { Vector2, Size, Sprite, Input, Keys } from '../../GameEngine.js'
+import GameEngine from '../../GameEngine.js'
 
 
 
@@ -11,12 +11,12 @@ canvas.height = window.innerHeight - 40;
 
 
 
-const ScreenSize = new Size(canvas.width, canvas.height);
+const ScreenSize = new GameEngine.Size(canvas.width, canvas.height);
 
 // Example 6: Using InputManager to control a block:
 
 
-var game = new Sprite("../../sprites/Black_Square.png", new Vector2(120, 120), ScreenSize);
+var game = new GameEngine.Graphics.Sprite("../../sprites/Black_Square.png", new GameEngine.Vector2(120, 120), ScreenSize);
 
 
 await game.init();
@@ -25,22 +25,22 @@ await game.init();
 
 game.update(ctx, () => {
     
-    if (Input.GetKeyDown(Keys.ArrowRight)) 
+    if (GameEngine.Input.GetKeyDown(GameEngine.Keys.ArrowRight)) 
     {
         game.position.x += 0.9;
     }
 
-    else if (Input.GetKeyDown(Keys.ArrowLeft)) 
+    else if (GameEngine.Input.GetKeyDown(GameEngine.Keys.ArrowLeft)) 
     {
         game.position.x -= 0.9;
     } 
     
-    else if (Input.GetKeyDown(Keys.ArrowDown)) 
+    else if (GameEngine.Input.GetKeyDown(GameEngine.Keys.ArrowDown)) 
     {
         game.position.y += 0.9;
     }
     
-    else if (Input.GetKeyDown(Keys.ArrowUp)) 
+    else if (GameEngine.Input.GetKeyDown(GameEngine.Keys.ArrowUp)) 
     {
         game.position.y -= 0.9;
     }

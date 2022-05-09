@@ -12,4 +12,4 @@ const Keys = {
     E: "69"
 }
 
-export { Keys }
+export { Keys };

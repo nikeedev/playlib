@@ -1,4 +1,4 @@
-import { Rect, Size, Vector2, Text, Sprite, Sound, Input, Scene, Layer, about, Display } from './bin/index.js';
+import { Rect, Size, Vector2, Text, Sprite, Sound, Input, Scene, Layer, about, Display } from './index.js';
 declare const GameEngine: {
     Graphics: {
         Rect: typeof Rect;

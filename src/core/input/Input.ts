@@ -17,4 +17,4 @@ class Input {
     }
 }
 
-export { Input }
+export { Input };

@@ -1,5 +1,5 @@
-import { Size } from "../math/Size.js";
-import { Vector2 } from "../math/Vector2.js";
+import { Size } from '../math/Size';
+import { Vector2 } from '../math/Vector2.js';
 
 
 function loadImage(url: string) {
@@ -53,4 +53,4 @@ class Sprite {
 }
 
 
-export { Sprite }; 
+export { Sprite };

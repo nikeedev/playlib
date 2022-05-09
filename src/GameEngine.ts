@@ -1,4 +1,5 @@
-import { Rect, Size, Vector2, Text, Sprite, Sound, Keys, Input, Scene, Layer, about, version, build, Display } from './bin/index.js';
+import { Rect, Size, Vector2, Text, Sprite, Sound, Keys, Input, Scene, Layer, about, version, build, Display } from './index.js';
+
 const GameEngine = {
     Graphics: {
         Rect: Rect,
@@ -18,5 +19,7 @@ const GameEngine = {
     Scene: Scene,
     Layer: Layer,
     Display: Display
-};
+}
+
+
 export default GameEngine;

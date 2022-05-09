@@ -1,6 +1,6 @@
 
 
-import { Vector2, Screen, Size, Sprite } from '../../GameEngine.js'
+import GameEngine from '../../GameEngine.js'
 
 
 /*
@@ -13,18 +13,18 @@ canvas.height = window.innerHeight - 20;
 // Example 5: Use Screen class to create canvas element for you:
 
 
-let scr = new Screen(new Size(200, 200));
+let scr = new GameEngine.Display(new GameEngine.Size(200, 200));
 
 scr.init();
  
 scr.setScreenMode("max");
 
 
-const ScreenSize = new Size(scr.CanvasSize.width, scr.CanvasSize.height);
+const ScreenSize = new GameEngine.Size(scr.CanvasSize.width, scr.CanvasSize.height);
 
 
 
-var game = new Sprite("../../sprites/Black_Square.png", new Vector2(120, 120), ScreenSize);
+var game = new GameEngine.Graphics.Sprite("../../sprites/Black_Square.png", new GameEngine.Vector2(120, 120), ScreenSize);
 
 
 await game.init();

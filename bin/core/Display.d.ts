@@ -1,5 +1,5 @@
 import { Size } from '../math/Size.js';
-declare class Screen {
+declare class Display {
     canvas: any;
     ctx: any;
     CanvasSize: Size;
@@ -8,4 +8,4 @@ declare class Screen {
     init(): void;
     setScreenMode(mode: string): void;
 }
-export { Screen };
+export { Display };
