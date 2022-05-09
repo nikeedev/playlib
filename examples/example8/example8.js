@@ -12,7 +12,8 @@ var square = new GameEngine.Graphics.Rect(new GameEngine.Vector2(30, 30), new Ga
 
 var music = new GameEngine.Sound();
 
-music.init("https://samplelib.com/lib/preview/mp3/sample-15s.mp3");
+//music.init("https://samplelib.com/lib/preview/mp3/sample-15s.mp3");
+music.init("../../assets/pickupCoin.wav")
 
 music.loop = false;
 
