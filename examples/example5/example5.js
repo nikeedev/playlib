@@ -24,7 +24,7 @@ const ScreenSize = new GameEngine.Size(scr.CanvasSize.width, scr.CanvasSize.heig
 
 
 
-var game = new GameEngine.Graphics.Sprite("../../sprites/Black_Square.png", new GameEngine.Vector2(120, 120), ScreenSize);
+var game = new GameEngine.Graphics.Sprite("../../assets/Black_Square.png", new GameEngine.Vector2(120, 120), ScreenSize);
 
 
 await game.init();
