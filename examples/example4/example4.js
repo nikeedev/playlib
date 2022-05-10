@@ -13,7 +13,7 @@ const ScreenSize = new GameEngine.Size(canvas.width, canvas.height);
 // Example 4: Drawing a using Sprite class: Black Circle
 
 
-var game = new GameEngine.Graphics.Sprite("../../sprites/Black_Square.png", new GameEngine.Vector2(120, 120), ScreenSize);
+var game = new GameEngine.Graphics.Sprite("../../assets/Black_Square.png", new GameEngine.Vector2(120, 120), ScreenSize);
 
 
 await game.init();
@@ -32,7 +32,7 @@ game.update(ctx, () => {
 
 /*
 
-var game = new GameEngine.Graphics.Sprite("../../sprites/Black_Circle.png", new GameEngine.Vector2(120, 120), ScreenSize);
+var game = new GameEngine.Graphics.Sprite("../../assets/Black_Circle.png", new GameEngine.Vector2(120, 120), ScreenSize);
 
 await game.init();
    
