@@ -29,4 +29,16 @@ declare const GameEngine: {
     Layer: typeof Layer;
     Display: typeof Display;
 };
-export default GameEngine;
+export { GameEngine };
+export * from './bin/core/Info.js';
+export * from './bin/math/Vector2.js';
+export * from './bin/coffee/Sprite.js';
+export * from './bin/math/Size.js';
+export * from './bin/coffee/Rect.js';
+export * from './bin/coffee/Text.js';
+export * from './bin/core/Display.js';
+export * from './bin/core/input/Keys.js';
+export * from './bin/core/input/Input.js';
+export * from './bin/core/sound/Sound.js';
+export * from './bin/core/Layer.js';
+export * from './bin/core/Scene.js';

@@ -8,12 +8,17 @@ canvas.width = window.innerWidth - 30;
 canvas.height = window.innerHeight - 20;
 const ScreenSize = new GameEngine.Size(canvas.width, canvas.height);
 
-var line = new GameEngine.Graphics.Rect(new GameEngine.Vector2(60, 60), new GameEngine.Size(5, 5), ScreenSize);
+var square = new GameEngine.Graphics.Rect(new GameEngine.Vector2(30, 30), new GameEngine.Size(20, 20), ScreenSize);
 
-line.update(ctx, ()=>{
+var music = new GameEngine.Sound();
+
+//music.init("https://samplelib.com/lib/preview/mp3/sample-15s.mp3");
+music.init("../../assets/pickupCoin.wav")
+
+music.loop = false;
+
+square.update(ctx, ()=>{
+    music.play();
+    square.position.x += 1;
     
-    line.position += line.position.lerp(line.position, line.position  +new GameEngine.Vector2(20, 20), 10);
-    
-}, false);
-
-
+}, true);

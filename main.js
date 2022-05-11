@@ -2,7 +2,7 @@
 
 
 
-//import { Vector2, Size, Rect, Text, Sprite, Screen, version } from './GameEngine.js';
+//import { Vector2, Size, Rect, Text, Sprite, version } from './GameEngine.js';
 
 import GameEngine from './GameEngine.js'
 
