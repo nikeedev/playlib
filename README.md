@@ -17,7 +17,7 @@ Choose your location where you want to start your game and use
 
  Then create all needed files for your web game, like a HTML file and a main JavaScript file. 
 
-Import the engine using this line of code: `import GameEngine from '/path/to/GameEngine.js'`. Use `GameEngine` to gather the engine, and its classes and functions.
+Import the engine using this line of code: `import { GameEngine } from '/path/to/GameEngine.js'`. Use `GameEngine` to gather the engine, and its classes and functions. You can also manually write classes and variables you want to import, instead of having all of them in `GameEngine` variable. Use this way if you prefer so: `import { Rect, Vector2, version, about } from '/path/to/GameEngine.js'`
 
 Now your ready for coding!
 
