@@ -1,14 +1,21 @@
+/**
+ * @description Creates new game
+ * @since 0.4.0
+ */
 declare class Game {
-    game_name: string | undefined;
-    game_version: string | undefined;
-    parent_element: string;
-    canvas_style: string | undefined;
-    width: number;
-    height: number;
-    useOwnCanvas: boolean;
+    private game_name;
+    private game_version;
+    private parent_element;
+    private style;
+    private width;
+    private height;
+    private useOwnCanvas;
     canvas: any | undefined;
     context: any | undefined;
-    scene: any;
     constructor(config: any);
+    create(func: any): void;
+    update(func: any): void;
+    setScreenMode(mode: string): void;
+    clear(ctx: any): void;
 }
 export { Game };

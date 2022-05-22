@@ -1,4 +1,4 @@
-import { Rect, Size, Vector2, Text, Sprite, Sound, Keys, Input, Scene, Layer, about, version, build, Display } from './bin/index.js';
+import { Rect, Size, Vector2, Text, Sprite, Sound, Keys, Input, Scene, Layer, about, version, build, Game } from './bin/index.js';
 const GameEngine = {
     Graphics: {
         Rect: Rect,
@@ -17,18 +17,18 @@ const GameEngine = {
     Input: Input,
     Scene: Scene,
     Layer: Layer,
-    Display: Display
+    Game: Game
 };
 export { GameEngine };
 export * from './bin/core/Info.js';
 export * from './bin/math/Vector2.js';
-export * from './bin/coffee/Sprite.js';
+export * from './bin/graphics/Sprite.js';
 export * from './bin/math/Size.js';
-export * from './bin/coffee/Rect.js';
-export * from './bin/coffee/Text.js';
-export * from './bin/core/Display.js';
+export * from './bin/graphics/Rect.js';
+export * from './bin/graphics/Text.js';
 export * from './bin/core/input/Keys.js';
 export * from './bin/core/input/Input.js';
 export * from './bin/core/sound/Sound.js';
 export * from './bin/core/Layer.js';
 export * from './bin/core/Scene.js';
+export * from './bin/core/Game.js';

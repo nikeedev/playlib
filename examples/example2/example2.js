@@ -1,5 +1,5 @@
 
-import GameEngine from '../../GameEngine.js'
+import { GameEngine } from '../../GameEngine.js'
 
 
 /** 
@@ -26,14 +26,27 @@ var ActivateUp = false;
 var ActivateDown = false;
 
 
-// Example 2: Game2: Canvas painting of rainbow rectangles that move around.
+// Example 2: Canvas painting of rainbow rectangles that move around.
+
+var config = {
+    game_name: "Example 2",
+    style: "border: 1px solid black; background-color: white;",
+    width: ScreenSize.width,
+    height: ScreenSize.height,
+    useOwnCanvas: true,
+    canvas: canvas,
+    context: ctx
+}
+
+
+var game = new GameEngine.Game(config);
 
 
 var game2 = new GameEngine.Graphics.Rect(new GameEngine.Vector2(0, 0), new GameEngine.Size(1, 1), ScreenSize)
 
 
-game2.update(ctx, () => {
-
+game.update(()=>{ 
+    game2.draw(ctx, false);
 
     if (ActivateUp == false && canvas.height <= game2.position.y) {
         ActivateUp = true;
@@ -78,8 +91,6 @@ game2.update(ctx, () => {
         if (colorcount > colors.length) colorcount = 0;
     }
     
-
-
-}, false, true);
+});
 
 

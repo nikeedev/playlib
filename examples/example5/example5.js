@@ -1,6 +1,4 @@
-
-
-import GameEngine from '../../GameEngine.js'
+import { GameEngine, Sprite } from '../../GameEngine.js'
 
 
 /*
@@ -13,32 +11,39 @@ canvas.height = window.innerHeight - 20;
 // Example 5: Use Screen class to create canvas element for you:
 
 
-let scr = new GameEngine.Display(new GameEngine.Size(200, 200));
 
-scr.init();
- 
-scr.setScreenMode("max");
-
-
-const ScreenSize = new GameEngine.Size(scr.CanvasSize.width, scr.CanvasSize.height);
-
-
-
-var game = new GameEngine.Graphics.Sprite("../../assets/Black_Square.png", new GameEngine.Vector2(120, 120), ScreenSize);
-
-
-await game.init();
-   
+var config = {
+    game_name: "Example 5",
+    style: "border: 1px solid black; background-color: white;",
+    parent_element: "body",
+    width: 800,
+    height: 800,
+    useOwnCanvas: false,
+    /*
+    canvas: canvas,
+    context: ctx
+    */
+}
 
 
-game.update(scr.ctx, () => {
+var game = new GameEngine.Game(config);
 
-    game.position.x += 1;
+game.setScreenMode("max");
 
-}, true);
+const ScreenSize = new GameEngine.Size(game.canvas.width, game.canvas.height);
 
 
-/*
+var spirit = new GameEngine.Graphics.Sprite("../../assets/Black_Square.png", new GameEngine.Vector2(120, 120), ScreenSize);
 
-*/
+
+await spirit.init();
+
+game.update(() => {
+
+    spirit.draw(game.context);
+
+    spirit.position.x += 1;
+
+});
+
 

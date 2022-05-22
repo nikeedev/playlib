@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <style>
         body {
             font-family: 'Atkinson Hyperlegible', sans-serif;
-            color: rgb(26, 106, 255);
+            color: rgb(73, 136, 255);
         }
-        p, a {
+        p a {
+            text-decoration: none;
+        }
+
+        p, a, span {
             font-size: 20px;
             font-weight: 400;
+            background-color: #ffffff;
+            border-radius: 6.5px;
         }
+
         a:any-link {
             color: rgb(26, 106, 255);
+        }
+
+        .content {
+            text-align: center;
+            position: relative;
+            z-index: 100;
+        }
+
+        #background {
+            color: #999999;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -100;
         }
     </style>
     <meta charset="UTF-8">
@@ -23,21 +45,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
     <title>GameEngine.js</title>
 </head>
+
 <body>
-    <h1>GameEngine.js</h1>
-    <p>Current GameEngine.js version is: <strong><span id="version"></span></strong></p>
-    <br>
-    <p>Here are all examples:</p>
-    <a href="examples/example1/example1.html">Example 1</a><br><br>
-    <a href="examples/example2/example2.html">Example 2</a><br><br>
-    <a href="examples/example3/example3.html">Example 3</a><br><br>
-    <a href="examples/example4/example4.html">Example 4</a><br><br>
-    <a href="examples/example5/example5.html">Example 5</a><br><br>
-    <a href="examples/example6/example6.html">Example 6</a><br><br>
-    <a href="examples/example7/example7.html">Example 7</a><br><br>
-    <br>
-    <p><strong>Also</strong>, this is made with GameEngine.js:</p>
-    <canvas style="border: 1px solid black; border-radius: 25px;" id="canvas"></canvas>
+    <center>
+        <div class="contnt">
+            <h1> <span style="font-size: 20px;">Meet</span> <strong style="font-size: 40px;">GameEngine.js</strong>
+            <br>
+            <p>GameEngine.js, is a new, and modern 2D game engine, that runs using Canvas API element. <br>
+                It is light, easy, and has functions that are useful in your future game</p>
+            <br>
+            <p>The current GameEngine.js version is: <strong><span id="version"></span></strong></p>
+            <br>
+            <p>Here are examples that are using the engine( source code could be found on <a href="https://github.com/nikeedev/GameEngine_js/tree/main/examples">GitHub</a>):</p>
+            <span><a href="examples/example1/example1.html">Example 1</a>: This example are showing how you can combine all different stuff from engine, to make a rainbow text and box moving on canvas. <span style="font-size:25px;">WARNING, FLASHING CONTENT!</span></span><br><br>
+            <span><a href="examples/example2/example2.html">Example 2</a>: This example are showing how you can combine all different stuff from engine, to make a COOL box moving down and up, that also changes color and size. </span><br><br>
+            <span><a href="examples/example3/example3.html">Example 3</a>: This is an another example that are showing how you can combine all different stuff from engine, to make a drawing website. Draw by holding left mouse button down, and moving mouse around, same like MS Paint. Click Space to clear canvas.</span><br><br>
+            <span><a href="examples/example4/example4.html">Example 4</a>: Example result, where you can see how engine, draws a sprite and updates it position.</span><br><br>
+            <span><a href="examples/example5/example5.html">Example 5</a>: Example of using <code style="color:rgb(74, 223, 0);">game.setScreenMode("max");</code>, which sets screen size automatically to big, but set sets a bit smaller to configure to the window size.</span><br><br>
+            <span><a href="examples/example6/example6.html">Example 6</a>: Example result of getting key inputs by the engine, that way you can control the square in the canvas.</span><br><br>
+            <span><a href="examples/example7/example7.html">Example 7</a>: Example result of playing sound using the engine. Play sound by clicking the screen.</span><br><br>
+            <span><a href="testing/testing.html">Testing</a>: Very unstable (and probably worst) place, where devs test functions of the engine.</span><br><br>
+            <br>
+        </div>
+
+        <br>
+        <br>
+
+        <p style="font-size: 15px; font-family: Arial;"> Made by <a style="font-size: 15px;" href="https://twitter.com/nikeedev">@nikeedev</a> with ❤️</p>
+    </center>
+
+    <div id="background">
+        <canvas id="canvas"></canvas>
+    </div>
+
 </body>
 <script type="module" src="main.js"></script>
+
 </html>

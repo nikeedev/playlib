@@ -1,5 +1,5 @@
 
-import GameEngine from '../../GameEngine.js'
+import { GameEngine } from '../../GameEngine.js'
 
 
 /** 
@@ -7,7 +7,6 @@ import GameEngine from '../../GameEngine.js'
  * 
  * @license MIT
  * @type {HTMLCanvasElement} 
- * 
  * 
  * 
 */
@@ -22,6 +21,21 @@ const ScreenSize = new GameEngine.Size(canvas.width, canvas.height);
 
 
 // Example 3: Game3 variable: a Rect that moves after your mouse ( both x and y). If holding mouse down (any button) it will stop clearing the screen and leave the mark until mouse buttons get released
+
+
+var config = {
+    game_name: "Example 3",
+    style: "border: 1px solid black; background-color: white;",
+    width: ScreenSize.width,
+    height: ScreenSize.height,
+    useOwnCanvas: true,
+    canvas: canvas,
+    context: ctx
+}
+
+
+var game = new GameEngine.Game(config);
+
 
 
 var game3 = new GameEngine.Graphics.Rect(new GameEngine.Vector2(ScreenSize.width/2, ScreenSize.height/2), new GameEngine.Size(20, 20), ScreenSize);
@@ -54,8 +68,8 @@ window.addEventListener('mouseup', e => {
     }
 });
 
-window.addEventListener("keydown", e => {
-    if (e.key == " ") {
+game.update(() => {
+    if (GameEngine.Input.GetKeyDown(GameEngine.Keys.Space)) {
         ctx.clearRect(0, 0, ScreenSize.width, ScreenSize.height);
     }
 })

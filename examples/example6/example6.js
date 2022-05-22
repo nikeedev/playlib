@@ -1,6 +1,6 @@
 
 
-import GameEngine from '../../GameEngine.js'
+import { GameEngine } from '../../GameEngine.js';
 
 
 
@@ -10,43 +10,57 @@ canvas.width = window.innerWidth - 20;
 canvas.height = window.innerHeight - 40;
 
 
-
 const ScreenSize = new GameEngine.Size(canvas.width, canvas.height);
 
 // Example 6: Using InputManager to control a block:
 
 
-var game = new GameEngine.Graphics.Sprite("../../assets/Black_Square.png", new GameEngine.Vector2(120, 120), ScreenSize);
+var config = {
+    game_name: "Example 6",
+    style: "border: 1px solid black; background-color: white;",
+    width: ScreenSize.width,
+    height: ScreenSize.height,
+    useOwnCanvas: true,
+    canvas: canvas,
+    context: ctx
+}
 
 
-await game.init();
+var game = new GameEngine.Game(config);
+
+
+var spirit = new GameEngine.Graphics.Sprite("../../assets/Black_Square.png", new GameEngine.Vector2(120, 120), ScreenSize);
+
+
+await spirit.init();
    
 
-
-game.update(ctx, () => {
+game.update( () => {
+    
+    spirit.draw(ctx);
     
     if (GameEngine.Input.GetKeyDown(GameEngine.Keys.ArrowRight)) 
     {
-        game.position.x += 0.9;
+        spirit.position.x += 0.9;
     }
 
     else if (GameEngine.Input.GetKeyDown(GameEngine.Keys.ArrowLeft)) 
     {
-        game.position.x -= 0.9;
+        spirit.position.x -= 0.9;
     } 
     
     else if (GameEngine.Input.GetKeyDown(GameEngine.Keys.ArrowDown)) 
     {
-        game.position.y += 0.9;
+        spirit.position.y += 0.9;
     }
     
     else if (GameEngine.Input.GetKeyDown(GameEngine.Keys.ArrowUp)) 
     {
-        game.position.y -= 0.9;
+        spirit.position.y -= 0.9;
     }
     
 
-}, true);
+});
 
 /*
 

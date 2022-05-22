@@ -24,19 +24,33 @@
 
 **v0.2.14**: Added finally `Sound` class! Play audio with the engine more easier. When using the class, remember to use `init(url_or_path_to_audio)` to initialize the music and it's source location.
 
-**0.3.0 (09.05.2022)**: Updated the way to import the module. Here is the diff:
+**v0.3.0 & v0.3.01 & v0.3.1 & v0.3.2 (09.05.2022)**: Updated and added a new way to import the module. Here is the new way:
 
-```diff 
-- import { any_class_or_variable_name, Rect } from '/path/to/GameEngine.js'
-- new Rect()
 
-+ import GameEngine from '/path/to/GameEngine.js'
-+ new GameEngine.Graphics.Rect()
+```ts
+// Current way:
+import { any_class_or_variable_name, Rect } from '/path/to/GameEngine.js'
+new Rect()
+
+// Additional Way: 
+import GameEngine from './path/to/GameEngine.js'
+new GameEngine.Graphics.Rect()
 ```
-You need probably to write a bit more, but at least all classes and variables are in one place!
+You need probably to write a bit more with the new way, but at least all classes and variables are in one place!
+
+<br>
+
+**0.4.0 (17.05.2022)**: Big Update, Big Changes! Here is a list of updated stuff:
+
+- Added finally `Game` class, which is responsible for starting, updating and doing canvas jobs. 
+- Added `clear()` function to it. 
+- Updated the way graphics classes draw (Text, Rect, Sprite classes), so you need to write `draw()` and use `Game` class to update canvas. 
+- Added even more keys to check for input in `Keys` object.
+
 
 <br>
 <br>
-<span style="color: cornflowerblue;">Every update gets almost +1 example in the examples folder</span> 
 
-![image-smile](https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/310/grinning-face-with-big-eyes_1f603.png)
+Hope those updates make it easier for you to code and make games with the game engine.
+
+<span style="font-size: 50px">😃</span>

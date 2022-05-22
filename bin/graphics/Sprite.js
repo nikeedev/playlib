@@ -11,6 +11,7 @@ class Sprite {
     //size: Size | undefined;
     screenSize;
     image;
+    style;
     constructor(imageSrc, position, /*size: Size = null*/ screenSize) {
         this.imageSrc = imageSrc;
         this.position = position;
@@ -25,6 +26,7 @@ class Sprite {
     }
     ClearScreen;
     draw(ctx, ClearScreen) {
+        this.image.style = this.style;
         ClearScreen = typeof ClearScreen == 'boolean' ? ClearScreen : true;
         if (ClearScreen)
             ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);

@@ -1,4 +1,4 @@
-import GameEngine from '../../GameEngine.js'
+import { GameEngine } from '../../GameEngine.js'
 
 
 
@@ -13,31 +13,28 @@ const ScreenSize = new GameEngine.Size(canvas.width, canvas.height);
 // Example 4: Drawing a using Sprite class: Black Circle
 
 
-var game = new GameEngine.Graphics.Sprite("../../assets/Black_Square.png", new GameEngine.Vector2(120, 120), ScreenSize);
+var config = {
+    game_name: "Example 4",
+    style: "border: 1px solid black; background-color: white;",
+    width: ScreenSize.width,
+    height: ScreenSize.height,
+    useOwnCanvas: true,
+    canvas: canvas,
+    context: ctx
+}
 
 
-await game.init();
+var game = new GameEngine.Game(config);
+
+
+var spirit = new GameEngine.Graphics.Sprite("../../assets/Black_Square.png", new GameEngine.Vector2(120, 120), ScreenSize);
+
+
+await spirit.init();
    
+game.update(() => {
 
+    spirit.draw(ctx)
 
-game.update(ctx, () => {
-
-    game.position.x += 1;
-
-}, true);
-
-/*
-
-*/
-
-/*
-
-var game = new GameEngine.Graphics.Sprite("../../assets/Black_Circle.png", new GameEngine.Vector2(120, 120), ScreenSize);
-
-await game.init();
-   
-game.draw(ctx, false);
-
-/*
-
-*/
+    spirit.position.x += 1;
+})
