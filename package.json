@@ -1,6 +1,6 @@
 {
   "name": "playlib",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "A game library making website games that implements Canvas API, and has many useful functions and classes. Will be added more functions and features further!",
   "main": "bin/PlayLib.js",
   "directories": {
