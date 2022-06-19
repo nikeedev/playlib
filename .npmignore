@@ -1,8 +1,12 @@
 index.html
-sprites/
+assets/
 .vscode/
 main.js
 examples/
-moving.gameengine-obj
 /node_modules
-src/GameEngine.ts
+src/PlayLib.ts
+src/index.ts
+bin/PlayLib.js
+bin/PlayLib.d.ts
+tsconfig.json
+

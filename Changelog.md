@@ -1,6 +1,6 @@
-### **Changelog for GameEngine.js**
+### **Changelog for PlayLib**
 ----
-**v0.1.0** (Actually many of the stuff has been added separately, but i haven't any changelog before now, so here is all of stuff added before changelog): Size datatype for height and width; Vector2 datatype for x and y axis; Text class for making text, change its color, position and font; Rect class for making rectangles in any size and shape, has same abilities as Text class, unless the font variable; Info class for gathering current GameEngine.js version and print GameEngine.js logotype.
+**v0.1.0** (Actually many of the stuff has been added separately, but i haven't any changelog before now, so here is all of stuff added before changelog): Size datatype for height and width; Vector2 datatype for x and y axis; Text class for making text, change its color, position and font; Rect class for making rectangles in any size and shape, has same abilities as Text class, unless the font variable; Info class for gathering current PlayLib version and print PlayLib logotype.
 
 **v0.1.7**: Moved to `TypeScript`, and fixed stuff so the code works even with TypeScript.
 
@@ -10,13 +10,13 @@
 
 **v0.2.3**: Added update function back to Sprite class.
 
-**v0.2.3.1**: Made so you can now import all classes from one single file, called GameEngine.js :)
+**v0.2.3.1**: Made so you can now import all classes from one single file, called PlayLib :)
 
 **v0.2.4**: Added new `Screen` class to the modules, to create a canvas and get 2D context for you.
 
-**v0.2.5**: Added `Input` class and `Keys` list to the modules, to check if a key is down or not. Keys list could be used together with Input class like this: `if (Input.GetKeyDown(Keys.ArrowRight)) ...` :)
+**v0.2.5**: Added `Input` class and `Keys` list to the modules, to check if a key is down or not. Keys list could be used together with Input class like this: `if (Input.KeyDownPressed(Keys.ArrowRight)) ...` :)
 
-**v0.2.8**: Moved from GitHub to npm package, use `npm i @nikee_dev/gameengine_js`! 
+**v0.2.8**: Moved from GitHub to npm package, use `npm i @nikee_dev/PlayLib`! 
 
 **v0.2.9**: Updated some stuff for `npm` to work.
 
@@ -29,12 +29,12 @@
 
 ```ts
 // Current way:
-import { any_class_or_variable_name, Rect } from '/path/to/GameEngine.js'
+import { any_class_or_variable_name, Rect } from '/path/to/PlayLib.js'
 new Rect()
 
-// Additional Way: 
-import GameEngine from './path/to/GameEngine.js'
-new GameEngine.Graphics.Rect()
+// new way: 
+import PlayLib from './path/to/PlayLib.js'
+new PlayLib.Rect()
 ```
 You need probably to write a bit more with the new way, but at least all classes and variables are in one place!
 
@@ -51,6 +51,6 @@ You need probably to write a bit more with the new way, but at least all classes
 <br>
 <br>
 
-Hope those updates make it easier for you to code and make games with the game engine.
+Hope those updates make it easier for you to code and make games with PlayLib.
 
 <span style="font-size: 50px">😃</span>

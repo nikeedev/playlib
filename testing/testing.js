@@ -1,40 +1,35 @@
-import { GameEngine } from '../GameEngine.js'
-import { Logging } from '../bin/utils/Logging.js'
+import { PlayLib } from '../bin/PlayLib.js'
 
-
-/*
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth - 30;
-canvas.height = window.innerHeight - 20;
-*/
-
-const ScreenSize = new GameEngine.Size(window.innerWidth - 30, window.innerHeight - 20);
+const ScreenSize = new PlayLib.Size(window.innerWidth - 30, window.innerHeight - 30);
 
 
 var config = {
-    game_name: "Example 8",
+    game_name: "Testing",
+    game_version: "1.0.0",
     parent_element: "body",
     style: "border: 1px solid black;",
     width: ScreenSize.width,
     height: ScreenSize.height,
     useOwnCanvas: false,
     /*canvas: canvas,
-    context: ctx,*/
+    context: ctx*/
 }
 
 
-var game = new GameEngine.Game(config);
+var game = new PlayLib.Game(config);
 
-const sheesh = new GameEngine.Graphics.Text("sheesh", new GameEngine.Vector2(100, 100), ScreenSize);
+const sheesh = new PlayLib.Text("sheesh", new PlayLib.Vector2(100, 100), ScreenSize);
 
 
 game.create(()=>{
-    sheesh.color = "white";    
+    game.showFPS(true)
+    
+    sheesh.draw(game.context, true)
 })
 
 game.update(() => {
-    sheesh.draw(game.context)
     sheesh.position.x += 1;
+    sheesh.draw(game.context)
 })
+
 

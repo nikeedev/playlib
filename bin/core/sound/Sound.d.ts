@@ -1,8 +1,9 @@
 declare class Sound {
+    audio_file: string;
     sond: any;
     loop: boolean;
-    constructor();
-    init(audio_file: string): Promise<unknown>;
+    constructor(audio_file: string);
+    init(): Promise<unknown>;
     play(): void;
     pause(): void;
 }

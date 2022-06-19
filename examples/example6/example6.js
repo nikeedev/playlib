@@ -1,18 +1,13 @@
-
-
-import { GameEngine } from '../../GameEngine.js';
+import { PlayLib } from '../../bin/PlayLib.js'
 
 
 
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth - 20;
-canvas.height = window.innerHeight - 40;
+canvas.width = window.innerWidth - 30;
+canvas.height = window.innerHeight - 20;
+const ScreenSize = new PlayLib.Size(canvas.width, canvas.height);
 
-
-const ScreenSize = new GameEngine.Size(canvas.width, canvas.height);
-
-// Example 6: Using InputManager to control a block:
 
 
 var config = {
@@ -26,43 +21,22 @@ var config = {
 }
 
 
-var game = new GameEngine.Game(config);
+var game = new PlayLib.Game(config);
 
 
-var spirit = new GameEngine.Graphics.Sprite("../../assets/Black_Square.png", new GameEngine.Vector2(120, 120), ScreenSize);
+var square = new PlayLib.Rect(new PlayLib.Vector2(30, 30), new PlayLib.Size(20, 20), ScreenSize);
 
+var music = new PlayLib.Sound("../../assets/pickupCoin.wav");
 
-await spirit.init();
-   
+//music.init("https://samplelib.com/lib/preview/mp3/sample-15s.mp3");
+music.init();
 
-game.update( () => {
+music.loop = false;
+
+game.update(() => {
+
+    square.draw(ctx);
+    music.play();
+    square.position.x += 1;
     
-    spirit.draw(ctx);
-    
-    if (GameEngine.Input.GetKeyDown(GameEngine.Keys.ArrowRight)) 
-    {
-        spirit.position.x += 0.9;
-    }
-
-    else if (GameEngine.Input.GetKeyDown(GameEngine.Keys.ArrowLeft)) 
-    {
-        spirit.position.x -= 0.9;
-    } 
-    
-    else if (GameEngine.Input.GetKeyDown(GameEngine.Keys.ArrowDown)) 
-    {
-        spirit.position.y += 0.9;
-    }
-    
-    else if (GameEngine.Input.GetKeyDown(GameEngine.Keys.ArrowUp)) 
-    {
-        spirit.position.y -= 0.9;
-    }
-    
-
 });
-
-/*
-
-*/
-

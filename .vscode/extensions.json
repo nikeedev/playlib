@@ -3,6 +3,9 @@
         "streetsidesoftware.code-spell-checker",
         "nikeedev.canvas-api-snippets",
         "dbaeumer.vscode-eslint",
-        "ritwickdey.liveserver"
+        "ritwickdey.liveserver",
+        "esbenp.prettier-vscode",
+        "mohsen1.prettify-json",
+        "ecmel.vscode-html-css"
     ]
 }

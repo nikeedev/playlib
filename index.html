@@ -35,6 +35,18 @@
             left: 0;
             z-index: -100;
         }
+
+        .menubar {
+            font-family: 'Noto Sans';
+            text-align: center;
+            font-size: 50px;
+            font-weight: 50px;
+        }
+        #examples, #examples a, #examples span  {
+            border-radius: 50px;
+            background-color: rgb(239, 239, 239);
+        }
+        
     </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,28 +55,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-    <title>GameEngine.js</title>
+    <title>PlayLib</title>
 </head>
 
 <body>
+    <div class="menubar">
+        <a href="#examples">
+            Examples and test of library</a> &nbsp;&nbsp; <a href="#about"> About</a> &nbsp;&nbsp; <a href="https://nikeedev.gitbook.io/PlayLib/">
+            Docs</a>
+    </div>
     <center>
-        <div class="contnt">
-            <h1> <span style="font-size: 20px;">Meet</span> <strong style="font-size: 40px;">GameEngine.js</strong>
+        <div class="content">
+            <h1> <span style="font-size: 20px;">Meet</span> <strong style="font-size: 40px;">PlayLib</strong>
             <br>
-            <p>GameEngine.js, is a new, and modern 2D game engine, that runs using Canvas API element. <br>
-                It is light, easy, and has functions that are useful in your future game</p>
+            <p>PlayLib, is a new, and modern 2D game library, that runs using Canvas API element. <br>
+                It is light, easy, and has functions that are very useful in your future game!</p>
             <br>
-            <p>The current GameEngine.js version is: <strong><span id="version"></span></strong></p>
+            <p>Current stable PlayLib version are: <strong><span id="version"></span></strong></p>
             <br>
-            <p>Here are examples that are using the engine( source code could be found on <a href="https://github.com/nikeedev/GameEngine_js/tree/main/examples">GitHub</a>):</p>
-            <span><a href="examples/example1/example1.html">Example 1</a>: This example are showing how you can combine all different stuff from engine, to make a rainbow text and box moving on canvas. <span style="font-size:25px;">WARNING, FLASHING CONTENT!</span></span><br><br>
-            <span><a href="examples/example2/example2.html">Example 2</a>: This example are showing how you can combine all different stuff from engine, to make a COOL box moving down and up, that also changes color and size. </span><br><br>
-            <span><a href="examples/example3/example3.html">Example 3</a>: This is an another example that are showing how you can combine all different stuff from engine, to make a drawing website. Draw by holding left mouse button down, and moving mouse around, same like MS Paint. Click Space to clear canvas.</span><br><br>
-            <span><a href="examples/example4/example4.html">Example 4</a>: Example result, where you can see how engine, draws a sprite and updates it position.</span><br><br>
-            <span><a href="examples/example5/example5.html">Example 5</a>: Example of using <code style="color:rgb(74, 223, 0);">game.setScreenMode("max");</code>, which sets screen size automatically to big, but set sets a bit smaller to configure to the window size.</span><br><br>
-            <span><a href="examples/example6/example6.html">Example 6</a>: Example result of getting key inputs by the engine, that way you can control the square in the canvas.</span><br><br>
-            <span><a href="examples/example7/example7.html">Example 7</a>: Example result of playing sound using the engine. Play sound by clicking the screen.</span><br><br>
-            <span><a href="testing/testing.html">Testing</a>: Very unstable (and probably worst) place, where devs test functions of the engine.</span><br><br>
+            <p>Here are examples that are using the library (source code for them can be found on <a href="https://github.com/nikeedev/playlib/tree/main/examples">GitHub</a>):</p>
+            <div id="examples">
+                <br>
+                <span><a href="examples/example1/example1.html">Example 1</a>: This example are showing how you can combine all different stuff from library, to make a rainbow text and box moving on canvas. <span style="font-size:25px;">WARNING, FLASHING CONTENT IN THE EXAMPLE!</span></span><br><br>
+                <span><a href="examples/example2/example2.html">Example 2</a>: This example are showing how you can combine all different stuff from library, to make a COOL box moving down and up, that also changes color and size. </span><br><br>
+                <span><a href="examples/example3/example3.html">Example 3</a>: Example result, where you can see how library, draws a sprite and updates it position.</span><br><br>
+                <span><a href="examples/example4/example4.html">Example 4</a> (one feature are not available, so the example won't work as it before supposed to.)</span><br><br>
+                <span><a href="examples/example5/example5.html">Example 5</a>: Example result of getting key inputs by the library, that way you can control the square in the canvas.</span><br><br>
+                <span><a href="examples/example6/example6.html">Example 6</a>: Example result of playing sound using the library. Play sound by clicking the screen.</span><br><br>
+                <span><a href="testing/testing.html">Testing</a>: Very unstable (and probably most interesting) place, where devs test functions of the library.</span><br><br>
+            </div>
             <br>
         </div>
 
@@ -77,8 +96,6 @@
     <div id="background">
         <canvas id="canvas"></canvas>
     </div>
-
+    <script type="module" src="main.js"></script>
 </body>
-<script type="module" src="main.js"></script>
-
 </html>

@@ -1,35 +1,37 @@
 {
-  "name": "@nikee_dev/gameengine_js",
+  "name": "playlib",
   "version": "0.4.0",
-  "description": "A game engine making website games that implements Canvas API, and has many useful functions and classes. Will be added more functions and features further!",
-  "main": "GameEngine.js",
+  "description": "A game library making website games that implements Canvas API, and has many useful functions and classes. Will be added more functions and features further!",
+  "main": "bin/PlayLib.js",
   "directories": {
     "test": "testing",
-    "example": "examples",
-    "bin": "bin"
+    "example": "examples"
   },
   "scripts": {
     "build": "tsc",
-    "publish": "tsc && git add * && git commit -m \"Updates for GameEngine.js!\" && git pull && git push",
-    "push": "tsc && git add * && git commit -m \"Updates for GameEngine.js!\" && git pull && git push"
+    "publish": "tsc && git add * && git commit -m \"Updates for playlib!\" && git pull && git push",
+    "push": "tsc && git add * && git commit -m \"Updates for playlib!\" && git pull && git push"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nikeedev/GameEngine_js.git"
+    "url": "git+https://github.com/nikeedev/playlib.git"
   },
   "type": "module",
   "keywords": [
     "gamedev",
-    "gameengine",
+    "gamelib",
+    "playlib",
+    "gamelibrary",
     "nikeedev",
     "html",
+    "html5",
     "javascript",
     "canvas"
   ],
   "author": "nikeedev",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nikeedev/GameEngine_js/issues"
+    "url": "https://github.com/nikeedev/playlib/issues"
   },
-  "homepage": "https://github.com/nikeedev/GameEngine_js#readme"
+  "homepage": "https://github.com/nikeedev/playlib#readme"
 }

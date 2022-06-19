@@ -1,5 +1,5 @@
 
-import { GameEngine } from '../../GameEngine.js'
+import { PlayLib } from '../../bin/PlayLib.js'
 
 
 /** 
@@ -17,7 +17,7 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth - 30;
 canvas.height = window.innerHeight - 20;
-const ScreenSize = new GameEngine.Size(canvas.width, canvas.height);
+const ScreenSize = new PlayLib.Size(canvas.width, canvas.height);
 
 const colors = ["#FFFFFF", "#C0C0C0", "#808080", "#000000", "#FF0000", "#800000", "#FFFF00", "#808000", "#00FF00", "#008000", "#00FFFF"]
 
@@ -39,10 +39,11 @@ var config = {
 }
 
 
-var game = new GameEngine.Game(config);
+var game = new PlayLib.Game(config);
 
 
-var game2 = new GameEngine.Graphics.Rect(new GameEngine.Vector2(0, 0), new GameEngine.Size(1, 1), ScreenSize)
+
+var game2 = new PlayLib.Rect(new PlayLib.Vector2(0, 0), new PlayLib.Size(1, 1), ScreenSize)
 
 
 game.update(()=>{ 

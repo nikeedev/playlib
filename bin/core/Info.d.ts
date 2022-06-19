@@ -1,3 +1,2 @@
-export declare const version = "0.4.0";
-export declare const build = "80";
+export declare const version = "0.5.0";
 export declare function about(): void;

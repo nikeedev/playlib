@@ -1,5 +1,5 @@
 
-import { GameEngine } from '../../GameEngine.js'
+import { PlayLib } from '../../bin/PlayLib.js'
 
 
 /** 
@@ -17,7 +17,7 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth - 30;
 canvas.height = window.innerHeight - 20;
-const ScreenSize = new GameEngine.Size(canvas.width, canvas.height);
+const ScreenSize = new PlayLib.Size(canvas.width, canvas.height);
 
 const colors = ["#FFFFFF", "#C0C0C0", "#808080", "#000000", "#FF0000", "#800000", "#FFFF00", "#808000", "#00FF00", "#008000", "#00FFFF"]
 
@@ -39,15 +39,16 @@ var config = {
 }
 
 
-var game = new GameEngine.Game(config);
+var game = new PlayLib.Game(config);
 
 
-var words = new GameEngine.Graphics.Text("Hello", new GameEngine.Vector2(30, 38), ScreenSize);
+var words = new PlayLib.Text("Hello", new PlayLib.Vector2(60, 88), ScreenSize);
 
-var square = new GameEngine.Graphics.Rect(new GameEngine.Vector2(13, 13), new GameEngine.Size(35, 35), ScreenSize);
-    
+var square = new PlayLib.Rect(new PlayLib.Vector2(43, 43), new PlayLib.Size(65, 65), ScreenSize);
 
-
+console.log(words.font)
+words.font = "40px Arial"
+console.log(words.font)
 
 
 game.update(() => {
@@ -57,7 +58,7 @@ game.update(() => {
     if (colorcount1 > colors.length) colorcount1 = 0;
 
     square.draw(ctx, false);
-    if (square.position.x < 93) { 
+    if (square.position.x < 167) { 
 
         square.position.x += 1;
 

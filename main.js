@@ -1,18 +1,17 @@
 /** @description This is the testing page for modules and is used by the main page (index.html) */
 
-//import { Vector2, Size, Rect, Text, Sprite, version } from './GameEngine.js';
 
-import { GameEngine } from './GameEngine.js'
+import { PlayLib } from './bin/PlayLib.js'
 
 
-document.getElementById("version").innerHTML = GameEngine.Info.version;
+document.getElementById("version").innerHTML = PlayLib.version;
 
 const one_second = 1000;
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext('2d');
-canvas.width = window.outerWidth
-canvas.height = window.outerHeight
-const ScreenSize = new GameEngine.Size(canvas.width, canvas.height);
+canvas.width = window.outerWidth;
+canvas.height = window.outerHeight;
+const ScreenSize = new PlayLib.Size(canvas.width, canvas.height);
 
 var config = {
     game_name: "Main",
@@ -25,7 +24,7 @@ var config = {
 }
 
 
-var game = new GameEngine.Game(config);
+var game = new PlayLib.Game(config);
 
 
 const colors = ["#FFFFFF", "#C0C0C0", "#FF00FF", "#808080", "#000000", "#FF0000", "#800000", "#FFFF00", "#808000", "#00FF00", "#008000", "#00FFFF"]
@@ -34,7 +33,7 @@ var colorcount = 0;
 
 var ActivateDown = false
 
-var square = new GameEngine.Graphics.Rect(new GameEngine.Vector2(1, 1), new GameEngine.Size(20, 20), ScreenSize);
+var square = new PlayLib.Rect(new PlayLib.Vector2(1, 1), new PlayLib.Size(20, 20), ScreenSize);
 
 
 game.update(()=>{
@@ -47,13 +46,13 @@ game.update(()=>{
     if (colorcount > colors.length) colorcount = 0;
     
     if (square.position.y >= ScreenSize.height && ActivateDown) {
-        square.position = new GameEngine.Vector2(1, 1);
+        square.position = new PlayLib.Vector2(1, 1);
         ActivateDown = false;
         ctx.clearRect(0, 0, ScreenSize.width, ScreenSize.height);
     } 
     else if (square.position.y >= ScreenSize.height) {
         ActivateDown = true;
-        square.position = new GameEngine.Vector2(ScreenSize.width, 0);
+        square.position = new PlayLib.Vector2(ScreenSize.width, 0);
     }
     else if (ActivateDown) {
         square.position.y += 10;
