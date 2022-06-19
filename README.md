@@ -1,5 +1,5 @@
 # **PlayLib**: A 2D game library made using HTML Canvas!
-![npm](https://img.shields.io/npm/v/@nikee_dev/PlayLib_js?color=Green&label=Current%20package%20version&style=flat-square)
+![npm](https://img.shields.io/npm/v/@nikee_dev/playlib?color=Green&label=Current%20package%20version&style=flat-square)
 
 ## **The engine is still under development!**
 
