@@ -1,7 +1,15 @@
 # **PlayLib**: A 2D game library made using HTML Canvas!
-![npm](https://img.shields.io/npm/v/@nikee_dev/playlib?color=Green&label=Current%20package%20version&style=flat-square)
+![npm](https://img.shields.io/npm/v/playlib?color=Green&label=Current%20package%20version&style=flat-square)
 
-## **The engine is still under development!**
+## Changelog:
+
+Changelog for this new update 0.5.0 lies in separate .md file, where you can see all changes that happened, here is it: [Changelog_for_v0.5.0.md](Changelog_for_v0.5.0.md)
+
+<br>
+
+If you want to see changelog for versions released before 0.5.0, it should lie in the changelog.md file, which is this: [Changelog.md](Changelog.md)
+
+<br>
 
 ### Quick Setup and Start:
 
@@ -17,17 +25,26 @@ Choose your location where you want to start your game and use
 
  Then create all needed files for your web game, like a HTML file and a main JavaScript file. 
 
-Import the library using this line of code: `import { PlayLib } from '/path/to/PlayLib.js'`. Use `PlayLib` to gather the engine, and its classes and functions. You can also manually write classes and variables you want to import, instead of having all of them in `PlayLib` variable. Use this way if you prefer so: `import { Rect, Vector2, version, about } from '/path/to/PlayLib.js'`
+Import the library using this line of code: `import { PlayLib } from '/path/to/PlayLib.js'`. Use `PlayLib` to gather the library. Inside it you will find all its classes, functions, and variables like version of library and else.
 
-Now your ready for coding!
+### Now your ready for coding!
 
-Need help to know classes, click on this button to head over features tab: [Features](#features).
+<br>
    
+<br>
+
+### Docs:
+
+**Documentation for the library are now moved to: https://nikeedev.gitbook.io/playlib/, instead of being a part of `README.md`.**
+
 <br>
 
 ### Examples:
 **All examples to current features are available on examples folder (GitHub), or on** https://nikeedev.github.io/PlayLib_js
 
+<br>
+
+<!---
 ### Features:
 
 **A game library making website games that implements Canvas API, and has many useful functions and classes. Will be added more functions and features further!**
@@ -74,7 +91,7 @@ Need help to know classes, click on this button to head over features tab: [Feat
   - Sound class makes it easy to play audio on your app/game!
 
 <br>
-
+--->
 ### License:
 
 **This project is licensed with the MIT LICENSE. Please follow additional info about it, at LICENSE file.**

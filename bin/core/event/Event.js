@@ -11,9 +11,6 @@ class Event {
         window.addEventListener("mousemove", e => {
             Event.mouseBtnsPressed[e.button] = true;
         });
-        window.addEventListener("mousemove", e => {
-            Event.mouseBtnsPressed[e.button] = false;
-        });
     }
     static KeyPressed(key) {
         return !!this.keysPressed[key];
