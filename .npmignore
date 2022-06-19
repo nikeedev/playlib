@@ -6,7 +6,5 @@ examples/
 /node_modules
 src/PlayLib.ts
 src/index.ts
-bin/PlayLib.js
-bin/PlayLib.d.ts
 tsconfig.json
 
