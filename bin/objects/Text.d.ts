@@ -8,7 +8,6 @@ declare class Text extends GameObject {
     constructor(text: string, position: Vector2, screenSize: Size);
     color: string;
     font: string;
-    protected ClearScreen: boolean | undefined;
-    draw(ctx: any, ClearScreen?: boolean): void;
+    draw(ctx: any): void;
 }
 export { Text };

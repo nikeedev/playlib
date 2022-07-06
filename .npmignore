@@ -4,7 +4,8 @@ assets/
 main.js
 examples/
 /node_modules
-src/PlayLib.ts
-src/index.ts
+src/Playlib.ts
+src
+src/**/**/**
 tsconfig.json
 

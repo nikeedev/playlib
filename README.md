@@ -13,21 +13,7 @@ If you want to see changelog for versions released before 0.5.0, it should lie i
 
 ### Quick Setup and Start:
 
-Desire your way of downloading the library, either using npm or trough GitHub, i preferably  will use npm.
-
-
-<br>
-Choose your location where you want to start your game and use
-
-`npm init`
- to initialize your folder for npm.
- Next, use `npm install PlayLib` to install the library.
-
- Then create all needed files for your web game, like a HTML file and a main JavaScript file. 
-
-Import the library using this line of code: `import { PlayLib } from '/path/to/PlayLib.js'`. Use `PlayLib` to gather the library. Inside it you will find all its classes, functions, and variables like version of library and else.
-
-### Now your ready for coding!
+**Quick setup for the library are now moved to: https://nikeedev.gitbook.io/playlib/, instead of being a part of `README.md`.**
 
 <br>
    

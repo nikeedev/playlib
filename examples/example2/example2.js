@@ -1,5 +1,5 @@
 
-import { PlayLib } from '../../bin/PlayLib.js'
+import { Playlib } from '../../bin/playlib.js'
 
 
 /** 
@@ -14,10 +14,10 @@ import { PlayLib } from '../../bin/PlayLib.js'
 
 
 const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext('2d');
+
 canvas.width = window.innerWidth - 30;
 canvas.height = window.innerHeight - 20;
-const ScreenSize = new PlayLib.Size(canvas.width, canvas.height);
+const ScreenSize = new Playlib.Size(canvas.width, canvas.height);
 
 const colors = ["#FFFFFF", "#C0C0C0", "#808080", "#000000", "#FF0000", "#800000", "#FFFF00", "#808000", "#00FF00", "#008000", "#00FFFF"]
 
@@ -35,19 +35,19 @@ var config = {
     height: ScreenSize.height,
     useOwnCanvas: true,
     canvas: canvas,
-    context: ctx
+    
 }
 
 
-var game = new PlayLib.Game(config);
+var game = new Playlib.Game(config);
 
 
 
-var game2 = new PlayLib.Rect(new PlayLib.Vector2(0, 0), new PlayLib.Size(1, 1), ScreenSize)
+var game2 = new Playlib.Rect(new Playlib.Vector2(0, 0), new Playlib.Size(1, 1), ScreenSize)
 
 
-game.update(()=>{ 
-    game2.draw(ctx, false);
+game.update((ctx) => { 
+    game2.draw(ctx);
 
     if (ActivateUp == false && canvas.height <= game2.position.y) {
         ActivateUp = true;
@@ -92,6 +92,6 @@ game.update(()=>{
         if (colorcount > colors.length) colorcount = 0;
     }
     
-});
+}, false);
 
 

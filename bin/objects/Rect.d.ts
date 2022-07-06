@@ -7,7 +7,6 @@ declare class Rect extends GameObject {
     protected screenSize: Size;
     constructor(position: Vector2, size: Size, screenSize: Size);
     color: string;
-    protected ClearScreen: boolean | undefined;
-    draw(ctx: any, ClearScreen?: boolean): void;
+    draw(ctx: any): void;
 }
 export { Rect };

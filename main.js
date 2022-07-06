@@ -1,30 +1,27 @@
 /** @description This is the testing page for modules and is used by the main page (index.html) */
 
 
-import { PlayLib } from './bin/PlayLib.js'
+import { Playlib } from './bin/playlib.js'
 
 
-document.getElementById("version").innerHTML = PlayLib.version;
+document.getElementById("version").innerHTML = Playlib.version;
 
 const one_second = 1000;
 const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext('2d');
 canvas.width = window.outerWidth;
 canvas.height = window.outerHeight;
-const ScreenSize = new PlayLib.Size(canvas.width, canvas.height);
+const ScreenSize = new Playlib.Size(canvas.width, canvas.height);
 
 var config = {
-    game_name: "Main",
     style: "background-color: white;",
     width: ScreenSize.width,
     height: ScreenSize.height,
     useOwnCanvas: true,
-    canvas: canvas,
-    context: ctx
+    canvas: canvas
 }
 
 
-var game = new PlayLib.Game(config);
+var game = new Playlib.Game(config);
 
 
 const colors = ["#FFFFFF", "#C0C0C0", "#FF00FF", "#808080", "#000000", "#FF0000", "#800000", "#FFFF00", "#808000", "#00FF00", "#008000", "#00FFFF"]
@@ -33,26 +30,27 @@ var colorcount = 0;
 
 var ActivateDown = false
 
-var square = new PlayLib.Rect(new PlayLib.Vector2(1, 1), new PlayLib.Size(20, 20), ScreenSize);
+
+var square = new Playlib.Rect(new Playlib.Vector2(1, 1), new Playlib.Size(20, 20), ScreenSize);
 
 
-game.update(()=>{
+game.update((ctx)=>{
     
 
-    square.draw(ctx, false);
+    square.draw(ctx);
 
     square.color = colors[colorcount];
     colorcount++;
     if (colorcount > colors.length) colorcount = 0;
     
     if (square.position.y >= ScreenSize.height && ActivateDown) {
-        square.position = new PlayLib.Vector2(1, 1);
+        square.position = new Playlib.Vector2(1, 1);
         ActivateDown = false;
         ctx.clearRect(0, 0, ScreenSize.width, ScreenSize.height);
     } 
     else if (square.position.y >= ScreenSize.height) {
         ActivateDown = true;
-        square.position = new PlayLib.Vector2(ScreenSize.width, 0);
+        square.position = new Playlib.Vector2(ScreenSize.width, 0);
     }
     else if (ActivateDown) {
         square.position.y += 10;
@@ -64,7 +62,7 @@ game.update(()=>{
         square.position.y += 10;
     }
 
-})
+}, false)
 
 
 

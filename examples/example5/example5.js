@@ -1,16 +1,16 @@
 
 
-import { PlayLib } from '../../bin/PlayLib.js';
+import { Playlib } from '../../bin/playlib.js';
 
 
 
 const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext('2d');
+
 canvas.width = window.innerWidth - 20;
 canvas.height = window.innerHeight - 40;
 
 
-const ScreenSize = new PlayLib.Size(canvas.width, canvas.height);
+const ScreenSize = new Playlib.Size(canvas.width, canvas.height);
 
 // Example 6: Using InputManager to control a block:
 
@@ -22,39 +22,39 @@ var config = {
     height: ScreenSize.height,
     useOwnCanvas: true,
     canvas: canvas,
-    context: ctx
+    
 }
 
 
-var game = new PlayLib.Game(config);
+var game = new Playlib.Game(config);
 
 
-var spirit = new PlayLib.Sprite("../../assets/Black_Square.png", new PlayLib.Vector2(120, 120), ScreenSize);
+var spirit = new Playlib.Sprite("../../assets/Black_Square.png", new Playlib.Vector2(120, 120), ScreenSize);
 
 
 await spirit.init();
    
 
-game.update( () => {
+game.update((ctx) => {
     
     spirit.draw(ctx);
     
-    if (PlayLib.Event.KeyPressed(PlayLib.Keys.ArrowRight)) 
+    if (Playlib.Event.KeyPressed(Playlib.Keys.ArrowRight)) 
     {
         spirit.position.x += 0.9;
     }
 
-    else if (PlayLib.Event.KeyPressed(PlayLib.Keys.ArrowLeft)) 
+    else if (Playlib.Event.KeyPressed(Playlib.Keys.ArrowLeft)) 
     {
         spirit.position.x -= 0.9;
     } 
     
-    else if (PlayLib.Event.KeyPressed(PlayLib.Keys.ArrowDown)) 
+    else if (Playlib.Event.KeyPressed(Playlib.Keys.ArrowDown)) 
     {
         spirit.position.y += 0.9;
     }
     
-    else if (PlayLib.Event.KeyPressed(PlayLib.Keys.ArrowUp)) 
+    else if (Playlib.Event.KeyPressed(Playlib.Keys.ArrowUp)) 
     {
         spirit.position.y -= 0.9;
     }

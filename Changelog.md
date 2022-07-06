@@ -28,13 +28,11 @@
 
 
 ```ts
-// Current way:
-import { any_class_or_variable_name, Rect } from '/path/to/PlayLib.js'
+// New way:
+import { Playlib } from '/path/to/Playlib.js'
 new Rect()
 
-// new way: 
-import PlayLib from './path/to/PlayLib.js'
-new PlayLib.Rect()
+new Playlib.Rect()
 ```
 You need probably to write a bit more with the new way, but at least all classes and variables are in one place!
 
@@ -46,6 +44,21 @@ You need probably to write a bit more with the new way, but at least all classes
 - Added `clear()` function to it. 
 - Updated the way graphics classes draw (Text, Rect, Sprite classes), so you need to write `draw()` and use `Game` class to update canvas. 
 - Added even more keys to check for input in `Keys` object.
+
+<br>
+
+**0.5.3 (06.07.2022)**: Updated `update()` and `create()` methods from Game class. Now you can access 2D context from canvas by calling `update()` or `create()` method and when creating new function inside the method add name of context (any name, i like to use ctx :), so the called method will look something like this:
+```ts
+game.update((ctx) => {
+    square_object.draw(ctx);
+})
+```
+
+In this new update we changed location of when true or false whether you want to clear the screen (refresh it)
+You did it before by writing true or false after giving context to draw the object, but now you can give it when calling `update()` or `create()` method and add true or false after giving the method a function
+
+- By default is parameter true, so if you wish for those methods to *do* "clear screen", you can leave the parameter empty, but if you want the opposite, just set the parameter to false.
+
 
 
 <br>

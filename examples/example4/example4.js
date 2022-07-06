@@ -1,9 +1,9 @@
-import { PlayLib} from '../../bin/PlayLib.js'
+import { Playlib } from '../../bin/playlib.js'
 
 
 /*
 const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext('2d');
+
 canvas.width = window.innerWidth - 30;
 canvas.height = window.innerHeight - 20;
 */
@@ -21,26 +21,26 @@ var config = {
     useOwnCanvas: false,
     /*
     canvas: canvas,
-    context: ctx
+    
     */
 }
 
 
-var game = new PlayLib.Game(config);
+var game = new Playlib.Game(config);
 
 
 
-const ScreenSize = new PlayLib.Size(game.canvas.width, game.canvas.height);
+const ScreenSize = new Playlib.Size(game.canvas.width, game.canvas.height);
 
 
-var spirit = new PlayLib.Sprite("../../assets/Black_Square.png", new PlayLib.Vector2(120, 120), ScreenSize);
+var spirit = new Playlib.Sprite("../../assets/Black_Square.png", new Playlib.Vector2(120, 120), ScreenSize);
 
 
 await spirit.init();
 
-game.update(() => {
+game.update((ctx) => {
 
-    spirit.draw(game.context);
+    spirit.draw(ctx);
 
     spirit.position.x += 1;
 

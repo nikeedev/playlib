@@ -9,7 +9,6 @@ declare class Sprite extends GameObject {
     style: string;
     constructor(imageSrc: string, position: Vector2, /*size: Size = null*/ screenSize: Size);
     init(): Promise<unknown>;
-    protected ClearScreen: boolean | undefined;
-    draw(ctx: any, ClearScreen: boolean): void;
+    draw(ctx: any): void;
 }
 export { Sprite };

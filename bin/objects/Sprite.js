@@ -21,12 +21,9 @@ class Sprite extends GameObject {
         const img = await loadImage(this.imageSrc);
         return this.image = img;
     }
-    draw(ctx, ClearScreen) {
+    draw(ctx) {
         this.image.style.image_rendering = "auto";
         this.image.style = this.style;
-        ClearScreen = typeof ClearScreen == 'boolean' ? ClearScreen : true;
-        if (ClearScreen)
-            ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
         ctx.drawImage(this.image, this.position.x, this.position.y);
     }
 }

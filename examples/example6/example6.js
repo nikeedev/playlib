@@ -1,12 +1,12 @@
-import { PlayLib } from '../../bin/PlayLib.js'
+import { Playlib } from '../../bin/playlib.js'
 
 
 
 const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext('2d');
+
 canvas.width = window.innerWidth - 30;
 canvas.height = window.innerHeight - 20;
-const ScreenSize = new PlayLib.Size(canvas.width, canvas.height);
+const ScreenSize = new Playlib.Size(canvas.width, canvas.height);
 
 
 
@@ -17,23 +17,25 @@ var config = {
     height: ScreenSize.height,
     useOwnCanvas: true,
     canvas: canvas,
-    context: ctx
+    
 }
 
 
-var game = new PlayLib.Game(config);
+var game = new Playlib.Game(config);
 
 
-var square = new PlayLib.Rect(new PlayLib.Vector2(30, 30), new PlayLib.Size(20, 20), ScreenSize);
+var square = new Playlib.Rect(new Playlib.Vector2(30, 30), new Playlib.Size(20, 20), ScreenSize);
 
-var music = new PlayLib.Sound("../../assets/pickupCoin.wav");
+square.color = "#000000"
+
+var music = new Playlib.Sound("../../assets/pickupCoin.wav");
 
 //music.init("https://samplelib.com/lib/preview/mp3/sample-15s.mp3");
 music.init();
 
 music.loop = false;
 
-game.update(() => {
+game.update((ctx) => {
 
     square.draw(ctx);
     music.play();

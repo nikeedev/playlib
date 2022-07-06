@@ -11,7 +11,7 @@ class Game {
     height;
     useOwnCanvas;
     canvas;
-    context;
+    ClearScreen;
     deltaTime;
     oldTimeStamp;
     fps;
@@ -36,12 +36,11 @@ class Game {
         }
         */
         if (this.useOwnCanvas) {
-            this.parent_element = "";
+            this.parent_element = config.canvas.parentElement;
             this.canvas = config.canvas;
             this.canvas.style = "background-color: black;" + this.style;
             this.canvas.width = this.width;
             this.canvas.height = this.height;
-            this.context = this.canvas.getContext('2d');
         }
         else {
             this.parent_element = config.parent_element;
@@ -50,7 +49,6 @@ class Game {
             this.canvas.width = this.width;
             this.canvas.height = this.height;
             document.querySelector(this.parent_element).append(this.canvas);
-            this.context = this.canvas.getContext('2d');
         }
         let powered_by_playlib = document.createElement("span");
         powered_by_playlib.style.fontFamily = 'arial';
@@ -63,33 +61,41 @@ class Game {
         powered_holder.appendChild(powered_by_playlib);
         document.body.appendChild(powered_holder);
     }
-    create(func) {
-        func();
+    create(func, ClearScreen = true) {
+        ClearScreen = typeof ClearScreen == 'boolean' ? ClearScreen : true;
+        var context = this.canvas.getContext('2d');
+        if (ClearScreen)
+            context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        func(context);
     }
-    update(func) {
+    update(func, ClearScreen = true) {
+        ClearScreen = typeof ClearScreen == 'boolean' ? ClearScreen : true;
+        var context = this.canvas.getContext('2d');
         const gameLoop = (timeStamp) => {
             // Calculate the number of seconds passed since the last frame
             this.deltaTime = (timeStamp - this.oldTimeStamp) / 1000;
             this.oldTimeStamp = timeStamp;
             // Calculate fps
             this.fps = Math.round(1 / this.deltaTime);
-            // Perform the drawing operation
-            func();
+            if (ClearScreen)
+                context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            func(context);
             // Draw number to the screen
             if (this.fps_on) {
-                this.context.fillStyle = 'white';
-                this.context.fillRect(0, 0, 125, 42.5);
-                this.context.font = '25px Arial';
-                this.context.fillStyle = 'black';
-                this.context.fillText("FPS: " + this.fps, 10, 30);
+                context.fillStyle = 'white';
+                context.fillRect(0, 0, 125, 42.5);
+                context.font = '22px Arial';
+                context.fillStyle = 'black';
+                context.fillText("FPS: " + this.fps, 10, 30);
             }
             // The loop function has reached it's end. Keep requesting new frames
             window.requestAnimationFrame(gameLoop);
         };
         window.requestAnimationFrame(gameLoop);
     }
-    clear(ctx) {
-        ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    clear() {
+        var context = this.canvas.getContext('2d');
+        context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
     showFPS(is_on) {
         this.fps_on = is_on;

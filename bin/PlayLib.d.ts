@@ -1,5 +1,5 @@
-import { Game, Vector2, Size, Scene, Sound, Sprite, about, Event, Rect, Text } from "./index.js";
-declare const PlayLib: {
+import { Game, Vector2, Size, Scene, Sound, Sprite, about, Event, Rect, Text, Shape, GameObject } from "./index.js";
+declare const Playlib: {
     about: typeof about;
     version: string;
     Vector2: typeof Vector2;
@@ -134,5 +134,7 @@ declare const PlayLib: {
     Sprite: typeof Sprite;
     Rect: typeof Rect;
     Text: typeof Text;
+    Shape: typeof Shape;
+    GameObject: typeof GameObject;
 };
-export { PlayLib };
+export { Playlib };

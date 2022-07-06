@@ -14,13 +14,10 @@ class Text extends GameObject {
     }
     color = "#ffffff";
     font = "20px Arial";
-    declare protected ClearScreen: boolean | undefined;
-    draw(ctx: any, ClearScreen: boolean = true) {
-        ClearScreen = typeof ClearScreen == 'boolean'? ClearScreen : true;
+    
+    draw(ctx: any) {
         ctx.font = this.font
         ctx.fillStyle = this.color;
-        if (ClearScreen) 
-            ctx.clearRect(0, 0, this.screenSize.width, this.screenSize.height);
         ctx.fillText(this.text, this.position.x, this.position.y);
     }
     
