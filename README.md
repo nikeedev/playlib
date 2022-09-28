@@ -26,7 +26,7 @@ If you want to see changelog for versions released before 0.5.0, it should lie i
 <br>
 
 ### Examples:
-**All examples to current features are available on examples folder (GitHub), or on** https://nikeedev.github.io/PlayLib_js
+**All examples to current features are available on examples folder (GitHub), or on** https://nikeedev.github.io/playlib
 
 <br>
 
@@ -80,5 +80,5 @@ If you want to see changelog for versions released before 0.5.0, it should lie i
 --->
 ### License:
 
-**This project is licensed with the MIT LICENSE. Please follow additional info about it, at LICENSE file.**
+**This project is licensed with the MIT LICENSE. Additional info about license and the rules are at LICENSE file.**
 
