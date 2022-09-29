@@ -17,21 +17,22 @@ var config = {
 
 var game = new Playlib.Game(config);
 
-var sheesh = new Playlib.Text("sheesh", new Playlib.Vector2(100, 100), ScreenSize);
 
+var sheesh = new Playlib.Text("sheesh", new Playlib.Vector2(100, 100), ScreenSize);
 sheesh.color = "#000000"
 
-var square2 = new Playlib.Rect(new Playlib.Vector2(200, 200), new Playlib.Size(17, 50), ScreenSize);
 
+var square2 = new Playlib.Rect(new Playlib.Vector2(200, 200), new Playlib.Size(17, 50), ScreenSize);
 square2.color = "#000000"
 
-game.showFPS(true)
+
+game.showFPS(true);
 
 game.create((ctx)=>{
     
-    
     square2.draw(ctx)
     sheesh.draw(ctx)
+
 }, false)
 
 

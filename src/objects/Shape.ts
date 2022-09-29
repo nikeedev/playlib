@@ -22,8 +22,9 @@ class Shape extends GameObject {
     draw(ctx: any) {
         ctx.fillStyle = this.color;
         
-        if (this.shape.toLowerCase().trim() == "rect")
+        if (this.shape.toLowerCase().trim() == "rect" && this.shape.toLowerCase().trim() == "rectangle")
             ctx.fillRect(this.position.x, this.position.y, this.size.width, this.size.height);
+        
     }
 }
 

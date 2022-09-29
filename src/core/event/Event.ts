@@ -1,3 +1,6 @@
+import { Keys } from './Keys.js'
+
+
 
 class Event {
     static keysPressed = {}
@@ -17,7 +20,7 @@ class Event {
         })
     }
 
-    static KeyPressed(key: any) {
+    static KeyPressed(key: Keys) {
         return !!this.keysPressed[key];
     }
     

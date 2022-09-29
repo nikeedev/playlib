@@ -14,15 +14,15 @@ function loadImage(url: string) {
 class Sprite extends GameObject {
     protected imageSrc: string;
     declare position: Vector2;
-    //size: Size | undefined;
+    imageSize: Size | undefined;
     declare protected screenSize: Size;
     protected image: any;
     style: string;
     
-    constructor(imageSrc: string, position: Vector2, /*size: Size = null*/screenSize: Size) {
+    constructor(imageSrc: string, position: Vector2, screenSize: Size, imageSize: Size = null) {
         super(position, screenSize);
         this.imageSrc = imageSrc;
-        //this.size = typeof size != null ? size : null;
+        this.imageSize = typeof imageSize != null ? imageSize : null;
         loadImage(imageSrc).then(img => this.image = img);
     }
     async init()
@@ -34,9 +34,9 @@ class Sprite extends GameObject {
     
 
     draw(ctx: any) {
-        this.image.style.image_rendering = "auto";
-        this.image.style = this.style;
-        ctx.drawImage(this.image, this.position.x, this.position.y);
+        this.image.style.image_rendering = "pixelated";
+        this.image.style += this.style;
+        ctx.drawImage(this.image, this.position.x, this.position.y, typeof this.imageSize == null ? this.image.naturalWidth : this.imageSize.width, typeof this.imageSize == null ? this.image.naturalHeight : this.imageSize.height);
     }
 }
 
