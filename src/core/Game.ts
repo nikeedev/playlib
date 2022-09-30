@@ -26,8 +26,10 @@ class Game {
     
     private game_type: string;
 
+    scenes: any;
 
-    constructor(config: any) {
+    constructor(config: any, scenes: any)
+    {
         this.game_name = config.game_name != null ? config.game_name : null;
         this.game_version = config.game_version != null ? config.game_version : null;
         this.style = config.style;
@@ -36,6 +38,8 @@ class Game {
         this.useOwnCanvas = config.useOwnCanvas;
         document.title = this.game_name != null ? this.game_name : document.title;
         document.title += this.game_version != null ? (" - v"+this.game_version) : "";
+        
+        this.scenes = scenes;
 
         /*
         if (config.game_type == "canvas" || config.game_type == "dom") {
@@ -62,6 +66,8 @@ class Game {
             document.querySelector(this.parent_element).append(this.canvas);
         }
         
+        /*
+
         let powered_by_playlib = document.createElement("span")
         powered_by_playlib.style.fontFamily = 'arial';
         powered_by_playlib.style.fontSize = "16px";
@@ -73,9 +79,11 @@ class Game {
         powered_holder.innerHTML = "Powered by ";
         powered_holder.appendChild(powered_by_playlib);
         document.body.appendChild(powered_holder);
+        
+        */
     }
 
-    
+    /*
     create(func: any, ClearScreen: boolean = true) {
         ClearScreen = typeof ClearScreen == 'boolean'? ClearScreen : true;
         var context = this.canvas.getContext('2d');
@@ -84,12 +92,15 @@ class Game {
         func(context);
 
     }
+    */
 
     update(func: any, ClearScreen: boolean = true) {
+        /*
         ClearScreen = typeof ClearScreen == 'boolean'? ClearScreen : true;
         var context = this.canvas.getContext('2d');
 
         const eventer = new Event();
+
         const gameLoop = (timeStamp: any) => 
         {
 
@@ -122,12 +133,15 @@ class Game {
         }
 
         window.requestAnimationFrame(gameLoop);
+        */
     }
 
+    /*
     clear() {
         var context = this.canvas.getContext('2d');
         context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
+    */
 
     showFPS(is_on: boolean) {
         this.fps_on = is_on;
