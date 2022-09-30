@@ -21,6 +21,7 @@ class Scene
     }
     
     create(func: any, ClearScreen: boolean = true) {
+        
         ClearScreen = typeof ClearScreen == 'boolean'? ClearScreen : true;
         var context = this.canvas.getContext('2d');
         if (ClearScreen) 
@@ -43,7 +44,8 @@ class Scene
             // Calculate the number of seconds passed since the last frame
             this.deltaTime = (timeStamp - this.oldTimeStamp) / 1000;
             this.oldTimeStamp = timeStamp;
-    
+            
+            func();
         
             if (ClearScreen) 
                 context.clearRect(0, 0, this.canvas.width, this.canvas.height);
