@@ -1,10 +1,19 @@
 import { Keys } from './Keys.js'
-
+import { Vector2 } from '.../../math/Vector2.js'
 
 
 class Event {
     static keysPressed = {}
     static mouseBtnsPressed = {}
+
+    static mousePos: Vector2 = new Vector2();
+    
+
+    /////// Controller
+    
+    controllers: any;
+    controller: any; 
+
 
     constructor() {
         window.addEventListener("keydown", e => {
@@ -15,9 +24,14 @@ class Event {
             Event.keysPressed[e.keyCode] = false;
         })
 
-        window.addEventListener("mousemove", e => {
-            Event.mouseBtnsPressed[e.button] = true;
+        window.addEventListener("pointermove", e => {
+            Event.mouseBtnPressed[e.button] = true;
+
+            Event.mousePos.x = e.x;
+            Event.mousePos.y = e.y;
         })
+
+        
     }
 
     static KeyPressed(key: Keys) {
@@ -27,6 +41,13 @@ class Event {
     static mouseBtnPressed(btn: any) {
         return !!this.mouseBtnsPressed[btn];
     }
+
+    updateControllers()
+    {
+        this.controllers = navigator.getGamepads();
+        this.controller = this.controllers[0];
+    }
+
 }
 
 export { Event };

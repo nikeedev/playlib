@@ -1,5 +1,5 @@
 import { Logging } from '../utils/Logging.js';
-
+import { Event } from './event/Event.js'
 
 /**
  * @description Creates new game
@@ -88,7 +88,12 @@ class Game {
     update(func: any, ClearScreen: boolean = true) {
         ClearScreen = typeof ClearScreen == 'boolean'? ClearScreen : true;
         var context = this.canvas.getContext('2d');
-        const gameLoop = (timeStamp: any) => {
+
+        const eventer = new Event();
+        const gameLoop = (timeStamp: any) => 
+        {
+
+            eventer.updateControllers();
 
             // Calculate the number of seconds passed since the last frame
             this.deltaTime = (timeStamp - this.oldTimeStamp) / 1000;

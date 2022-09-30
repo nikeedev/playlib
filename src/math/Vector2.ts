@@ -8,9 +8,9 @@
 class Vector2 {
 	x: number;
 	y: number;
-	constructor(x: number, y: number) {
-		this.x = (x === undefined) ? 0 : x;
-		this.y = (x === undefined) ? 0 : y;
+	constructor(x: number = 0, y: number = 0) {
+		this.x = x;
+		this.y = y;
 	}
 	normalize() {
 		const magnitude = Math.sqrt((this.x * this.x) + (this.y * this.y));
