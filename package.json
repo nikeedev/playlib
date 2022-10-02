@@ -33,5 +33,8 @@
   "bugs": {
     "url": "https://github.com/nikeedev/playlib/issues"
   },
-  "homepage": "https://github.com/nikeedev/playlib#readme"
+  "homepage": "https://github.com/nikeedev/playlib#readme",
+  "dependencies": {
+    "typescript": "^4.8.4"
+  }
 }
