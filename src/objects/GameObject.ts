@@ -11,6 +11,10 @@ class GameObject {
         this.screenSize = screenSize;
     }
 
+    draw(ctx: any)
+    {
+        
+    }
 }
 
 export { GameObject } 

@@ -21,48 +21,59 @@ var config = {
 }
 
 
-var game = new Playlib.Game(config);
+class MainScene extends Playlib.Scene
+{
+    colors = ["#FFFFFF", "#C0C0C0", "#FF00FF", "#808080", "#000000", "#FF0000", "#800000", "#FFFF00", "#808000", "#00FF00", "#008000", "#00FFFF"];
+    colorcount = 0;
 
-
-const colors = ["#FFFFFF", "#C0C0C0", "#FF00FF", "#808080", "#000000", "#FF0000", "#800000", "#FFFF00", "#808000", "#00FF00", "#008000", "#00FFFF"]
-
-var colorcount = 0;
-
-var ActivateDown = false
-
-
-var square = new Playlib.Rect(new Playlib.Vector2(1, 1), new Playlib.Size(20, 20), ScreenSize);
-
-
-game.update((ctx)=>{
+    ActivateDown = false
     
+    square = new Playlib.Rect(new Playlib.Vector2(1, 1), new Playlib.Size(20, 20), ScreenSize);
 
-    square.draw(ctx);
+    constructor(canvas, ClearScreen)
+    {
+        super(canvas, ClearScreen);
+        this.ClearScreen = false;
 
-    square.color = colors[colorcount];
-    colorcount++;
-    if (colorcount > colors.length) colorcount = 0;
-    
-    if (square.position.y >= ScreenSize.height && ActivateDown) {
-        square.position = new Playlib.Vector2(1, 1);
-        ActivateDown = false;
-        ctx.clearRect(0, 0, ScreenSize.width, ScreenSize.height);
-    } 
-    else if (square.position.y >= ScreenSize.height) {
-        ActivateDown = true;
-        square.position = new Playlib.Vector2(ScreenSize.width, 0);
-    }
-    else if (ActivateDown) {
-        square.position.y += 10;
-        square.position.x -= 10;
-    }
-    
-    else {
-        square.position.x += 10;
-        square.position.y += 10;
+        this.square.color = "#545454"
     }
 
-}, false)
+    update(ctx, deltaTime)
+    {
+        
+        this.square.draw(ctx);
+
+        this.square.color = this.colors[this.colorcount];
+        this.colorcount++;
+
+        if (this.colorcount > this.colors.length) this.colorcount = 0;
+        
+        if (this.square.position.y >= ScreenSize.height && this.ActivateDown) {
+            this.square.position = new Playlib.Vector2(1, 1);
+            this.ActivateDown = false;
+            ctx.clearRect(0, 0, ScreenSize.width, ScreenSize.height);
+        } 
+        else if (this.square.position.y >= ScreenSize.height) {
+            this.ActivateDown = true;
+            this.square.position = new Playlib.Vector2(ScreenSize.width, 0);
+        }
+        else if (this.ActivateDown) {
+            this.square.position.y += 10;
+            this.square.position.x -= 10;
+        }
+        
+        else {
+            this.square.position.x += 10;
+            this.square.position.y += 10;
+        }
+
+    }
+}
+
+var game = new Playlib.Game(config, [new MainScene()]);
+
+
+game.update();
 
 
 

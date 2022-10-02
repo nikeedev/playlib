@@ -1,67 +1,26 @@
+import { Event } from '../event/Event.js'
+
+
 
 /**
- * @description Not working class yet.
+ * @description Creating a scene that can later be added to a game.
  * 
- * @since Version not targeted yet
+ * @since 0.6.0
 */
-
-import { Event } from '../event/Event.js'
 
 class Scene
 {
-    canvas: any;
-    private ClearScreen: boolean | undefined;
-
-    deltaTime: number;
-    private oldTimeStamp: number;
-
-    constructor(canvas: any)
-    {
-        this.canvas = canvas;
-    }
+    ClearScreen: boolean | undefined;
     
-    create(func: any, ClearScreen: boolean = true) {
-        
-        ClearScreen = typeof ClearScreen == 'boolean'? ClearScreen : true;
-        var context = this.canvas.getContext('2d');
-        if (ClearScreen) 
-            context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        func(context);
+    create(ctx: any)
+    {
 
     }
 
-    update(func: any, ClearScreen: boolean = true) {
-        ClearScreen = typeof ClearScreen == 'boolean'? ClearScreen : true;
-        var context = this.canvas.getContext('2d');
-
-        const eventer = new Event();
+    update(ctx: any, deltaTime: number)
+    {
         
-        const gameLoop = (timeStamp: any) => 
-        {
-
-            eventer.updateControllers();
-
-            // Calculate the number of seconds passed since the last frame
-            this.deltaTime = (timeStamp - this.oldTimeStamp) / 1000;
-            this.oldTimeStamp = timeStamp;
-            
-            func();
-        
-            if (ClearScreen) 
-                context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-                
-            // The loop function has reached it's end. Keep requesting new frames
-            window.requestAnimationFrame(gameLoop);
-        }
-
-        window.requestAnimationFrame(gameLoop);
     }
-
-    clear() {
-        var context = this.canvas.getContext('2d');
-        context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    }
-
     
 }
 

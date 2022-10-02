@@ -7,13 +7,12 @@ class Rect extends GameObject {
     declare position: Vector2;
     size: Size;
     declare protected screenSize: Size;
+    color = "#ffffff";
     
-    constructor(position: Vector2, size: Size, screenSize: Size) {
+    constructor(position: Vector2, size: Size, screenSize: Size, color?: string) {
         super(position, screenSize); 
         this.size = size;
-        this.color = "#ffffff";
     }
-    color = "#ffffff";
     
 
     draw(ctx: any) {

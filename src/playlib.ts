@@ -11,11 +11,12 @@ import {
     Event,
     Rect,
     Text,
-    Shape,
     GameObject,
 } from "./index.js";
 
-
+/**
+ * Playlib
+ */
 const Playlib = {
     about: about,
     version: version,
@@ -29,7 +30,6 @@ const Playlib = {
     Sprite: Sprite,
     Rect: Rect,
     Text: Text,
-    Shape: Shape,
     GameObject: GameObject
 };
 

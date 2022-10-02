@@ -14,15 +14,65 @@ var config = {
     //canvas: canvas,
 }
 
+class MainScene extends Playlib.Scene
+{
+    square = new Playlib.Rect(new Playlib.Vector2(200, 200), new Playlib.Size(17, 50), ScreenSize);
+    square2 = new Playlib.Rect(new Playlib.Vector2(208.5, 200), new Playlib.Size(17, 50), ScreenSize);
+    
+    constructor(canvas, ClearScreen)
+    {
+        super(canvas, ClearScreen);
+        this.ClearScreen = true;
 
-var game = new Playlib.Game(config);
+        this.square.color = "#000000"
+        this.square2.color = "#00EE34"
+    }
 
-var square2 = new Playlib.Rect(new Playlib.Vector2(200, 200), new Playlib.Size(17, 50), ScreenSize);
-square2.color = "#000000"
+    create(ctx)
+    {
+        this.square.draw(ctx);
+        this.square2.draw(ctx);
+        //game.current_scene = 2
+    
+    }
 
+    update(ctx)
+    {
+        this.square.draw(ctx);
+        this.square2.draw(ctx);
+    }
+}    
+
+class SecondScene extends Playlib.Scene
+{
+    square2 = new Playlib.Rect(new Playlib.Vector2(200, 200), new Playlib.Size(17, 50), ScreenSize);
+    
+    constructor(canvas, ClearScreen)
+    {
+        super(canvas, ClearScreen);
+        this.ClearScreen = true;
+
+        this.square2.color = "#545454"
+    }
+
+    create(ctx)
+    {
+         
+        this.square2.draw(ctx);
+ 
+    }
+
+    update(ctx)
+    {
+        this.square2.draw(ctx);
+    }
+}    
+
+
+
+var game = new Playlib.Game(config, [new MainScene(), new SecondScene()]);
 
 game.showFPS(true);
 
-
-
+game.update();
 

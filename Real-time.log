@@ -1,7 +1,0 @@
-Since v0.5.3:
-  - Updated scene class
-  - Updated some stuff in Game class 
-  - Added finally functionality for scene class
-  - You can now "extend" (really implement, but that's not TypeScript...)
-   the scene class to your own to create scenes that can later be used to change order on which to render first.
-    

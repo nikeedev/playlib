@@ -4,10 +4,8 @@
  * @since 0.6.0
 */
 declare class Scene {
-    canvas: any;
     ClearScreen: boolean | undefined;
-    constructor(canvas: any);
     create(ctx: any): void;
-    update(ctx: any): void;
+    update(ctx: any, deltaTime: number): void;
 }
 export { Scene };

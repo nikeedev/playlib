@@ -91,7 +91,10 @@ class Game {
         for (let i = 0; i < this.scenes.length; i++) {
             all_scenes.push(this.scenes[i]);
         }
-        //console.log(this.scenes);
+        /*
+        console.log(this.scenes);
+        console.log(all_scenes);
+        */
         all_scenes[this.current_scene].create(context);
         const gameLoop = (timeStamp) => {
             eventer.updateControllers();
@@ -100,7 +103,11 @@ class Game {
             this.oldTimeStamp = timeStamp;
             // Calculate fps
             this.fps = Math.round(1 / deltaTime);
-            all_scenes[this.current_scene].update(context);
+            ///////// Clear the screen if can, and draw the scene to the screen 
+            if (all_scenes[this.current_scene].ClearScreen) {
+                this.clear();
+            }
+            all_scenes[this.current_scene].update(context, deltaTime);
             // Draw number to the screen
             if (this.fps_on) {
                 context.fillStyle = 'white';

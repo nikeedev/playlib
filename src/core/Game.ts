@@ -1,5 +1,7 @@
 import { Logging } from '../utils/Logging.js';
+import { run } from '../utils/funcs.js';
 import { Event } from './event/Event.js'
+import { Scene } from './scene/Scene.js';
 
 /**
  * @description Creates new game
@@ -16,19 +18,26 @@ class Game {
     width: number;
     height: number;
     private useOwnCanvas: boolean;
+    
     canvas: any | undefined;
-    private ClearScreen: boolean | undefined;
+    
 
-    deltaTime: number;
+    /*
+    private ClearScreen: boolean | undefined;
+    */
+    
     private oldTimeStamp: number;
     private fps: number;
     private fps_on: boolean = false;
     
+    /*
     private game_type: string;
-
+    */
+    
     scenes: any;
+    current_scene: number = 0;
 
-    constructor(config: any, scenes: any)
+    constructor(config: any, scenes: any, current_scene: number = 1)
     {
         this.game_name = config.game_name != null ? config.game_name : null;
         this.game_version = config.game_version != null ? config.game_version : null;
@@ -40,6 +49,8 @@ class Game {
         document.title += this.game_version != null ? (" - v"+this.game_version) : "";
         
         this.scenes = scenes;
+        this.current_scene = current_scene-1;
+
 
         /*
         if (config.game_type == "canvas" || config.game_type == "dom") {
@@ -94,36 +105,54 @@ class Game {
     }
     */
 
-    update(func: any, ClearScreen: boolean = true) {
-        /*
-        ClearScreen = typeof ClearScreen == 'boolean'? ClearScreen : true;
+    update(/*func: any, ClearScreen: boolean = true*/)
+    {
+        var all_scenes: Scene[] = [];
+
         var context = this.canvas.getContext('2d');
 
         const eventer = new Event();
 
+        for (let i = 0; i < this.scenes.length; i++) 
+        {
+            all_scenes.push(this.scenes[i])
+            
+        }
+
+        /*
+        console.log(this.scenes);
+        console.log(all_scenes);
+        */
+
+        all_scenes[this.current_scene].create(context);
+
+        
         const gameLoop = (timeStamp: any) => 
         {
 
             eventer.updateControllers();
 
             // Calculate the number of seconds passed since the last frame
-            this.deltaTime = (timeStamp - this.oldTimeStamp) / 1000;
+            var deltaTime = (timeStamp - this.oldTimeStamp) / 1000;
             this.oldTimeStamp = timeStamp;
         
             // Calculate fps
-            this.fps = Math.round(1 / this.deltaTime);
-        
-        
-            if (ClearScreen) 
-                context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-                
-            func(context);
-        
+            this.fps = Math.round(1 / deltaTime);
+            
+            ///////// Clear the screen if can, and draw the scene to the screen 
+            if (all_scenes[this.current_scene].ClearScreen)
+            {
+                this.clear();
+            }
+
+            all_scenes[this.current_scene].update(context, deltaTime);
+           
+            
             // Draw number to the screen
             if (this.fps_on) {
                 context.fillStyle = 'white';
-                context.fillRect(0, 0, 125, 42.5);
-                context.font = '22px Arial';
+                context.fillRect(0, 0, 105, 42.5);
+                context.font = '18px Arial';
                 context.fillStyle = 'black';
                 context.fillText("FPS: " + this.fps, 10, 30);
             }
@@ -133,15 +162,15 @@ class Game {
         }
 
         window.requestAnimationFrame(gameLoop);
-        */
+        
     }
 
-    /*
+    
     clear() {
         var context = this.canvas.getContext('2d');
         context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
-    */
+    
 
     showFPS(is_on: boolean) {
         this.fps_on = is_on;

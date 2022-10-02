@@ -1,4 +1,4 @@
-# **PlayLib**: A 2D game library made using HTML Canvas!
+# **Playkib**: A 2D game library made using HTML Canvas!
 ![npm](https://img.shields.io/npm/v/playlib?color=Green&label=Current%20package%20version&style=flat-square)
 
 ## Changelog:

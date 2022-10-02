@@ -8,12 +8,14 @@ class Text extends GameObject {
     text: string;
     declare position: Vector2;
     declare protected screenSize: Size;
+    
+    color = "#ffffff";
+    font = "20px Arial";
+    
     constructor(text: string, position: Vector2, screenSize: Size) {
         super(position, screenSize);
         this.text = text;
     }
-    color = "#ffffff";
-    font = "20px Arial";
     
     draw(ctx: any) {
         ctx.font = this.font

@@ -4,14 +4,10 @@
  * @since 0.6.0
 */
 class Scene {
-    canvas;
     ClearScreen;
-    constructor(canvas) {
-        this.canvas = canvas;
-    }
     create(ctx) {
     }
-    update(ctx) {
+    update(ctx, deltaTime) {
     }
 }
 export { Scene };

@@ -1,4 +1,4 @@
-### **Changelog for PlayLib**
+### **Changelog for Playlib**
 ----
 **v0.1.0** (Actually many of the stuff has been added separately, but i haven't any changelog before now, so here is all of stuff added before changelog): Size datatype for height and width; Vector2 datatype for x and y axis; Text class for making text, change its color, position and font; Rect class for making rectangles in any size and shape, has same abilities as Text class, unless the font variable; Info class for gathering current PlayLib version and print PlayLib logotype.
 
@@ -59,11 +59,16 @@ You did it before by writing true or false after giving context to draw the obje
 
 - By default is parameter true, so if you wish for those methods to *do* "clear screen", you can leave the parameter empty, but if you want the opposite, just set the parameter to false.
 
-
-
-<br>
 <br>
 
-Hope those updates make it easier for you to code and make games with PlayLib.
+After v0.5.3:
+  - Updated scene class
+  - Updated some stuff in Game class 
+  - Added finally functionality for scene class
+  - You can now "extend" (really implement, but that's not TypeScript...)
+   the scene class to your own to create scenes that can later be used to change order on which to render first.
+  - Fixed issue with scene not clearing the screen.
+  - Fixed all other stuff.
+  
 
-<span style="font-size: 50px">😃</span>
+
