@@ -1,0 +1,3 @@
+class Data {
+}
+export { Data };

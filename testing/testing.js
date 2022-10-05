@@ -1,6 +1,6 @@
 import { Playlib } from '../bin/playlib.js'
 
-const ScreenSize = new Playlib.Size(window.innerWidth - 30, window.innerHeight - 30);
+var ScreenSize = new Playlib.Size(window.innerWidth - 20, window.innerHeight - 20);
 
 
 var config = {
@@ -8,8 +8,6 @@ var config = {
     game_version: "1.5.5-dev",
     parent_element: "body",
     style: "border: 1px solid black; background-color: white;",
-    width: ScreenSize.width,
-    height: ScreenSize.height,
     useOwnCanvas: false
     //canvas: canvas,
 }
@@ -64,6 +62,10 @@ class SecondScene extends Playlib.Scene
 
     update(ctx)
     {
+        
+        ScreenSize = new Playlib.Size(window.innerWidth - 30, window.innerHeight - 30);
+        game.canvas.width = ScreenSize.width;
+        game.canvas.height= ScreenSize.height;
         this.square2.draw(ctx);
     }
 }    
@@ -71,6 +73,8 @@ class SecondScene extends Playlib.Scene
 
 
 var game = new Playlib.Game(config, [new MainScene(), new SecondScene()]);
+
+game.current_scene = 2
 
 game.showFPS(true);
 

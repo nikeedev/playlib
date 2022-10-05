@@ -42,14 +42,14 @@ class Game {
         this.game_name = config.game_name != null ? config.game_name : null;
         this.game_version = config.game_version != null ? config.game_version : null;
         this.style = config.style;
-        this.width = config.width;
-        this.height = config.height;
+        this.width = window.innerWidth - 30;
+        this.height = window.innerHeight - 30;
         this.useOwnCanvas = config.useOwnCanvas;
         document.title = this.game_name != null ? this.game_name : document.title;
         document.title += this.game_version != null ? (" - v"+this.game_version) : "";
         
         this.scenes = scenes;
-        this.current_scene = current_scene-1;
+        this.current_scene = current_scene;
 
 
         /*
@@ -107,6 +107,7 @@ class Game {
 
     update(/*func: any, ClearScreen: boolean = true*/)
     {
+        var currentScene = this.current_scene - 1;
         var all_scenes: Scene[] = [];
 
         var context = this.canvas.getContext('2d');
@@ -124,13 +125,15 @@ class Game {
         console.log(all_scenes);
         */
 
-        all_scenes[this.current_scene].create(context);
+        all_scenes[currentScene-1].create(context);
 
         
         const gameLoop = (timeStamp: any) => 
         {
-
-            eventer.updateControllers();
+            this.canvas.width = this.width;
+            this.canvas.height = this.height;
+            this.width = window.innerWidth - 30;
+            this.height = window.innerHeight - 30;
 
             // Calculate the number of seconds passed since the last frame
             var deltaTime = (timeStamp - this.oldTimeStamp) / 1000;
@@ -140,12 +143,12 @@ class Game {
             this.fps = Math.round(1 / deltaTime);
             
             ///////// Clear the screen if can, and draw the scene to the screen 
-            if (all_scenes[this.current_scene].ClearScreen)
+            if (all_scenes[currentScene].ClearScreen)
             {
                 this.clear();
             }
 
-            all_scenes[this.current_scene].update(context, deltaTime);
+            all_scenes[currentScene].update(context, deltaTime);
            
             
             // Draw number to the screen

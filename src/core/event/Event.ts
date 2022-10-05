@@ -7,13 +7,6 @@ class Event {
     static mouseBtnsPressed = {}
 
     static mousePos: Vector2 = new Vector2();
-    
-
-    /////// Controller
-    
-    controllers: any;
-    controller: any; 
-
 
     constructor() {
         window.addEventListener("keydown", e => {
@@ -42,11 +35,6 @@ class Event {
         return !!this.mouseBtnsPressed[btn];
     }
 
-    updateControllers()
-    {
-        this.controllers = navigator.getGamepads();
-        this.controller = this.controllers[0];
-    }
 
 }
 
