@@ -37,7 +37,10 @@ class MainScene extends Playlib.Scene
 
         this.square.color = "#545454"
     }
-
+    
+    create(ctx)
+    {}
+    
     update(ctx, deltaTime)
     {
         
