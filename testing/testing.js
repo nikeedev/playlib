@@ -1,3 +1,4 @@
+
 import { Playlib } from '../bin/playlib.js'
 
 var ScreenSize = new Playlib.Size(window.innerWidth - 20, window.innerHeight - 20);
@@ -5,78 +6,58 @@ var ScreenSize = new Playlib.Size(window.innerWidth - 20, window.innerHeight - 2
 
 var config = {
     game_name: "Testing",
-    game_version: "1.5.5-dev",
+    game_version: "1.0_test-dev",
     parent_element: "body",
     style: "border: 1px solid black; background-color: white;",
     useOwnCanvas: false
     //canvas: canvas,
 }
 
-class MainScene extends Playlib.Scene
+class MyScene extends Playlib.Scene
 {
-    square = new Playlib.Rect(new Playlib.Vector2(200, 200), new Playlib.Size(17, 50), ScreenSize);
-    square2 = new Playlib.Rect(new Playlib.Vector2(208.5, 200), new Playlib.Size(17, 50), ScreenSize);
+    square = new Playlib.Rect(new Playlib.Vector2(200, 200), new Playlib.Size(45, 50), ScreenSize);
+    speed = 200
     
     constructor(canvas, ClearScreen)
     {
         super(canvas, ClearScreen);
-        this.ClearScreen = true;
+        this.ClearScreen = false;
 
-        this.square.color = "#000000"
-        this.square2.color = "#00EE34"
+        this.square.color = "#545454"
     }
 
     create(ctx)
     {
+        console.log(this)
         this.square.draw(ctx);
-        this.square2.draw(ctx);
-        //game.current_scene = 2
+    }
+
     
-    }
-
-    update(ctx)
+    update(ctx, deltaTime)
     {
-        this.square.draw(ctx);
-        this.square2.draw(ctx);
-    }
-}    
 
-class SecondScene extends Playlib.Scene
-{
-    square2 = new Playlib.Rect(new Playlib.Vector2(200, 200), new Playlib.Size(17, 50), ScreenSize);
-    
-    constructor(canvas, ClearScreen)
-    {
-        super(canvas, ClearScreen);
-        this.ClearScreen = true;
+        if (Playlib.Input.KeyPressed(Playlib.Keys.Up))
+            this.square.position.y -= this.speed*deltaTime;
 
-        this.square2.color = "#545454"
-    }
-
-    create(ctx)
-    {
-         
-        this.square2.draw(ctx);
- 
-    }
-
-    update(ctx)
-    {
+        if (Playlib.Input.KeyPressed(Playlib.Keys.Down))
+            this.square.position.y += this.speed*deltaTime;
         
-        ScreenSize = new Playlib.Size(window.innerWidth - 30, window.innerHeight - 30);
-        game.canvas.width = ScreenSize.width;
-        game.canvas.height= ScreenSize.height;
-        this.square2.draw(ctx);
+        if (Playlib.Input.KeyPressed(Playlib.Keys.Left))
+            this.square.position.x -= this.speed*deltaTime;
+        
+        if (Playlib.Input.KeyPressed(Playlib.Keys.Right))
+            this.square.position.x += this.speed*deltaTime;
+    
+        this.square.draw(ctx);
     }
+    
 }    
 
 
 
-var game = new Playlib.Game(config, [new MainScene(), new SecondScene()]);
+var game = new Playlib.Game(config, [new MyScene()]);
 
-game.current_scene = 2
 
-game.showFPS(true);
-
+game.showFPS(false);
 game.update();
 

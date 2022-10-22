@@ -1,19 +1,19 @@
 import { Vector2 } from '../../math/Vector2.js';
-class Event {
+class Input {
     static keysPressed = {};
     static mouseBtnsPressed = {};
     static mousePos = new Vector2();
     constructor() {
         window.addEventListener("keydown", e => {
-            Event.keysPressed[e.keyCode] = true;
+            Input.keysPressed[e.keyCode] = true;
         });
         window.addEventListener("keyup", e => {
-            Event.keysPressed[e.keyCode] = false;
+            Input.keysPressed[e.keyCode] = false;
         });
         window.addEventListener("pointermove", e => {
-            Event.mouseBtnPressed[e.button] = true;
-            Event.mousePos.x = e.x;
-            Event.mousePos.y = e.y;
+            Input.mouseBtnPressed[e.button] = true;
+            Input.mousePos.x = e.x;
+            Input.mousePos.y = e.y;
         });
     }
     static KeyPressed(key) {
@@ -23,4 +23,4 @@ class Event {
         return !!this.mouseBtnsPressed[btn];
     }
 }
-export { Event };
+export { Input };

@@ -1,4 +1,4 @@
-export const version = "0.5.3";
+export const version = "0.6.0";
 export function about() {
     console.log("%c/@-----------------------------------@\\" + "\n" +
         "|            Playlib v" + version + "           |\n" +

@@ -1,8 +1,7 @@
 import { Logging } from '../utils/Logging.js';
 import { run } from '../utils/funcs.js';
-import { Event } from './event/Event.js'
 import { Scene } from './scene/Scene.js';
-
+import { math } from '../math/Funcs.js'
 /**
  * @description Creates new game
  * @since 0.4.0
@@ -11,34 +10,33 @@ import { Scene } from './scene/Scene.js';
 
 
 class Game {
-    private game_name: string  | undefined;
+    private game_name: string | undefined;
     private game_version: string | undefined;
     private parent_element: string | undefined;
     private style: string;
     width: number;
     height: number;
     private useOwnCanvas: boolean;
-    
+
     canvas: any | undefined;
-    
+
 
     /*
     private ClearScreen: boolean | undefined;
     */
-    
+
     private oldTimeStamp: number;
     private fps: number;
     private fps_on: boolean = false;
-    
+
     /*
     private game_type: string;
     */
-    
+
     scenes: any;
     current_scene: number = 0;
 
-    constructor(config: any, scenes: any, current_scene: number = 1)
-    {
+    constructor(config: any, scenes: Scene[], current_scene: number = 1) {
         this.game_name = config.game_name != null ? config.game_name : null;
         this.game_version = config.game_version != null ? config.game_version : null;
         this.style = config.style;
@@ -46,10 +44,10 @@ class Game {
         this.height = window.innerHeight - 30;
         this.useOwnCanvas = config.useOwnCanvas;
         document.title = this.game_name != null ? this.game_name : document.title;
-        document.title += this.game_version != null ? (" - v"+this.game_version) : "";
-        
+        document.title += this.game_version != null ? (" - v" + this.game_version) : "";
+
         this.scenes = scenes;
-        this.current_scene = current_scene;
+        this.current_scene = current_scene - 1;
 
 
         /*
@@ -76,7 +74,7 @@ class Game {
             this.canvas.height = this.height;
             document.querySelector(this.parent_element).append(this.canvas);
         }
-        
+
         /*
 
         let powered_by_playlib = document.createElement("span")
@@ -94,63 +92,60 @@ class Game {
         */
     }
 
-    /*
-    create(func: any, ClearScreen: boolean = true) {
-        ClearScreen = typeof ClearScreen == 'boolean'? ClearScreen : true;
-        var context = this.canvas.getContext('2d');
-        if (ClearScreen) 
-            context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        func(context);
 
-    }
-    */
-
-    update(/*func: any, ClearScreen: boolean = true*/)
-    {
-        var currentScene = this.current_scene - 1;
-        var all_scenes: Scene[] = [];
-
-        var context = this.canvas.getContext('2d');
-
-        const eventer = new Event();
-
-        for (let i = 0; i < this.scenes.length; i++) 
-        {
-            all_scenes.push(this.scenes[i])
-            
-        }
+    update() {
+        var context: CanvasRenderingContext2D = this.canvas.getContext('2d');
 
         /*
         console.log(this.scenes);
         console.log(all_scenes);
         */
 
-        all_scenes[currentScene-1].create(context);
-
+        if (this.scenes[this.current_scene] === undefined) {
+            console.log("%cScene was not found or was not valid; Resetting to last available scene", "font-size: 20px; color: rgb(220, 10, 10)")
+            this.current_scene--;
+        }
+        let currentScene: Scene = this.scenes[this.current_scene];
         
-        const gameLoop = (timeStamp: any) => 
-        {
+        console.log(currentScene)
+        
+        
+        console.log(currentScene.create)
+        currentScene.create(context);
+        
+        console.log(currentScene.ClearScreen)
+        console.log(currentScene.update)
+        
+        var FPSDeltaTime: number;
+        var MoveDeltaTime: number;
+
+        const gameLoop = (timeStamp: any) => {
+            this.width = window.innerWidth - 21.5;
+            this.height = window.innerHeight - 21.5;
             this.canvas.width = this.width;
             this.canvas.height = this.height;
-            this.width = window.innerWidth - 30;
-            this.height = window.innerHeight - 30;
 
+            
             // Calculate the number of seconds passed since the last frame
-            var deltaTime = (timeStamp - this.oldTimeStamp) / 1000;
+            FPSDeltaTime = 1000 / (timeStamp - this.oldTimeStamp);
+            MoveDeltaTime = (timeStamp - this.oldTimeStamp) / 1000;
             this.oldTimeStamp = timeStamp;
-        
-            // Calculate fps
-            this.fps = Math.round(1 / deltaTime);
-            
-            ///////// Clear the screen if can, and draw the scene to the screen 
-            if (all_scenes[currentScene].ClearScreen)
-            {
-                this.clear();
-            }
 
-            all_scenes[currentScene].update(context, deltaTime);
-           
+            // Calculate fps
+            this.fps = math.floor(FPSDeltaTime);
             
+            
+            
+            if (currentScene.ClearScreen) {
+                console.log("Cleared the screen");
+
+                context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            }
+            
+            
+            currentScene.update(context, 60/1000);
+
+
             // Draw number to the screen
             if (this.fps_on) {
                 context.fillStyle = 'white';
@@ -159,21 +154,21 @@ class Game {
                 context.fillStyle = 'black';
                 context.fillText("FPS: " + this.fps, 10, 30);
             }
-        
+
             // The loop function has reached it's end. Keep requesting new frames
             window.requestAnimationFrame(gameLoop);
         }
 
         window.requestAnimationFrame(gameLoop);
-        
+
     }
 
-    
+
     clear() {
-        var context = this.canvas.getContext('2d');
+        var context: CanvasRenderingContext2D = this.canvas.getContext('2d');
         context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
-    
+
 
     showFPS(is_on: boolean) {
         this.fps_on = is_on;

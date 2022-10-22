@@ -1,5 +1,3 @@
-import { Event } from '../event/Event.js'
-
 
 
 /**
@@ -10,7 +8,7 @@ import { Event } from '../event/Event.js'
 
 class Scene
 {
-    ClearScreen: boolean | undefined;
+    ClearScreen: boolean = false;
     
     create(ctx: any)
     {

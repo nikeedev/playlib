@@ -4,7 +4,7 @@
  * @since 0.6.0
 */
 declare class Scene {
-    ClearScreen: boolean | undefined;
+    ClearScreen: boolean;
     create(ctx: any): void;
     update(ctx: any, deltaTime: number): void;
 }

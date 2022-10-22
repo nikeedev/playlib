@@ -2,7 +2,7 @@ import { Keys } from './Keys.js'
 import { Vector2 } from '../../math/Vector2.js'
 
 
-class Event {
+class Input {
     static keysPressed = {}
     static mouseBtnsPressed = {}
 
@@ -10,18 +10,18 @@ class Event {
 
     constructor() {
         window.addEventListener("keydown", e => {
-            Event.keysPressed[e.keyCode] = true;
+            Input.keysPressed[e.keyCode] = true;
         })
 
         window.addEventListener("keyup", e => {
-            Event.keysPressed[e.keyCode] = false;
+            Input.keysPressed[e.keyCode] = false;
         })
 
         window.addEventListener("pointermove", e => {
-            Event.mouseBtnPressed[e.button] = true;
+            Input.mouseBtnPressed[e.button] = true;
 
-            Event.mousePos.x = e.x;
-            Event.mousePos.y = e.y;
+            Input.mousePos.x = e.x;
+            Input.mousePos.y = e.y;
         })
 
         
@@ -38,4 +38,4 @@ class Event {
 
 }
 
-export { Event };
+export { Input };

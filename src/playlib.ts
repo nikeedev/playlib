@@ -8,10 +8,12 @@ import {
     Sprite,
     version,
     about,
-    Event,
+    Input,
     Rect,
     Text,
     GameObject,
+    Data,
+    math,
 } from "./index.js";
 
 /**
@@ -23,14 +25,16 @@ const Playlib = {
     Vector2: Vector2,
     Size: Size,
     Game: Game,
-    Event: Event,
+    Input: Input,
     Keys: Keys,
     Scene: Scene,
     Sound: Sound,
     Sprite: Sprite,
     Rect: Rect,
     Text: Text,
-    GameObject: GameObject
+    GameObject: GameObject,
+    Data: Data,
+    math: math,
 };
 
 export { Playlib };

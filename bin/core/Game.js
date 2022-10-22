@@ -1,4 +1,4 @@
-import { Event } from './event/Event.js';
+import { math } from '../math/Funcs.js';
 /**
  * @description Creates new game
  * @since 0.4.0
@@ -33,7 +33,7 @@ class Game {
         document.title = this.game_name != null ? this.game_name : document.title;
         document.title += this.game_version != null ? (" - v" + this.game_version) : "";
         this.scenes = scenes;
-        this.current_scene = current_scene;
+        this.current_scene = current_scene - 1;
         /*
         if (config.game_type == "canvas" || config.game_type == "dom") {
             this.game_type = config.game_type;
@@ -74,44 +74,40 @@ class Game {
         
         */
     }
-    /*
-    create(func: any, ClearScreen: boolean = true) {
-        ClearScreen = typeof ClearScreen == 'boolean'? ClearScreen : true;
+    update() {
         var context = this.canvas.getContext('2d');
-        if (ClearScreen)
-            context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        func(context);
-
-    }
-    */
-    update( /*func: any, ClearScreen: boolean = true*/) {
-        var currentScene = this.current_scene - 1;
-        var all_scenes = [];
-        var context = this.canvas.getContext('2d');
-        const eventer = new Event();
-        for (let i = 0; i < this.scenes.length; i++) {
-            all_scenes.push(this.scenes[i]);
-        }
         /*
         console.log(this.scenes);
         console.log(all_scenes);
         */
-        all_scenes[currentScene - 1].create(context);
+        if (this.scenes[this.current_scene] === undefined) {
+            console.log("%cScene was not found or was not valid; Resetting to last available scene", "font-size: 20px; color: rgb(220, 10, 10)");
+            this.current_scene--;
+        }
+        let currentScene = this.scenes[this.current_scene];
+        console.log(currentScene);
+        console.log(currentScene.create);
+        currentScene.create(context);
+        console.log(currentScene.ClearScreen);
+        console.log(currentScene.update);
+        var FPSDeltaTime;
+        var MoveDeltaTime;
         const gameLoop = (timeStamp) => {
+            this.width = window.innerWidth - 21.5;
+            this.height = window.innerHeight - 21.5;
             this.canvas.width = this.width;
             this.canvas.height = this.height;
-            this.width = window.innerWidth - 30;
-            this.height = window.innerHeight - 30;
             // Calculate the number of seconds passed since the last frame
-            var deltaTime = (timeStamp - this.oldTimeStamp) / 1000;
+            FPSDeltaTime = 1000 / (timeStamp - this.oldTimeStamp);
+            MoveDeltaTime = (timeStamp - this.oldTimeStamp) / 1000;
             this.oldTimeStamp = timeStamp;
             // Calculate fps
-            this.fps = Math.round(1 / deltaTime);
-            ///////// Clear the screen if can, and draw the scene to the screen 
-            if (all_scenes[currentScene].ClearScreen) {
-                this.clear();
+            this.fps = math.floor(FPSDeltaTime);
+            if (currentScene.ClearScreen) {
+                console.log("Cleared the screen");
+                context.clearRect(0, 0, this.canvas.width, this.canvas.height);
             }
-            all_scenes[currentScene].update(context, deltaTime);
+            currentScene.update(context, 60 / 1000);
             // Draw number to the screen
             if (this.fps_on) {
                 context.fillStyle = 'white';

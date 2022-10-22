@@ -4,7 +4,7 @@
  * @since 0.6.0
 */
 class Scene {
-    ClearScreen;
+    ClearScreen = false;
     create(ctx) {
     }
     update(ctx, deltaTime) {
