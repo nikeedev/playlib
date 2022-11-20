@@ -74,7 +74,7 @@ class Game {
         
         */
     }
-    update() {
+    start() {
         var context = this.canvas.getContext('2d');
         /*
         console.log(this.scenes);
@@ -103,13 +103,10 @@ class Game {
             this.oldTimeStamp = timeStamp;
             // Calculate fps
             this.fps = math.floor(FPSDeltaTime);
-            /*
             if (currentScene.ClearScreen) {
                 console.log("Cleared the screen");
-
-                context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                this.clear();
             }
-            */
             currentScene.update(context, MoveDeltaTime);
             // Draw number to the screen
             if (this.fps_on) {
@@ -124,11 +121,10 @@ class Game {
         };
         window.requestAnimationFrame(gameLoop);
     }
-    /*
     clear() {
-        var context: CanvasRenderingContext2D = this.canvas.getContext('2d');
+        var context = this.canvas.getContext('2d');
         context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    }*/
+    }
     showFPS(is_on) {
         this.fps_on = is_on;
     }

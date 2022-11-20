@@ -93,7 +93,7 @@ class Game {
     }
 
 
-    update() {
+    start() {
         var context: CanvasRenderingContext2D = this.canvas.getContext('2d');
 
         /*
@@ -106,16 +106,16 @@ class Game {
             this.current_scene--;
         }
         let currentScene: Scene = this.scenes[this.current_scene];
-        
+
         console.log(currentScene)
-        
-        
+
+
         console.log(currentScene.create)
         currentScene.create(context);
-        
+
         // console.log(currentScene.ClearScreen)
         console.log(currentScene.update)
-        
+
         var FPSDeltaTime: number;
         var MoveDeltaTime: number;
 
@@ -125,7 +125,7 @@ class Game {
             this.canvas.width = this.width;
             this.canvas.height = this.height;
 
-            
+
             // Calculate the number of seconds passed since the last frame
             FPSDeltaTime = 1000 / (timeStamp - this.oldTimeStamp);
             MoveDeltaTime = (timeStamp - this.oldTimeStamp) / 1000;
@@ -133,16 +133,16 @@ class Game {
 
             // Calculate fps
             this.fps = math.floor(FPSDeltaTime);
+
+
             
-            
-            /*
             if (currentScene.ClearScreen) {
                 console.log("Cleared the screen");
 
-                context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                this.clear();
             }
-            */
             
+
             currentScene.update(context, MoveDeltaTime);
 
 
@@ -163,11 +163,11 @@ class Game {
 
     }
 
-    /*
+    
     clear() {
         var context: CanvasRenderingContext2D = this.canvas.getContext('2d');
         context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    }*/
+    }
 
 
     showFPS(is_on: boolean) {
