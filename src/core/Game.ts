@@ -113,7 +113,7 @@ class Game {
         console.log(currentScene.create)
         currentScene.create(context);
         
-        console.log(currentScene.ClearScreen)
+        // console.log(currentScene.ClearScreen)
         console.log(currentScene.update)
         
         var FPSDeltaTime: number;
@@ -135,15 +135,15 @@ class Game {
             this.fps = math.floor(FPSDeltaTime);
             
             
-            
+            /*
             if (currentScene.ClearScreen) {
                 console.log("Cleared the screen");
 
                 context.clearRect(0, 0, this.canvas.width, this.canvas.height);
             }
+            */
             
-            
-            currentScene.update(context, 60/1000);
+            currentScene.update(context, MoveDeltaTime);
 
 
             // Draw number to the screen
@@ -163,11 +163,11 @@ class Game {
 
     }
 
-
+    /*
     clear() {
         var context: CanvasRenderingContext2D = this.canvas.getContext('2d');
         context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    }
+    }*/
 
 
     showFPS(is_on: boolean) {

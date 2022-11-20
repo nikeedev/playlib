@@ -19,7 +19,6 @@ declare class Game {
     current_scene: number;
     constructor(config: any, scenes: Scene[], current_scene?: number);
     update(): void;
-    clear(): void;
     showFPS(is_on: boolean): void;
 }
 export { Game };

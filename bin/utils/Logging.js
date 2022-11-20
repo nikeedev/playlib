@@ -4,7 +4,7 @@ const Logging = {
         console.log("%c" + text, this.style);
     },
     warn: function (text) {
-        console.warn("%c" + text, this.style);
+        console.warn("%cWARNING: " + text, "color: yellow;" + this.style);
     },
     error: function (text) {
         console.error("%c" + text, this.style);
