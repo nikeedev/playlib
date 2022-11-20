@@ -14,6 +14,9 @@ var config = {
 }
 
 class MyScene extends Playlib.Scene {
+    colors = ["#FFFFFF", "#C0C0C0", "#FF00FF", "#808080", "#000000", "#FF0000", "#800000", "#FFFF00", "#808000", "#00FF00", "#008000", "#00FFFF"];
+    colorcount = 0;
+
     square = new Playlib.Rect(new Playlib.Vector2(200, 200), new Playlib.Size(45, 50), ScreenSize);
     speed = 200
 
@@ -31,6 +34,10 @@ class MyScene extends Playlib.Scene {
 
 
     update(ctx, deltaTime) {
+        this.square.color = this.colors[this.colorcount];
+        this.colorcount++;
+
+        if (this.colorcount > this.colors.length + 2) this.colorcount = 0;
 
         if (Playlib.Input.KeyPressed(Playlib.Keys.Up))
             this.square.position.y -= this.speed * deltaTime;

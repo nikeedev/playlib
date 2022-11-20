@@ -93,10 +93,12 @@ class Game {
         var FPSDeltaTime;
         var MoveDeltaTime;
         const gameLoop = (timeStamp) => {
-            this.width = window.innerWidth - 21.5;
-            this.height = window.innerHeight - 21.5;
-            this.canvas.width = this.width;
-            this.canvas.height = this.height;
+            window.addEventListener("resize", () => {
+                this.width = window.innerWidth - 21.5;
+                this.height = window.innerHeight - 21.5;
+                this.canvas.width = this.width;
+                this.canvas.height = this.height;
+            });
             // Calculate the number of seconds passed since the last frame
             FPSDeltaTime = 1000 / (timeStamp - this.oldTimeStamp);
             MoveDeltaTime = (timeStamp - this.oldTimeStamp) / 1000;
