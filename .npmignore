@@ -4,9 +4,7 @@ assets/
 main.js
 examples/
 /node_modules
-src/Playlib.ts
-src
-src/**/**/**
 tsconfig.json
 bin/
 package-lock.json
+testing/
