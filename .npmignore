@@ -4,7 +4,6 @@ assets/
 main.js
 examples/
 /node_modules
-tsconfig.json
 bin/
 package-lock.json
 testing/
