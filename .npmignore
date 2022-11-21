@@ -9,3 +9,4 @@ src
 src/**/**/**
 tsconfig.json
 bin/
+package-lock.json

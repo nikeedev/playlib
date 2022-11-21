@@ -1,13 +1,17 @@
-# **Playkib**: A 2D game library made using HTML Canvas!
-![npm](https://img.shields.io/npm/v/playlib?color=Green&label=Current%20package%20version&style=flat-square)
+# **Playlib**: A 2D game framework made using HTML Canvas!
+
+![npm](https://img.shields.io/npm/v/playlib?color=blue&label=Current%20package%20version&style=flat-square)
 
 ## Changelog:
 
-Changelog for this new update 0.5.0 lies in separate .md file, where you can see all changes that happened, here is it: [Changelog_for_v0.5.0.md](Changelog_for_v0.5.0.md)
+
+The new changelog lies in [school.log](school.log) file due to that i'm working on playlib as a schoo project for now. Will be later adding updated in changelog.md file
+
+Changelog for previous biggest update 0.5.0 lies in separate .md file, where you can see all changes that happened, here is it: [Changelog_for_v0.5.0.md](Changelog_for_v0.5.0.md)
 
 <br>
 
-If you want to see changelog for versions released before 0.5.0, it should lie in the changelog.md file, which is this: [Changelog.md](Changelog.md)
+If you want to see changelog for versions released before 0.5.0, it should lie in the changelog.md file, which is this: [changelog.md](changelog.md)
 
 <br>
 
