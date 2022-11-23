@@ -74,7 +74,7 @@ class Game {
         
         */
     }
-    start() {
+    run() {
         var context = this.canvas.getContext('2d');
         /*
         console.log(this.scenes);

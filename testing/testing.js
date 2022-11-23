@@ -62,5 +62,5 @@ var game = new Playlib.Game(config, [new MyScene()]);
 
 
 //game.showFPS(false);
-game.start();
+game.run();
 

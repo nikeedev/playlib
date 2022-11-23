@@ -18,7 +18,7 @@ declare class Game {
     scenes: any;
     current_scene: number;
     constructor(config: any, scenes: Scene[], current_scene?: number);
-    start(): void;
+    run(): void;
     clear(): void;
     showFPS(is_on: boolean): void;
 }

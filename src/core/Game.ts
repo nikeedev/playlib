@@ -93,7 +93,7 @@ class Game {
     }
 
 
-    start() {
+    run() {
         var context: CanvasRenderingContext2D = this.canvas.getContext('2d');
 
         /*
