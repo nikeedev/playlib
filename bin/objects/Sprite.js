@@ -11,11 +11,11 @@ class Sprite extends GameObject {
     imageSize;
     image;
     style;
-    constructor(imageSrc, position, screenSize, imageSize = null) {
+    constructor(imageSrc, position, screenSize, imageSize) {
         super(position, screenSize);
         this.imageSrc = imageSrc;
-        this.imageSize.width = typeof this.imageSize == null ? this.image.naturalWidth : this.imageSize.width;
-        this.imageSize.height = typeof this.imageSize == null ? this.image.naturalHeight : this.imageSize.height;
+        this.imageSize.width = typeof this.imageSize == undefined ? this.image.naturalWidth : this.imageSize.width;
+        this.imageSize.height = typeof this.imageSize == undefined ? this.image.naturalHeight : this.imageSize.height;
         loadImage(imageSrc).then(img => this.image = img);
     }
     async init() {
@@ -26,7 +26,7 @@ class Sprite extends GameObject {
     draw(ctx) {
         this.image.style.image_rendering = "pixelated";
         this.image.style += this.style;
-        ctx.drawImage(this.image, this.position.x, this.position.y, this.imageSize.height);
+        ctx.drawImage(this.image, this.position.x, this.position.y, this.imageSize.width, this.imageSize.height);
     }
 }
 export { Sprite };

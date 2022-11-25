@@ -10,6 +10,6 @@ declare class Sprite extends GameObject {
     style: string;
     constructor(imageSrc: string, position: Vector2, screenSize: Size, imageSize?: Size);
     init(): Promise<unknown>;
-    draw(ctx: any): void;
+    draw(ctx: CanvasRenderingContext2D): void;
 }
 export { Sprite };
