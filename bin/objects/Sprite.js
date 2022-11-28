@@ -1,3 +1,4 @@
+import { Size } from '../math/Size';
 import { GameObject } from './GameObject.js';
 function loadImage(url) {
     return new Promise((resolve) => {
@@ -11,11 +12,11 @@ class Sprite extends GameObject {
     imageSize;
     image;
     style;
-    constructor(imageSrc, position, screenSize, imageSize) {
+    constructor(imageSrc, position, screenSize, imageSize = new Size()) {
         super(position, screenSize);
         this.imageSrc = imageSrc;
-        this.imageSize.width = typeof this.imageSize == undefined ? this.image.naturalWidth : this.imageSize.width;
-        this.imageSize.height = typeof this.imageSize == undefined ? this.image.naturalHeight : this.imageSize.height;
+        this.imageSize.width = this.imageSize.width == 0 ? this.image.naturalWidth : this.imageSize.width;
+        this.imageSize.height = this.imageSize.height == 0 ? this.image.naturalHeight : this.imageSize.height;
         loadImage(imageSrc).then(img => this.image = img);
     }
     async init() {

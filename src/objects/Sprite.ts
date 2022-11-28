@@ -19,11 +19,12 @@ class Sprite extends GameObject {
     protected image: any;
     style: string;
     
-    constructor(imageSrc: string, position: Vector2, screenSize: Size, imageSize?: Size) {
+    constructor(imageSrc: string, position: Vector2, screenSize: Size, imageSize: Size = new Size()) {
         super(position, screenSize);
         this.imageSrc = imageSrc;
-        this.imageSize.width = typeof this.imageSize == undefined ? this.image.naturalWidth : this.imageSize.width
-        this.imageSize.height = typeof this.imageSize == undefined ? this.image.naturalHeight : this. imageSize.height
+        this.imageSize.width = this.imageSize.width == 0 ? this.image.naturalWidth : this.imageSize.width
+        this.imageSize.height = this.imageSize.height == 0 ? this.image.naturalHeight : this.imageSize.height
+        
         loadImage(imageSrc).then(img => this.image = img);
     }
     async init()

@@ -1,4 +1,4 @@
-export const version = "0.6.1";
+export const version = "0.6.10";
 
 export function about() 
 {

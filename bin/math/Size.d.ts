@@ -5,6 +5,6 @@
 declare class Size {
     width: number;
     height: number;
-    constructor(width: number | undefined, height: number | undefined);
+    constructor(width?: number, height?: number);
 }
 export { Size };

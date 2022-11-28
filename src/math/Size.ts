@@ -7,9 +7,9 @@
 class Size {
 	width: number;
 	height: number;
-	constructor(width: number | undefined, height: number | undefined) {
-		this.width = (width === undefined) ? 0 : width;
-		this.height = (height === undefined) ? 0 : height;
+	constructor(width: number = 0, height: number = 0) {
+		this.width = width;
+		this.height = height;
 	}
 }
 
