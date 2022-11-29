@@ -1,4 +1,4 @@
-import { Size } from '../math/Size';
+import { Size } from '../math/Size.js';
 import { Vector2 } from '../math/Vector2.js';
 declare class GameObject {
     position: Vector2;
