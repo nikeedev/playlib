@@ -69,6 +69,8 @@ After v0.5.3:
    the scene class to your own to create scenes that can later be used to change order on which to render first.
   - Fixed issue with scene not clearing the screen.
   - Fixed all other stuff.
+  - Fixed issue with canvas being cleared because of resizing. Now fixed
+    
   
 
 
