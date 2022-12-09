@@ -48,6 +48,7 @@ You need probably to write a bit more with the new way, but at least all classes
 <br>
 
 **0.5.3 (06.07.2022)**: Updated `update()` and `create()` methods from Game class. Now you can access 2D context from canvas by calling `update()` or `create()` method and when creating new function inside the method add name of context (any name, i like to use ctx :), so the called method will look something like this:
+
 ```ts
 game.update((ctx) => {
     square_object.draw(ctx);
@@ -62,11 +63,11 @@ You did it before by writing true or false after giving context to draw the obje
 <br>
 
 After v0.5.3:
-  - Updated scene class
-  - Updated some stuff in Game class 
+  - Updated and added Scene class
+  - Updated massively Game class 
   - Added finally functionality for scene class
   - You can now "extend" (really implement, but that's not TypeScript...)
-   the scene class to your own to create scenes that can later be used to change order on which to render first.
+    the scene class to your own to create scenes that can later be used to change order on which to render first.
   - Fixed issue with scene not clearing the screen.
   - Fixed all other stuff.
   - Fixed issue with canvas being cleared because of resizing. Now fixed
