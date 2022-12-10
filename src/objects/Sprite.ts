@@ -1,4 +1,4 @@
-import { Size } from '../math/Size';
+import { Size } from '../math/Size.js';
 import { Vector2 } from '../math/Vector2.js';
 import { GameObject } from './GameObject.js';
 
@@ -19,13 +19,16 @@ class Sprite extends GameObject {
     protected image: any;
     style: string;
     
-    constructor(imageSrc: string, position: Vector2, screenSize: Size, imageSize: Size = new Size()) {
+    constructor(imageSrc: string, position: Vector2, screenSize: Size, imageSize: Size = new Size(0, 0)) {
         super(position, screenSize);
         this.imageSrc = imageSrc;
-        this.imageSize.width = this.imageSize.width == 0 ? this.image.naturalWidth : this.imageSize.width
-        this.imageSize.height = this.imageSize.height == 0 ? this.image.naturalHeight : this.imageSize.height
+
+        this.init();
+
+        this.imageSize.width = (typeof imageSize === undefined) ? this.image.naturalWidth : imageSize.width;
+        this.imageSize.height = (typeof imageSize === undefined) ? this.image.naturalHeight : imageSize.height;
         
-        loadImage(imageSrc).then(img => this.image = img);
+        
     }
     async init()
     {

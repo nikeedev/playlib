@@ -13,6 +13,7 @@ var config = {
     //canvas: canvas,
 }
 
+/*
 class MyScene extends Playlib.Scene {
     colors = ["#FFFFFF", "#C0C0C0", "#FF00FF", "#808080", "#000000", "#FF0000", "#800000", "#FFFF00", "#808000", "#00FF00", "#008000", "#00FFFF"];
     colorcount = 0;
@@ -56,9 +57,55 @@ class MyScene extends Playlib.Scene {
 
 }
 
+*/
 
 
-var game = new Playlib.Game(config, [new MyScene()]);
+
+class TestScene extends Playlib.Scene
+{
+    square = new Playlib.Sprite("../assets/Black_Square.png", new Playlib.Vector2(200, 200), ScreenSize);
+    speed = 200
+
+    constructor(canvas, ClearScreen) {
+        super(canvas, ClearScreen);
+        //this.ClearScreen = true;
+
+        
+    }
+
+    async create(ctx) {
+        await this.square.init();
+
+        console.log(this)
+        this.square.draw(ctx);
+    }
+
+
+    update(ctx, deltaTime) {
+        this.square.color = this.colors[this.colorcount];
+        this.colorcount++;
+
+        if (this.colorcount > this.colors.length + 2) this.colorcount = 0;
+
+        if (Playlib.Input.KeyPressed(Playlib.Keys.Up))
+            this.square.position.y -= this.speed * deltaTime;
+
+        if (Playlib.Input.KeyPressed(Playlib.Keys.Down))
+            this.square.position.y += this.speed * deltaTime;
+
+        if (Playlib.Input.KeyPressed(Playlib.Keys.Left))
+            this.square.position.x -= this.speed * deltaTime;
+
+        if (Playlib.Input.KeyPressed(Playlib.Keys.Right))
+            this.square.position.x += this.speed * deltaTime;
+
+        this.square.draw(ctx);
+    }
+
+}
+
+
+var game = new Playlib.Game(config, [new TestScene()]);
 
 
 //game.showFPS(false);

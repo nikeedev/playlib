@@ -5,11 +5,11 @@
 
 
 class Size {
-	width: number;
-	height: number;
-	constructor(width: number = 0, height: number = 0) {
-		this.width = width;
-		this.height = height;
+	width: number = 0;
+	height: number = 0;
+	constructor(width?: number, height?: number) {
+		this.width = typeof width !== 'number' ? 0 : width;
+		this.height = typeof height !== 'number' ? 0 : height;
 	}
 }
 

@@ -1,5 +1,3 @@
-import { Size } from '../math/Size.js';
-import { Vector2 } from '../math/Vector2.js';
 class GameObject {
     position;
     screenSize;

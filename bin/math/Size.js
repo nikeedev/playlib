@@ -3,11 +3,11 @@
  *
 */
 class Size {
-    width;
-    height;
-    constructor(width = 0, height = 0) {
-        this.width = width;
-        this.height = height;
+    width = 0;
+    height = 0;
+    constructor(width, height) {
+        this.width = typeof width !== 'number' ? 0 : width;
+        this.height = typeof height !== 'number' ? 0 : height;
     }
 }
 export { Size };
