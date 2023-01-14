@@ -1,12 +1,11 @@
-import { Size } from '../math/Size.js';
 import { Vector2 } from '../math/Vector2.js';
 
 
 class GameObject {
     position: Vector2;
-    protected screenSize: Size;
+    protected screenSize: Vector2;
     
-    constructor(position: Vector2, screenSize: Size) {
+    constructor(position: Vector2, screenSize: Vector2) {
         this.position = position; 
         this.screenSize = screenSize;
     }

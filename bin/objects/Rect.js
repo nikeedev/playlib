@@ -8,7 +8,7 @@ class Rect extends GameObject {
     }
     draw(ctx) {
         ctx.fillStyle = this.color;
-        ctx.fillRect(this.position.x, this.position.y, this.size.width, this.size.height);
+        ctx.fillRect(this.position.x, this.position.y, this.size.x, this.size.y);
     }
 }
 export { Rect };

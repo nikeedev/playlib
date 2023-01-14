@@ -28,7 +28,7 @@ class MainScene extends Playlib.Scene
 
     ActivateDown = false
     
-    square = new Playlib.Rect(new Playlib.Vector2(1, 1), new Playlib.Size(20, 20), ScreenSize);
+    square = new Playlib.Rect(new Playlib.Vector2(1, 1), new Playlib.Vector2(20, 20), ScreenSize);
 
     constructor(canvas, ClearScreen)
     {
@@ -51,14 +51,14 @@ class MainScene extends Playlib.Scene
 
         if (this.colorcount > this.colors.length) this.colorcount = 0;
         
-        if (this.square.position.y >= ScreenSize.height && this.ActivateDown) {
+        if (this.square.position.y >= ScreenSize.x && this.ActivateDown) {
             this.square.position = new Playlib.Vector2(1, 1);
             this.ActivateDown = false;
-            ctx.clearRect(0, 0, ScreenSize.width, ScreenSize.height);
+            ctx.clearRect(0, 0, ScreenSize.x, ScreenSize.y);
         } 
         else if (this.square.position.y >= ScreenSize.height) {
             this.ActivateDown = true;
-            this.square.position = new Playlib.Vector2(ScreenSize.width, 0);
+            this.square.position = new Playlib.Vector2(ScreenSize.x, 0);
         }
         else if (this.ActivateDown) {
             this.square.position.y += 10;

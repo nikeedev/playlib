@@ -1,4 +1,4 @@
-import { Game, Keys, Vector2, Size, Scene, Sound, Sprite, about, Input, Rect, Text, GameObject } from "./index.js";
+import { Game, Keys, Vector2, Scene, Sound, Sprite, about, Input, Rect, Text, GameObject } from "./index.js";
 /**
  * Playlib
  */
@@ -6,7 +6,6 @@ declare const Playlib: {
     about: typeof about;
     version: string;
     Vector2: typeof Vector2;
-    Size: typeof Size;
     Game: typeof Game;
     Input: typeof Input;
     Keys: typeof Keys;

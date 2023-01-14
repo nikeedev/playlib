@@ -1,7 +1,6 @@
-
 import { Playlib } from '../bin/playlib.js'
 
-var ScreenSize = new Playlib.Size(window.innerWidth - 20, window.innerHeight - 20);
+var ScreenSize = new Playlib.Vector2(window.innerWidth - 20, window.innerHeight - 20);
 
 
 var config = {
@@ -63,7 +62,7 @@ class MyScene extends Playlib.Scene {
 
 class TestScene extends Playlib.Scene
 {
-    square = new Playlib.Sprite("../assets/Black_Square.png", new Playlib.Vector2(200, 200), ScreenSize);
+    square = new Playlib.Sprite("../assets/Black_Circle.png", new Playlib.Vector2(200, 200), ScreenSize);
     speed = 200
 
     constructor(canvas, ClearScreen) {
@@ -95,7 +94,7 @@ class TestScene extends Playlib.Scene
         if (Playlib.Input.KeyPressed(Playlib.Keys.Right))
             this.square.position.x += this.speed * deltaTime;
 
-        await this.square.draw(ctx);
+        await this.square.draw(ctx, new Playlib.Vector2(16, 16), new Playlib.Vector2(16, 16), new Playlib.Vector2(32, 32));
     }
 
 }

@@ -1,4 +1,3 @@
-import { Size } from '../math/Size.js';
 import { Vector2 } from '../math/Vector2.js';
 import { GameObject } from './GameObject.js';
 
@@ -14,11 +13,11 @@ function loadImage(url: string) {
 class Sprite extends GameObject {
     protected imageSrc: string;
     declare position: Vector2;
-    declare protected screenSize: Size;
+    declare protected screenSize: Vector2;
     protected image: HTMLImageElement;
     style: string = "";
     
-    constructor(imageSrc: string, position: Vector2, screenSize: Size) {
+    constructor(imageSrc: string, position: Vector2, screenSize: Vector2) {
         super(position, screenSize);
         this.imageSrc = imageSrc;
 
@@ -34,16 +33,16 @@ class Sprite extends GameObject {
     }
     
 
-    async draw(ctx: CanvasRenderingContext2D, imageSize?: Size)
+    async draw(ctx: CanvasRenderingContext2D, imageSize?: Vector2, clipPos?: Vector2, clipSize?: Vector2)
     {
         // console.log(this.image)
         
-        if (imageSize === undefined) {
-            ctx.drawImage(this.image, this.position.x, this.position.y);
+        if (clipPos === undefined || clipSize === undefined) {
+            ctx.drawImage(this.image, this.position.x, this.position.y, imageSize.x, imageSize.y);
         }
         
         else {
-            ctx.drawImage(this.image, this.position.x, this.position.y, imageSize.width, imageSize.height);
+            ctx.drawImage(this.image, clipPos.x, clipPos.y, clipSize.x, clipSize.y, this.position.x, this.position.y, imageSize.x, imageSize.y);
         } 
     }
 }

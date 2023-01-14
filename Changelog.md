@@ -62,7 +62,7 @@ You did it before by writing true or false after giving context to draw the obje
 
 <br>
 
-After v0.5.3:
+**After v0.5.3**:
   - Updated and added Scene class
   - Updated massively Game class 
   - Added finally functionality for scene class
@@ -71,6 +71,12 @@ After v0.5.3:
   - Fixed issue with scene not clearing the screen.
   - Fixed all other stuff.
   - Fixed issue with canvas being cleared because of resizing. Now fixed
+
+**0.6.11 (14.01.2023)**: 
+  - Fixed the issue images not drawn due to my changes in the Sprite class.
+  - Now you can, when drawing a sprite, add a Size class after giving the context to choose which part of the image to draw. :)
+
+ 
     
   
 

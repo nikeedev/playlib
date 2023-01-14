@@ -21,13 +21,13 @@ class Sprite extends GameObject {
         this.image = img;
         console.log(this.image);
     }
-    async draw(ctx, imageSize) {
+    async draw(ctx, imageSize, clipPos, clipSize) {
         // console.log(this.image)
-        if (imageSize === undefined) {
-            ctx.drawImage(this.image, this.position.x, this.position.y);
+        if (clipPos === undefined || clipSize === undefined) {
+            ctx.drawImage(this.image, this.position.x, this.position.y, imageSize.x, imageSize.y);
         }
         else {
-            ctx.drawImage(this.image, this.position.x, this.position.y, imageSize.width, imageSize.height);
+            ctx.drawImage(this.image, clipPos.x, clipPos.y, clipSize.x, clipSize.y, this.position.x, this.position.y, imageSize.x, imageSize.y);
         }
     }
 }
