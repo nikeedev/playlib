@@ -14,34 +14,37 @@ function loadImage(url: string) {
 class Sprite extends GameObject {
     protected imageSrc: string;
     declare position: Vector2;
-    imageSize: Size | undefined;
     declare protected screenSize: Size;
-    protected image: any;
-    style: string;
+    protected image: HTMLImageElement;
+    style: string = "";
     
-    constructor(imageSrc: string, position: Vector2, screenSize: Size, imageSize: Size = new Size(0, 0)) {
+    constructor(imageSrc: string, position: Vector2, screenSize: Size) {
         super(position, screenSize);
         this.imageSrc = imageSrc;
 
-        this.init();
-
-        this.imageSize.width = (typeof imageSize === undefined) ? this.image.naturalWidth : imageSize.width;
-        this.imageSize.height = (typeof imageSize === undefined) ? this.image.naturalHeight : imageSize.height;
-        
-        
     }
+    
     async init()
     {
         // Load the image
-        const img = await loadImage(this.imageSrc);
-        return this.image = img;
+        const img: any = await loadImage(this.imageSrc);
+        img.style.imageRendering += "pixelated";
+        this.image = img;
+        console.log(this.image)
     }
     
 
-    draw(ctx: CanvasRenderingContext2D) {
-        this.image.style.image_rendering = "pixelated";
-        this.image.style += this.style;
-        ctx.drawImage(this.image, this.position.x, this.position.y, this.imageSize.width, this.imageSize.height);
+    async draw(ctx: CanvasRenderingContext2D, imageSize?: Size)
+    {
+        // console.log(this.image)
+        
+        if (imageSize === undefined) {
+            ctx.drawImage(this.image, this.position.x, this.position.y);
+        }
+        
+        else {
+            ctx.drawImage(this.image, this.position.x, this.position.y, imageSize.width, imageSize.height);
+        } 
     }
 }
 

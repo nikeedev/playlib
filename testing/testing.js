@@ -77,15 +77,11 @@ class TestScene extends Playlib.Scene
         await this.square.init();
 
         console.log(this)
-        this.square.draw(ctx);
+        // await this.square.draw(ctx, new Playlib.Size(20, 25));
     }
 
 
-    update(ctx, deltaTime) {
-        this.square.color = this.colors[this.colorcount];
-        this.colorcount++;
-
-        if (this.colorcount > this.colors.length + 2) this.colorcount = 0;
+    async update(ctx, deltaTime) {
 
         if (Playlib.Input.KeyPressed(Playlib.Keys.Up))
             this.square.position.y -= this.speed * deltaTime;
@@ -99,7 +95,7 @@ class TestScene extends Playlib.Scene
         if (Playlib.Input.KeyPressed(Playlib.Keys.Right))
             this.square.position.x += this.speed * deltaTime;
 
-        this.square.draw(ctx);
+        await this.square.draw(ctx);
     }
 
 }

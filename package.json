@@ -9,8 +9,8 @@
   },
   "scripts": {
     "start": "tsc",
-    "publish": "tsc && git add * && git commit -m \"Updates for playlib!\" && git pull && git push",
-    "push": "tsc && git add * && git commit -m \"Updates for playlib!\" && git pull && git push"
+    "publish": "tsc --watch false && git add * && git commit -m \"Updates for playlib!\" && git pull && git push",
+    "push": "tsc --watch false && git add * && git commit -m \"Updates for playlib!\" && git pull && git push"
   },
   "repository": {
     "type": "git",

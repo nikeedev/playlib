@@ -46,7 +46,10 @@ class MainScene extends Playlib.Scene
         
         this.square.draw(ctx);
 
-        w
+        this.square.color = this.colors[this.colorcount];
+        this.colorcount++;
+
+        if (this.colorcount > this.colors.length) this.colorcount = 0;
         
         if (this.square.position.y >= ScreenSize.height && this.ActivateDown) {
             this.square.position = new Playlib.Vector2(1, 1);

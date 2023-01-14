@@ -1,4 +1,3 @@
-import { Size } from '../math/Size.js';
 import { GameObject } from './GameObject.js';
 function loadImage(url) {
     return new Promise((resolve) => {
@@ -9,25 +8,27 @@ function loadImage(url) {
 }
 class Sprite extends GameObject {
     imageSrc;
-    imageSize;
     image;
-    style;
-    constructor(imageSrc, position, screenSize, imageSize = new Size(0, 0)) {
+    style = "";
+    constructor(imageSrc, position, screenSize) {
         super(position, screenSize);
         this.imageSrc = imageSrc;
-        this.init();
-        this.imageSize.width = (typeof imageSize === undefined) ? this.image.naturalWidth : imageSize.width;
-        this.imageSize.height = (typeof imageSize === undefined) ? this.image.naturalHeight : imageSize.height;
     }
     async init() {
         // Load the image
         const img = await loadImage(this.imageSrc);
-        return this.image = img;
+        img.style.imageRendering += "pixelated";
+        this.image = img;
+        console.log(this.image);
     }
-    draw(ctx) {
-        this.image.style.image_rendering = "pixelated";
-        this.image.style += this.style;
-        ctx.drawImage(this.image, this.position.x, this.position.y, this.imageSize.width, this.imageSize.height);
+    async draw(ctx, imageSize) {
+        // console.log(this.image)
+        if (imageSize === undefined) {
+            ctx.drawImage(this.image, this.position.x, this.position.y);
+        }
+        else {
+            ctx.drawImage(this.image, this.position.x, this.position.y, imageSize.width, imageSize.height);
+        }
     }
 }
 export { Sprite };
