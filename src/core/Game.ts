@@ -1,7 +1,8 @@
 import { Logging } from '../utils/Logging.js';
 import { run } from '../utils/funcs.js';
 import { Scene } from './scene/Scene.js';
-import { math } from '../math/Funcs.js'
+import { math } from '../math/Funcs.js';
+
 /**
  * @description Creates new game
  * @since 0.4.0

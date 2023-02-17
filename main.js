@@ -75,7 +75,6 @@ class MainScene extends Playlib.Scene
 
 var game = new Playlib.Game(config, [new MainScene()]);
 
-
 game.run();
 
 
