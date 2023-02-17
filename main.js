@@ -10,7 +10,7 @@ const one_second = 1000;
 const canvas = document.getElementById("canvas");
 canvas.width = window.outerWidth;
 canvas.height = window.outerHeight;
-const ScreenSize = new Playlib.Size(canvas.width, canvas.height);
+const ScreenSize = new Playlib.Vector2(canvas.width, canvas.height);
 
 var config = {
     style: "background-color: white;",
@@ -26,7 +26,7 @@ class MainScene extends Playlib.Scene
     colors = ["#FFFFFF", "#C0C0C0", "#FF00FF", "#808080", "#000000", "#FF0000", "#800000", "#FFFF00", "#808000", "#00FF00", "#008000", "#00FFFF"];
     colorcount = 0;
 
-    ActivateDown = false
+    ActivateDown = false;
     
     square = new Playlib.Rect(new Playlib.Vector2(1, 1), new Playlib.Vector2(20, 20), ScreenSize);
 
@@ -43,7 +43,7 @@ class MainScene extends Playlib.Scene
     
     update(ctx, deltaTime)
     {
-        
+        console.log(this.ActivateDown);
         this.square.draw(ctx);
 
         this.square.color = this.colors[this.colorcount];
@@ -56,7 +56,7 @@ class MainScene extends Playlib.Scene
             this.ActivateDown = false;
             ctx.clearRect(0, 0, ScreenSize.x, ScreenSize.y);
         } 
-        else if (this.square.position.y >= ScreenSize.height) {
+        else if (this.square.position.y >= ScreenSize.x) {
             this.ActivateDown = true;
             this.square.position = new Playlib.Vector2(ScreenSize.x, 0);
         }

@@ -46,7 +46,7 @@ class MainScene extends Playlib.Scene
 
     words = new Playlib.Text("Hello", new Playlib.Vector2(60, 88), ScreenSize);
 
-    square = new Playlib.Rect(new Playlib.Vector2(43, 43), new Playlib.Size(65, 65), ScreenSize);
+    square = new Playlib.Rect(new Playlib.Vector2(43, 43), new Playlib.Vector2(65, 65), ScreenSize);
 
     create()
     {
@@ -80,7 +80,7 @@ class MainScene extends Playlib.Scene
 
 let game = new Playlib.Game(config, [new MainScene()]);
 
-var ScreenSize = new Playlib.Size(game.width, game.height);
+var ScreenSize = new Playlib.Vector2(game.width, game.height);
 
 
 game.run();
