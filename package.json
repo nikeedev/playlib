@@ -2,13 +2,15 @@
   "name": "playlib",
   "version": "0.6.11",
   "description": "A game library making website games that implements Canvas API, and has many useful functions and classes. Will be added more functions and features further!",
-  "main": "src/playlib.ts",
+  "main": "src/playlib.js",
   "directories": {
     "test": "testing",
-    "example": "examples"
+    "example": "examples",
+    "lib": "src"
   },
   "scripts": {
     "start": "tsc",
+    "compile": "tsc --watch false",
     "publish": "tsc --watch false && git add * && git commit -m \"Updates for playlib!\" && git pull && git push",
     "push": "tsc --watch false && git add * && git commit -m \"Updates for playlib!\" && git pull && git push"
   },
@@ -35,6 +37,6 @@
   },
   "homepage": "https://github.com/nikeedev/playlib#readme",
   "dependencies": {
-    "typescript": "^4.8.4"
+    "typescript": "5.0"
   }
 }
