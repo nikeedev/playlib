@@ -1,14 +1,14 @@
-# **Playlib**: A 2D game framework made using HTML Canvas!
+# Warning! Playlib(.js) will no longer be updated, as i (@nikeedev) no longer find it interesting to work on it. I will continue on my sequel library written in V: [Playlib(.v)](https://github.com/nikeedev/playlib)
 
-![npm](https://img.shields.io/npm/v/playlib?color=blue&label=Current%20package%20version&style=flat-square)
+## **Playlib**: A 2D game framework made using HTML Canvas!
 
 ## Changelog:
 
-
-The new changelog lies in [school.log](school.log) file due to that i'm working on playlib as a schoo project for now. Will be later adding updated in changelog.md file
+Will be later adding updated in changelog.md file
 
 Changelog for previous biggest update 0.5.0 lies in separate .md file, where you can see all changes that happened, here is it: [Changelog_for_v0.5.0.md](Changelog_for_v0.5.0.md)
 
+0.6.0 lies directly in Changelog.md as it won't make a mess anymore.
 <br>
 
 If you want to see changelog for versions released before 0.5.0, it should lie in the changelog.md file, which is this: [changelog.md](changelog.md)
