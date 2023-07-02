@@ -1,4 +1,5 @@
-# Warning! Playlib(.js) will no longer be updated, as i (@nikeedev) no longer find it interesting to work on it. I will continue on my sequel library written in V: [Playlib(.v)](https://github.com/nikeedev/playlib)
+> **Warning**
+> Playlib(.js) will no longer be updated, as i (@nikeedev) no longer find it interesting to work on it. I will continue on my sequel library written in V: [Playlib(.v)](https://github.com/nikeedev/playlib)
 
 ## **Playlib**: A 2D game framework made using HTML Canvas!
 
