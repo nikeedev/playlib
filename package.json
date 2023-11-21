@@ -9,10 +9,11 @@
     "lib": "src"
   },
   "scripts": {
-    "start": "tsc",
-    "compile": "tsc --watch false",
-    "publish": "tsc --watch false && git add * && git commit -m \"Updates for playlib!\" && git pull && git push",
-    "push": "tsc --watch false && git add * && git commit -m \"Updates for playlib!\" && git pull && git push"
+    "start": "tsc --watch",
+    "compile": "tsc",
+    "publish": "tsc && git add * && git commit -m \"Updates for playlib!\" && git pull && git push",
+    "push": "tsc && git add * && git commit -m \"Updates for playlib!\" && git pull && git push",
+    "postinstall": "npx tsc"
   },
   "repository": {
     "type": "git",
@@ -36,7 +37,7 @@
     "url": "https://github.com/nikeedev/playlib/issues"
   },
   "homepage": "https://github.com/nikeedev/playlib#readme",
-  "dependencies": {
+  "devDependencies": {
     "typescript": "5.0"
   }
 }

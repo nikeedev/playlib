@@ -17,7 +17,6 @@ class Game {
     private style: string;
     width: number;
     height: number;
-    private useOwnCanvas: boolean;
 
     canvas: any | undefined;
 
@@ -43,7 +42,6 @@ class Game {
         this.style = config.style;
         this.width = window.innerWidth - 30;
         this.height = window.innerHeight - 30;
-        this.useOwnCanvas = config.useOwnCanvas;
         document.title = this.game_name != null ? this.game_name : document.title;
         document.title += this.game_version != null ? (" - v" + this.game_version) : "";
 
@@ -61,7 +59,7 @@ class Game {
         }
         */
 
-        if (this.useOwnCanvas) {
+        if (typeof this.canvas !== undefined) {
             this.parent_element = config.canvas.parentElement
             this.canvas = config.canvas;
             this.canvas.style = "background-color: black;" + this.style;
@@ -95,7 +93,7 @@ class Game {
 
 
     run() {
-        var context: CanvasRenderingContext2D = this.canvas.getContext('2d');
+        let context: CanvasRenderingContext2D = this.canvas.getContext('2d');
 
         /*
         console.log(this.scenes);
@@ -117,8 +115,8 @@ class Game {
         // console.log(currentScene.ClearScreen)
         console.log(currentScene.update)
 
-        var FPSDeltaTime: number;
-        var MoveDeltaTime: number;
+        let FPSDeltaTime: number;
+        let MoveDeltaTime: number;
 
         const gameLoop = (timeStamp: any) =>
         {
@@ -169,7 +167,7 @@ class Game {
 
     
     clear() {
-        var context: CanvasRenderingContext2D = this.canvas.getContext('2d');
+        let context: CanvasRenderingContext2D = this.canvas.getContext('2d');
         context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 

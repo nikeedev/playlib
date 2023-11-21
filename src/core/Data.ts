@@ -15,7 +15,7 @@ let Data =
 
     clearCookies()
     {
-        console.log("↓ %cCookies cleared %c ↓ %cRemember, not all cookies had been cleared, only localStorage ones.", "color: blue; font-size: 20px;", "color: white;", "font-size: 15px; color: red;", );
+        console.log("↓ %cCookies cleared %c ↓ %cRemember, only localStorage got cleared.", "color: blue; font-size: 20px;", "color: white;", "font-size: 15px; color: red;", );
         localStorage.clear();
     },
 

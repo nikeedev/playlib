@@ -10,7 +10,6 @@ class Game {
     style;
     width;
     height;
-    useOwnCanvas;
     canvas;
     /*
     private ClearScreen: boolean | undefined;
@@ -29,7 +28,6 @@ class Game {
         this.style = config.style;
         this.width = window.innerWidth - 30;
         this.height = window.innerHeight - 30;
-        this.useOwnCanvas = config.useOwnCanvas;
         document.title = this.game_name != null ? this.game_name : document.title;
         document.title += this.game_version != null ? (" - v" + this.game_version) : "";
         this.scenes = scenes;
@@ -43,7 +41,7 @@ class Game {
             this.game_type = "canvas"
         }
         */
-        if (this.useOwnCanvas) {
+        if (typeof this.canvas !== undefined) {
             this.parent_element = config.canvas.parentElement;
             this.canvas = config.canvas;
             this.canvas.style = "background-color: black;" + this.style;
@@ -75,7 +73,7 @@ class Game {
         */
     }
     run() {
-        var context = this.canvas.getContext('2d');
+        let context = this.canvas.getContext('2d');
         /*
         console.log(this.scenes);
         console.log(all_scenes);
@@ -90,8 +88,8 @@ class Game {
         currentScene.create(context);
         // console.log(currentScene.ClearScreen)
         console.log(currentScene.update);
-        var FPSDeltaTime;
-        var MoveDeltaTime;
+        let FPSDeltaTime;
+        let MoveDeltaTime;
         const gameLoop = (timeStamp) => {
             window.addEventListener("resize", () => {
                 this.width = window.innerWidth - 21.5;
@@ -124,7 +122,7 @@ class Game {
         window.requestAnimationFrame(gameLoop);
     }
     clear() {
-        var context = this.canvas.getContext('2d');
+        let context = this.canvas.getContext('2d');
         context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
     showFPS(is_on) {

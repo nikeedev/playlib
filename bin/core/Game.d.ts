@@ -10,7 +10,6 @@ declare class Game {
     private style;
     width: number;
     height: number;
-    private useOwnCanvas;
     canvas: any | undefined;
     private oldTimeStamp;
     private fps;
