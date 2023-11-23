@@ -35,5 +35,5 @@ If you want to see changelog for versions released before 0.5.0, it should lie i
 
 ### License:
 
-**This project is licensed with the MIT LICENSE. Additional info about the license and the rules are at LICENSE file.**
+**This project is licensed with the MIT LICENSE. Additional info about the license and the rules are in the [LICENSE](LICENSE) file.**
 
