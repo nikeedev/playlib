@@ -1,18 +1,18 @@
-import {about, version} from './core/Info.js';
-import {Vector2, math} from './math/index.js';
-import {GameObject, Rect, Sprite, Text} from './objects/index.js';
-import {Data, Game, Keys, Scene, Input, Sound } from './core/index.js'
+import { about, VERSION } from './core/Info.js';
+import { Vector2, math } from './math/index.js';
+import { GameObject, Rect, Sprite, Text } from './objects/index.js';
+import { Data, Game, Keys, Scene, Input, Sound } from './core/index.js'
 
 
 new Input();
-about(); 
+about();
 
 /**
  * Playlib
  */
 const Playlib = {
     about: about,
-    version: version,
+    version: VERSION,
     Vector2: Vector2,
     Game: Game,
     Input: Input,

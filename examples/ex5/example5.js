@@ -1,66 +1,70 @@
-
-
 import { Playlib } from '../../bin/playlib.js';
 
 
-
-const canvas = document.getElementById("canvas");
-
-canvas.width = window.innerWidth - 20;
-canvas.height = window.innerHeight - 40;
+let canvas = document.getElementById("canvas");
 
 
-const ScreenSize = new Playlib.Size(canvas.width, canvas.height);
-
-// Example 6: Using InputManager to control a block:
-
-
+console.log(canvas);
 var config = {
     game_name: "Example 5",
     style: "border: 1px solid black; background-color: white;",
-    width: ScreenSize.width,
-    height: ScreenSize.height,
-    useOwnCanvas: true,
     canvas: canvas,
+}    
+
+
+class MainScene extends Playlib.Scene
+{
+    spirit = new Playlib.Sprite("../../assets/Black_Square.png", new Playlib.Vector2(120, 120), ScreenSize);
+
+    constructor(canvas, ClearScreen) {
+        super(canvas, ClearScreen);
+        
+        this.ClearScreen = true;
+
+    }
+
+    // Example 5: Using Input to control a sprite:
+
+    async create()
+    {
+        await this.spirit.init();
+    }
+
+    async update(ctx, ts)
+    {
+        await this.spirit.draw(ctx);
     
+        if (Playlib.Input.KeyPressed(Playlib.Keys.Right)) 
+        {
+            this.spirit.position.x += 0.9;
+        }
+    
+        else if (Playlib.Input.KeyPressed(Playlib.Keys.Left)) 
+        {
+            this.spirit.position.x -= 0.9;
+        } 
+        
+        else if (Playlib.Input.KeyPressed(Playlib.Keys.Down)) 
+        {
+            this.spirit.position.y += 0.9;
+        }
+        
+        else if (Playlib.Input.KeyPressed(Playlib.Keys.Up)) 
+        {
+            spirit.position.y -= 0.9;
+        }    
+    }
+
+
 }
 
 
-var game = new Playlib.Game(config);
+let game = new Playlib.Game(config, [new MainScene()]);
+
+var ScreenSize = new Playlib.Vector2(game.width, game.height);
 
 
-var spirit = new Playlib.Sprite("../../assets/Black_Square.png", new Playlib.Vector2(120, 120), ScreenSize);
-
-
-await spirit.init();
-   
-
-game.update((ctx) => {
-    
-    spirit.draw(ctx);
-    
-    if (Playlib.Event.KeyPressed(Playlib.Keys.ArrowRight)) 
-    {
-        spirit.position.x += 0.9;
-    }
-
-    else if (Playlib.Event.KeyPressed(Playlib.Keys.ArrowLeft)) 
-    {
-        spirit.position.x -= 0.9;
-    } 
-    
-    else if (Playlib.Event.KeyPressed(Playlib.Keys.ArrowDown)) 
-    {
-        spirit.position.y += 0.9;
-    }
-    
-    else if (Playlib.Event.KeyPressed(Playlib.Keys.ArrowUp)) 
-    {
-        spirit.position.y -= 0.9;
-    }
-    
-
-});
+game.run();
 
 /*
 

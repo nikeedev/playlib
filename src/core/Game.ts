@@ -42,6 +42,7 @@ class Game {
         this.style = config.style;
         this.width = window.innerWidth - 30;
         this.height = window.innerHeight - 30;
+        this.canvas = config.canvas;
         document.title = this.game_name != null ? this.game_name : document.title;
         document.title += this.game_version != null ? (" - v" + this.game_version) : "";
 
@@ -59,9 +60,9 @@ class Game {
         }
         */
 
-        if (typeof this.canvas !== undefined) {
+        if (this.canvas !== undefined) {
+            console.log("Setting own canvas");
             this.parent_element = config.canvas.parentElement
-            this.canvas = config.canvas;
             this.canvas.style = "background-color: black;" + this.style;
             this.canvas.width = this.width;
             this.canvas.height = this.height;
@@ -101,7 +102,7 @@ class Game {
         */
 
         if (this.scenes[this.current_scene] === undefined) {
-            console.log("%cScene was not found or was not valid; Resetting to last available scene", "font-size: 20px; color: rgb(220, 10, 10)")
+            console.log("%cCurrent used scene was not found or is invalid; Resetting to scene before if available", "font-size: 20px; color: rgb(220, 10, 10)")
             this.current_scene--;
         }
         let currentScene: Scene = this.scenes[this.current_scene];
@@ -139,7 +140,7 @@ class Game {
 
             
             if (currentScene.ClearScreen) {
-                console.log("Cleared the screen");
+                // console.log("Cleared the screen");
 
                 this.clear();
             }

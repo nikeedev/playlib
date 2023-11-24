@@ -1,22 +1,21 @@
 /** @description This is the testing page for modules and is used by the main page (index.html) */
 
 
-import { Playlib } from './bin/playlib.js'
+// import { Playlib } from './bin/playlib.js'
 
 
 document.getElementById("version").innerHTML = Playlib.version;
 
-const one_second = 1000;
 const canvas = document.getElementById("canvas");
 canvas.width = window.outerWidth;
 canvas.height = window.outerHeight;
+
 const ScreenSize = new Playlib.Vector2(canvas.width, canvas.height);
 
 var config = {
     style: "background-color: white;",
     width: ScreenSize.width,
     height: ScreenSize.height,
-    useOwnCanvas: true,
     canvas: canvas
 }
 
@@ -39,7 +38,9 @@ class MainScene extends Playlib.Scene
     }
     
     create(ctx)
-    {}
+    {
+
+    }
     
     update(ctx, deltaTime)
     {

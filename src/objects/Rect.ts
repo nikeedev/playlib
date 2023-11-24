@@ -1,5 +1,5 @@
 import { Vector2 } from '../math/Vector2.js';
-import { GameObject } from './GameObject.js'
+import { GameObject } from './GameObject.js';
 
 
 class Rect extends GameObject {
