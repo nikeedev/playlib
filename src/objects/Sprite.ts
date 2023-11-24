@@ -37,13 +37,12 @@ class Sprite extends GameObject {
     {
         // console.log(this.image)
         
-        if (clipPos === undefined || clipSize === undefined) {
+        
+        if (clipPos == undefined || clipSize === undefined) {
+            ctx.drawImage(this.image, clipPos.x, clipPos.y, clipSize.x, clipSize.y, this.position.x, this.position.y, imageSize.x, imageSize.y);
+        } else {
             ctx.drawImage(this.image, this.position.x, this.position.y, imageSize.x, imageSize.y);
         }
-        
-        else {
-            ctx.drawImage(this.image, clipPos.x, clipPos.y, clipSize.x, clipSize.y, this.position.x, this.position.y, imageSize.x, imageSize.y);
-        } 
     }
 }
 
