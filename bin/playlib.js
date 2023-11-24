@@ -16,6 +16,6 @@ const Playlib = {
     Text: Text,
     GameObject: GameObject,
     Data: Data,
-    math: math,
+    Math: math,
 };
-export { Playlib };
+export default { Playlib };

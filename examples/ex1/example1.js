@@ -1,5 +1,5 @@
 
-import { Playlib } from '../../bin/playlib.js'
+import Playlib from "../../build/playlib.js";
 
 
 /** 

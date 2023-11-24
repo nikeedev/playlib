@@ -1,19 +1,11 @@
-import {
-    Game,
-    Keys,
-    Vector2,
-    Scene,
-    Sound,
-    Sprite,
-    version,
-    about,
-    Input,
-    Rect,
-    Text,
-    GameObject,
-    Data,
-    math,
-} from "./index.js";
+import {about, version} from './core/Info.js';
+import {Vector2, math} from './math/index.js';
+import {GameObject, Rect, Sprite, Text} from './objects/index.js';
+import {Data, Game, Keys, Scene, Input, Sound } from './core/index.js'
+
+
+new Input();
+about(); 
 
 /**
  * Playlib

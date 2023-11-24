@@ -1,8 +1,8 @@
 {
   "name": "playlib",
-  "version": "0.6.11",
+  "version": "0.7.0",
   "description": "A game library making website games that implements Canvas API, and has many useful functions and classes. Will be added more functions and features further!",
-  "main": "src/playlib.js",
+  "main": "build/playlib.js",
   "directories": {
     "test": "testing",
     "example": "examples",
@@ -19,7 +19,6 @@
     "type": "git",
     "url": "git+https://github.com/nikeedev/playlib.git"
   },
-  "type": "module",
   "keywords": [
     "gamedev",
     "gamelib",
@@ -38,6 +37,8 @@
   },
   "homepage": "https://github.com/nikeedev/playlib#readme",
   "devDependencies": {
-    "typescript": "5.0"
+    "typescript": "5.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   }
 }
