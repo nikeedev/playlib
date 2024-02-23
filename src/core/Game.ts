@@ -40,8 +40,8 @@ class Game {
         this.game_name = config.game_name != null ? config.game_name : null;
         this.game_version = config.game_version != null ? config.game_version : null;
         this.style = config.style;
-        this.width = window.innerWidth - 30;
-        this.height = window.innerHeight - 30;
+        this.width = config.width != null ? config.width : window.innerWidth - 30;
+        this.height = config.height != null ? config.height : window.innerHeight - 30;
         this.canvas = config.canvas;
         document.title = this.game_name != null ? this.game_name : document.title;
         document.title += this.game_version != null ? (" - v" + this.game_version) : "";
@@ -61,7 +61,7 @@ class Game {
         */
 
         if (this.canvas !== undefined) {
-            console.log("Setting own canvas");
+            console.log("Using defined canvas");
             this.parent_element = config.canvas.parentElement
             this.canvas.style = "background-color: black;" + this.style;
             this.canvas.width = this.width;
@@ -107,22 +107,20 @@ class Game {
         }
         let currentScene: Scene = this.scenes[this.current_scene];
 
-        console.log(currentScene)
+        // console.log(currentScene)
 
 
-        console.log(currentScene.create)
+        // console.log(currentScene.create)
         currentScene.create(context);
 
         // console.log(currentScene.ClearScreen)
-        console.log(currentScene.update)
+        // console.log(currentScene.update)
 
         let FPSDeltaTime: number;
         let MoveDeltaTime: number;
 
-        const gameLoop = (timeStamp: any) =>
-        {
-            window.addEventListener("resize", () =>
-            { 
+        const gameLoop = (timeStamp: any) => {
+            window.addEventListener("resize", () => {
                 this.width = window.innerWidth - 21.5;
                 this.height = window.innerHeight - 21.5;
                 this.canvas.width = this.width;
@@ -138,13 +136,13 @@ class Game {
             this.fps = math.floor(FPSDeltaTime);
 
 
-            
+
             if (currentScene.ClearScreen) {
                 // console.log("Cleared the screen");
 
                 this.clear();
             }
-            
+
 
             currentScene.update(context, MoveDeltaTime);
 
@@ -166,7 +164,7 @@ class Game {
 
     }
 
-    
+
     clear() {
         let context: CanvasRenderingContext2D = this.canvas.getContext('2d');
         context.clearRect(0, 0, this.canvas.width, this.canvas.height);

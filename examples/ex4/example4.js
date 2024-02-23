@@ -19,7 +19,7 @@ class MainScene extends Playlib.Scene
     }
 
     
-    spirit = new Playlib.Sprite("../../assets/Black_Square.png", new Playlib.Vector2(120, 120), ScreenSize);
+    spirit = new Playlib.Sprite("../../assets/Black_Square.png", new Playlib.Vec2(120, 120), ScreenSize);
 
 
     // Example 4: Use Sprite class to draw a moving black square
@@ -45,7 +45,7 @@ class MainScene extends Playlib.Scene
 
 let game = new Playlib.Game(config, [new MainScene()]);
 
-var ScreenSize = new Playlib.Vector2(game.width, game.height);
+var ScreenSize = new Playlib.Vec2(game.width, game.height);
 
 
 game.run();

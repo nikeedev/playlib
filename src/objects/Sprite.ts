@@ -1,4 +1,4 @@
-import { Vector2 } from '../math/Vector2.js';
+import { Vec2 } from '../math/Vec2.js';
 import { GameObject } from './GameObject.js';
 
 
@@ -12,12 +12,12 @@ function loadImage(url: string) {
 
 class Sprite extends GameObject {
     protected imageSrc: string;
-    declare position: Vector2;
-    declare protected screenSize: Vector2;
+    declare position: Vec2;
+    declare protected screenSize: Vec2;
     protected image: HTMLImageElement;
     public style: string = "";
     
-    constructor(imageSrc: string, position: Vector2, screenSize: Vector2) {
+    constructor(imageSrc: string, position: Vec2, screenSize: Vec2) {
         super(position, screenSize);
         this.imageSrc = imageSrc;
 
@@ -33,7 +33,7 @@ class Sprite extends GameObject {
     }
     
 
-    async draw(ctx: CanvasRenderingContext2D, imageSize?: Vector2, clipPos?: Vector2, clipSize?: Vector2)
+    async draw(ctx: CanvasRenderingContext2D, imageSize?: Vec2, clipPos?: Vec2, clipSize?: Vec2)
     {
         // console.log("drawing image")
         if (this.image != undefined) {

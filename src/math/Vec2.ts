@@ -5,7 +5,7 @@
 */
 
 
-class Vector2 {
+class Vec2 {
 	x: number;
 	y: number;
 	constructor(x: number = 0, y: number = 0) {
@@ -14,20 +14,20 @@ class Vector2 {
 	}
 	normalize() {
 		const magnitude = Math.sqrt((this.x * this.x) + (this.y * this.y));
-  		this.x /= magnitude;
-  		this.y /= magnitude;
+		this.x /= magnitude;
+		this.y /= magnitude;
 	}
 	magnitude() {
-		return Math.sqrt(this.x*this.x + this.y*this.y);
+		return Math.sqrt(this.x * this.x + this.y * this.y);
 	}
-	lerp(v1:Vector2, v2:Vector2, t:number) {
+	lerp(v1: Vec2, v2: Vec2, t: number) {
 		const x = v1.x * (1 - t) + v2.x * t;
 		const y = v1.y * (1 - t) + v2.y * t;
-		return new Vector2(x, y);
+		return new Vec2(x, y);
 	};
 }
 
 
 
-export { Vector2 };
+export { Vec2 };
 

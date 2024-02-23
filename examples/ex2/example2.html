@@ -5,13 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PlayLib: Example 2</title>
+    <link rel="shortcut icon" href="/playlib_icon.png" type="image/png">
 </head>
 <body>
     <canvas style="border: 1px solid black;" id="canvas"></canvas>
     
-    <script type="module" src="example2.js"></script>
-    
     <p style="font-size: 15px; font-family: Arial;"> Back to <a style="font-size: 15px;" href="/">home &#8962;</a></p>
+
+    <script type="module">
+        import { example } from '../examples.js';
+
+        example("2");
+    </script>
+    <script type="module" src="example2.js"></script>
 </body>
 
 </html>

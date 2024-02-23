@@ -17,81 +17,89 @@ const canvas = document.getElementById("canvas");
 
 canvas.width = window.innerWidth - 30;
 canvas.height = window.innerHeight - 20;
-const ScreenSize = new Playlib.Size(canvas.width, canvas.height);
-
-const colors = ["#FFFFFF", "#C0C0C0", "#808080", "#000000", "#FF0000", "#800000", "#FFFF00", "#808000", "#00FF00", "#008000", "#00FFFF"]
-
-var colorcount = 0;
-var ActivateUp = false; 
-var ActivateDown = false;
+const ScreenSize = new Playlib.Vec2(canvas.width, canvas.height);
 
 
-// Example 2: Canvas painting of rainbow rectangles that move around.
-
-var config = {
+let config = {
     game_name: "Example 2",
     style: "border: 1px solid black; background-color: white;",
     width: ScreenSize.width,
     height: ScreenSize.height,
     useOwnCanvas: true,
     canvas: canvas,
-    
+
 }
 
-
-var game = new Playlib.Game(config);
-
+class MainScene extends Playlib.Scene {
 
 
-var game2 = new Playlib.Rect(new Playlib.Vector2(0, 0), new Playlib.Size(1, 1), ScreenSize)
+    rect = new Playlib.Rect(new Playlib.Vec2(0, 0), new Playlib.Vec2(20, 20), ScreenSize)
 
+    colors = ["#FFFFFF", "#C0C0C0", "#808080", "#000000", "#FF0000", "#800000", "#FFFF00", "#808000", "#00FF00", "#008000", "#00FFFF"]
 
-game.update((ctx) => { 
-    game2.draw(ctx);
+    colorcount = 0;
+    ActivateUp = false;
+    ActivateDown = false;
 
-    if (ActivateUp == false && canvas.height <= game2.position.y) {
-        ActivateUp = true;
-    }
-    if (ActivateDown == false && -2 >= game2.position.y) {
-        ActivateDown = true;
-        ActivateUp = false;
+    constructor(canvas, ClearScreen) {
+        super(canvas, ClearScreen);
+        this.ClearScreen = false;
     }
 
-    if (ActivateUp) {
-        game2.position.x += 1;
-        game2.position.y -= 1;
-        game2.size.width -= 0.1;
-        game2.size.height -= 0.1;
+    // Example 2: Canvas painting of rainbow rectangles that move around.
 
-
-        game2.color = colors[colorcount];
-        colorcount--;
-        if (colorcount < 0) colorcount = colors.length;
-    }
-    else if (ActivateDown && game2.position.x >= 0) {
-    
-        game2.position.x -= 1;
-
-        
-
-        game2.color = colors[colorcount];
-        colorcount++;
-        if (colorcount > colors.length) colorcount = 0;
+    create() {
 
     }
-    else {
-        game2.position.x += 1;
-        game2.position.y += 1;
-        game2.size.width += 0.1;
-        game2.size.height += 0.1;
+
+    update(ctx, ts) {
+        this.rect.draw(ctx);
+
+        if (this.ActivateUp == false && canvas.height <= this.rect.position.y) {
+            this.ActivateUp = true;
+        }
+        if (this.ActivateDown == false && -2 >= this.rect.position.y) {
+            this.ActivateDown = true;
+            this.ActivateUp = false;
+        }
+
+        if (this.ActivateUp) {
+            this.rect.position.x += 1;
+            this.rect.position.y -= 1;
+            this.rect.size.width -= 0.1;
+            this.rect.size.height -= 0.1;
+
+
+            this.rect.color = this.colors[this.colorcount];
+            this.colorcount--;
+            if (this.colorcount < 0) this.colorcount = this.colors.length;
+        }
+        else if (this.ActivateDown && this.rect.position.x >= 0) {
+
+            this.rect.position.x -= 1;
+
+            this.rect.color = colors[colorcount];
+            this.colorcount++;
+            if (this.colorcount > this.colors.length) this.colorcount = 0;
+
+        }
+        else {
+            this.rect.position.x += 1;
+            this.rect.position.y += 1;
+            this.rect.size.width += 0.1;
+            this.rect.size.height += 0.1;
 
 
 
-        game2.color = colors[colorcount];
-        colorcount++;
-        if (colorcount > colors.length) colorcount = 0;
+            this.rect.color = this.colors[this.colorcount];
+            this.colorcount++;
+            if (this.colorcount > this.colors.length) this.colorcount = 0;
+        }
+
     }
-    
-}, false);
+}
 
+let game = new Playlib.Game(config, [new MainScene()]);
+
+game.run();
 

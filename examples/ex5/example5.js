@@ -3,9 +3,7 @@ import { Playlib } from '../../bin/playlib.js';
 
 let canvas = document.getElementById("canvas");
 
-
-console.log(canvas);
-var config = {
+let config = {
     game_name: "Example 5",
     style: "border: 1px solid black; background-color: white;",
     canvas: canvas,
@@ -14,7 +12,7 @@ var config = {
 
 class MainScene extends Playlib.Scene
 {
-    spirit = new Playlib.Sprite("../../assets/Black_Square.png", new Playlib.Vector2(120, 120), ScreenSize);
+    spirit = new Playlib.Sprite("../../assets/Black_Square.png", new Playlib.Vec2(120, 120), ScreenSize);
 
     constructor(canvas, ClearScreen) {
         super(canvas, ClearScreen);
@@ -51,7 +49,7 @@ class MainScene extends Playlib.Scene
         
         else if (Playlib.Input.KeyPressed(Playlib.Keys.Up)) 
         {
-            spirit.position.y -= 0.9;
+            this.spirit.position.y -= 0.9;
         }    
     }
 
@@ -61,7 +59,7 @@ class MainScene extends Playlib.Scene
 
 let game = new Playlib.Game(config, [new MainScene()]);
 
-var ScreenSize = new Playlib.Vector2(game.width, game.height);
+var ScreenSize = new Playlib.Vec2(game.width, game.height);
 
 
 game.run();

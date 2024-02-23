@@ -1,9 +1,9 @@
 import { Playlib } from '../bin/playlib.js'
 
-var ScreenSize = new Playlib.Vector2(window.innerWidth - 20, window.innerHeight - 20);
+let ScreenSize = new Playlib.Vec2(window.innerWidth - 20, window.innerHeight - 20);
 
 
-var config = {
+let config = {
     game_name: "Testing",
     game_version: "1.0_test-dev",
     parent_element: "body",
@@ -17,7 +17,7 @@ class MyScene extends Playlib.Scene {
     colors = ["#FFFFFF", "#C0C0C0", "#FF00FF", "#808080", "#000000", "#FF0000", "#800000", "#FFFF00", "#808000", "#00FF00", "#008000", "#00FFFF"];
     colorcount = 0;
 
-    square = new Playlib.Rect(new Playlib.Vector2(200, 200), new Playlib.Size(45, 50), ScreenSize);
+    square = new Playlib.Rect(new Playlib.Vec2(200, 200), new Playlib.Vec2(45, 50), ScreenSize);
     speed = 200
 
     constructor(canvas, ClearScreen) {
@@ -62,7 +62,7 @@ class MyScene extends Playlib.Scene {
 
 class TestScene extends Playlib.Scene
 {
-    square = new Playlib.Sprite("../assets/Black_Circle.png", new Playlib.Vector2(200, 200), ScreenSize);
+    square = new Playlib.Sprite("../assets/Black_Circle.png", new Playlib.Vec2(200, 200), ScreenSize);
     speed = 200
 
     constructor(canvas, ClearScreen) {
@@ -76,11 +76,14 @@ class TestScene extends Playlib.Scene
         await this.square.init();
 
         console.log(this)
-        // await this.square.draw(ctx, new Playlib.Size(20, 25));
+        // await this.square.draw(ctx, new Playlib.Vec2(20, 25));
     }
 
 
     async update(ctx, deltaTime) {
+        if (Playlib.Input.KeyPressed(Playlib.Keys.Space)) {
+            this.cl
+        }
 
         if (Playlib.Input.KeyPressed(Playlib.Keys.Up))
             this.square.position.y -= this.speed * deltaTime;
@@ -94,13 +97,13 @@ class TestScene extends Playlib.Scene
         if (Playlib.Input.KeyPressed(Playlib.Keys.Right))
             this.square.position.x += this.speed * deltaTime;
 
-        await this.square.draw(ctx, new Playlib.Vector2(16, 16), new Playlib.Vector2(16, 16), new Playlib.Vector2(32, 32));
+        await this.square.draw(ctx, new Playlib.Vec2(16, 16), new Playlib.Vec2(16, 16), new Playlib.Vec2(32, 32));
     }
 
 }
 
 
-var game = new Playlib.Game(config, [new TestScene()]);
+let game = new Playlib.Game(config, [new TestScene()]);
 
 
 //game.showFPS(false);

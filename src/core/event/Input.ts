@@ -1,12 +1,12 @@
 import { Keys } from './Keys.js'
-import { Vector2 } from '../../math/Vector2.js'
+import { Vec2 } from '../../math/Vec2.js'
 
 
 class Input {
-    static keysPressed = {}
-    static mouseBtnsPressed = {}
+    private static keysPressed = {}
+    private static mouseBtnsPressed = {}
 
-    static mousePos: Vector2 = new Vector2();
+    private static mousePos: Vec2 = new Vec2();
 
     constructor() {
         window.addEventListener("keydown", e => {
@@ -18,7 +18,7 @@ class Input {
         })
 
         window.addEventListener("pointermove", e => {
-            Input.mouseBtnPressed[e.button] = true;
+            Input.mouseBtnsPressed[e.button] = true;
 
             Input.mousePos.x = e.x;
             Input.mousePos.y = e.y;
@@ -31,7 +31,7 @@ class Input {
         return !!this.keysPressed[key];
     }
     
-    static mouseBtnPressed(btn: any) {
+    static MouseBtnPressed(btn: any) {
         return !!this.mouseBtnsPressed[btn];
     }
 

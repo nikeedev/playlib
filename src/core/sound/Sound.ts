@@ -3,6 +3,7 @@ class Sound {
     audio_file: string
     sond: any;
     loop: boolean = false;
+    autoplay: boolean = false;
 
     constructor(audio_file: string) {
         this.audio_file = audio_file;
@@ -10,14 +11,14 @@ class Sound {
     }
 
     async init() {
-        var snd = new Audio();
+        let snd = new Audio();
         return new Promise((resolve, reject) => {
             snd.preload = "auto";                      // intend to play through
             snd.autoplay = true;                       // autoplay when loaded
             snd.onerror = reject;                      // on error, reject
             snd.onended = resolve;                     // when done, resolve
             snd.loop = this.loop;
-
+            snd.autoplay = this.autoplay; //
             snd.src = this.audio_file; // just for example
             this.sond = snd;
         });

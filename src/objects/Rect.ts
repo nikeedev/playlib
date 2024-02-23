@@ -1,14 +1,14 @@
-import { Vector2 } from '../math/Vector2.js';
+import { Vec2 } from '../math/Vec2.js';
 import { GameObject } from './GameObject.js';
 
 
 class Rect extends GameObject {
-    declare position: Vector2;
-    size: Vector2;
-    declare protected screenSize: Vector2;
+    declare position: Vec2;
+    size: Vec2;
+    declare protected screenSize: Vec2;
     color = "#ffffff";
     
-    constructor(position: Vector2, size: Vector2, screenSize: Vector2, color?: string) {
+    constructor(position: Vec2, size: Vec2, screenSize: Vec2, color?: string) {
         super(position, screenSize); 
         this.size = size;
     }

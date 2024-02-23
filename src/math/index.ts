@@ -1,2 +1,2 @@
-export * from './Vector2.js'
+export * from './Vec2.js'
 export * from './Funcs.js'

@@ -1,5 +1,5 @@
 import { about, VERSION } from './core/Info.js';
-import { Vector2, math } from './math/index.js';
+import { Vec2, math } from './math/index.js';
 import { GameObject, Rect, Sprite, Text } from './objects/index.js';
 import { Data, Game, Keys, Scene, Input, Sound } from './core/index.js'
 
@@ -10,10 +10,10 @@ about();
 /**
  * Playlib
  */
-const Playlib = {
+export const Playlib = {
     about: about,
     version: VERSION,
-    Vector2: Vector2,
+    Vec2: Vec2,
     Game: Game,
     Input: Input,
     Keys: Keys,
@@ -27,5 +27,4 @@ const Playlib = {
     math: math,
 };
 
-export { Playlib };
 
