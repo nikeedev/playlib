@@ -1,5 +1,4 @@
 import { Playlib } from './bin/playlib.js'
-//# sourceMappingURL=webpack://my-webpack-project/./bin/core/Info.js?
 /** @description This is the testing page for modules and is used by the main page (index.html) */
 
 

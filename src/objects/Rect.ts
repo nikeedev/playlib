@@ -11,10 +11,11 @@ class Rect extends GameObject {
     constructor(position: Vec2, size: Vec2, screenSize: Vec2, color?: string) {
         super(position, screenSize); 
         this.size = size;
+        this.color = color;
     }
     
 
-    draw(ctx: any) {
+    draw(ctx: CanvasRenderingContext2D) {
         ctx.fillStyle = this.color;
         ctx.fillRect(this.position.x, this.position.y, this.size.x, this.size.y);
     }

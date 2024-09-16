@@ -129,4 +129,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-bin/
+# Because the main website needs it
+# bin/
