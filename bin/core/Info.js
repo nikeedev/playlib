@@ -1,4 +1,4 @@
-export var VERSION = "0.7.0";
+export var VERSION = "0.7.1";
 export function about() {
     console.log("%c/@----------------------------@\\" + "\n" +
         "|        Playlib v" + VERSION + "        |\n" +

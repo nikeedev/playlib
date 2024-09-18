@@ -1,6 +1,6 @@
 {
   "name": "playlib",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "A game framework for making website games that implements Canvas API, and has many useful functions and classes.",
   "main": "src/playlib.ts",
   "directories": {
