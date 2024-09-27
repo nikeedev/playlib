@@ -69,7 +69,7 @@ class MyScene extends Playlib.Scene {
 //         super(canvas, ClearScreen);
 //         //this.ClearScreen = true;
 
-        
+
 //     }
 
 //     async create(ctx) {
@@ -109,8 +109,7 @@ class MyScene extends Playlib.Scene {
 // //game.showFPS(false);
 // game.run();
 
-class TestScene extends Playlib.Scene
-{
+class TestScene extends Playlib.Scene {
     square = new Playlib.Rect(new Playlib.Vec2(200, 200), new Playlib.Vec2(32, 32), ScreenSize, "black");
     speed = 200;
     white = false;
